@@ -30,6 +30,12 @@
     </style>
 </head>
 <body>
+<audio id="sound-correct" preload="auto">
+    <source src="https://www.soundjay.com/human/applause-01.mp3" type="audio/mpeg">
+</audio>
+<audio id="sound-wrong" preload="auto">
+    <source src="https://www.soundjay.com/buttons/button-10.mp3" type="audio/mpeg">
+</audio>
 
 <div id="quiz-container">
     <div id="home-button" class="home-icon" style="display: none;" onclick="goHome()">🏠</div>
@@ -70,50 +76,51 @@ const part3 = [ { text: "Nhà bé có con nghé. Nó rất ngơ ngác nhìn cỏ
 
 let currentQuiz = [], currentIdx = 0, userAnswers = [], randomizedQuestions = [];
 
+function playSound(isCorrect) {
+    const sound = document.getElementById(isCorrect ? 'sound-correct' : 'sound-wrong');
+    sound.pause(); 
+    sound.currentTime = 0;
+    sound.play().catch(e => {});
+
+    // GIỚI HẠN 2 GIÂY CHO TIẾNG VỖ TAY
+    if (isCorrect) {
+        setTimeout(() => {
+            // Giảm dần âm lượng cho mượt rồi tắt
+            let fadeOut = setInterval(() => {
+                if (sound.volume > 0.1) {
+                    sound.volume -= 0.1;
+                } else {
+                    clearInterval(fadeOut);
+                    sound.pause();
+                    sound.volume = 1.0; 
+                }
+            }, 50);
+        }, 2000); // Sau 2 giây bắt đầu tắt
+    }
+}
+
 function startQuiz(part) {
     const originalData = (part === 1) ? part1 : (part === 2) ? part2 : part3;
-    
-    // Tạo bản sao và trộn đáp án cho từng câu
     randomizedQuestions = originalData.map(item => {
         let options = [...item.a];
         let correctText = item.a[item.correct];
-        
-        // Trộn ngẫu nhiên 2 đáp án
-        if (Math.random() > 0.5) {
-            options.reverse();
-        }
-        
-        return {
-            ...item,
-            shuffledA: options,
-            newCorrect: options.indexOf(correctText)
-        };
+        if (Math.random() > 0.5) options.reverse();
+        return { ...item, shuffledA: options, newCorrect: options.indexOf(correctText) };
     });
-
     userAnswers = new Array(randomizedQuestions.length).fill(null);
     currentIdx = 0;
     document.getElementById('menu-screen').style.display = 'none';
     document.getElementById('quiz-content').style.display = 'block';
-    document.getElementById('score-board').style.display = 'none';
     document.getElementById('home-button').style.display = 'flex';
     loadQuestion();
-}
-
-function goHome() {
-    document.getElementById('menu-screen').style.display = 'block';
-    document.getElementById('quiz-content').style.display = 'none';
-    document.getElementById('score-board').style.display = 'none';
-    document.getElementById('home-button').style.display = 'none';
 }
 
 function loadQuestion() {
     const data = randomizedQuestions[currentIdx];
     document.getElementById('progress').innerText = `Câu ${currentIdx + 1} / ${randomizedQuestions.length}`;
-    
     const readEl = document.getElementById('reading-container');
     if(data.text) { readEl.innerText = data.text; readEl.style.display = 'block'; }
     else { readEl.style.display = 'none'; }
-    
     document.getElementById('question').innerText = data.q;
     const optEl = document.getElementById('options');
     optEl.innerHTML = '';
@@ -123,60 +130,45 @@ function loadQuestion() {
         const btn = document.createElement('button');
         btn.innerText = opt;
         btn.classList.add('option-btn');
-        
         if(userAnswers[currentIdx] !== null) {
             if(i === data.newCorrect) btn.classList.add('correct');
             else if(i === userAnswers[currentIdx]) btn.classList.add('wrong');
         }
-
         btn.onclick = () => {
             if(userAnswers[currentIdx] !== null) return;
             userAnswers[currentIdx] = i;
-            
             if(i === data.newCorrect) {
                 btn.classList.add('correct');
+                playSound(true);
                 document.getElementById('result-message').innerText = "Đúng rồi! ✨";
-                document.getElementById('result-message').style.color = "green";
-                //setTimeout(() => nextQuestion(), 1200);
+                setTimeout(() => nextQuestion(), 3000);
             } else {
                 btn.classList.add('wrong');
+                playSound(false);
                 optEl.getElementsByTagName('button')[data.newCorrect].classList.add('correct');
-                document.getElementById('result-message').innerText = "Bé đọc kỹ lại nhé! ❤️";
-                document.getElementById('result-message').style.color = "red";
+                document.getElementById('result-message').innerText = "Bé xem từ đúng nhé! ❤️";
             }
         };
         optEl.appendChild(btn);
     });
-
-    document.getElementById('prev-btn').disabled = (currentIdx === 0);
-    document.getElementById('next-btn').innerText = (currentIdx === randomizedQuestions.length - 1) ? "Kết quả 🏁" : "Tiếp theo ➡";
 }
 
 function nextQuestion() {
-    if(currentIdx < randomizedQuestions.length - 1) {
-        currentIdx++;
-        loadQuestion();
-    } else {
-        showScore();
-    }
+    if(currentIdx < randomizedQuestions.length - 1) { currentIdx++; loadQuestion(); } 
+    else { showScore(); }
 }
 
 function prevQuestion() {
-    if(currentIdx > 0) {
-        currentIdx--;
-        loadQuestion();
-    }
+    if(currentIdx > 0) { currentIdx--; loadQuestion(); }
 }
+
+function goHome() { location.reload(); }
 
 function showScore() {
     let correctCount = userAnswers.filter((ans, idx) => ans === randomizedQuestions[idx].newCorrect).length;
     document.getElementById('quiz-content').style.display = 'none';
     document.getElementById('score-board').style.display = 'block';
     document.getElementById('final-score').innerText = `${correctCount} / ${randomizedQuestions.length}`;
-    const fb = document.getElementById('feedback-text');
-    if(correctCount === randomizedQuestions.length) fb.innerText = "Tuyệt vời! Bé là quán quân điểm 10! 🏆";
-    else if(correctCount >= randomizedQuestions.length * 0.8) fb.innerText = "Rất tốt! Bé chỉ cần cẩn thận hơn chút thôi! 🌟";
-    else fb.innerText = "Bé hãy luyện đọc thêm để chọn đúng hơn nhé! ❤️";
 }
 </script>
 </body>
