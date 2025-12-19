@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Học Kỳ 1 - Lớp 1.2</title>
+    <style>
+        :root { --primary: #4caf50; --secondary: #2196f3; --wrong: #f44336; --bg: #fdfdfd; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #e3f2fd; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 10px; }
+        #quiz-container { background: white; padding: 25px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); width: 100%; max-width: 650px; text-align: center; border: 6px solid var(--primary); min-height: 500px; }
+        
+        .menu-btn { width: 100%; padding: 20px; margin: 12px 0; font-size: 18px; font-weight: bold; border-radius: 18px; border: none; cursor: pointer; transition: 0.3s; color: white; display: block; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+        .btn-toan { background: #ff9800; }
+        .btn-chinh-ta { background: #9c27b0; }
+        .btn-doc-hieu { background: #00bcd4; }
+        .menu-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        .progress { font-size: 16px; color: #555; margin-bottom: 15px; font-weight: bold; background: #fff9c4; padding: 8px; border-radius: 20px; }
+        #question { font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #333; min-height: 50px; }
+        .options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        button.option-btn { padding: 18px; font-size: 18px; border: 3px solid #eee; border-radius: 15px; background: #fff; cursor: pointer; font-weight: bold; }
+        button.correct { background-color: var(--primary) !important; color: white; border-color: var(--primary); }
+        button.wrong { background-color: var(--wrong) !important; color: white; border-color: var(--wrong); }
+        
+        .controls { margin-top: 30px; display: flex; justify-content: space-between; gap: 10px; }
+        .nav-btn { padding: 12px; border: none; border-radius: 12px; background: var(--secondary); color: white; cursor: pointer; font-size: 16px; flex: 1; font-weight: bold; }
+        
+        .reading-text { background: #fffde7; padding: 20px; border-left: 8px solid #fbc02d; text-align: left; margin-bottom: 20px; font-size: 20px; line-height: 1.6; border-radius: 10px; color: #444; }
+        .score-num { font-size: 70px; color: #ff9800; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <div id="menu-screen">
+        <h2 style="color: #2e7d32; font-size: 28px;">🍎 BÉ ÔN THI HỌC KỲ 1 🍎</h2>
+        <p style="font-weight: bold; color: #555;">Ba mẹ chọn phần cho bé ôn tập:</p>
+        
+        <button class="menu-btn btn-toan" onclick="startQuiz(1)">
+            PHẦN 1: TOÁN & HÌNH KHỐI (25 câu)<br>
+            <small>Cộng trừ, tách gộp, vị trí, hình khối</small>
+        </button>
+        
+        <button class="menu-btn btn-chinh-ta" onclick="startQuiz(2)">
+            PHẦN 2: QUY TẮC CHÍNH TẢ (35 câu)<br>
+            <small>Phân biệt c/k, g/gh, ng/ngh</small>
+        </button>
+        
+        <button class="menu-btn btn-doc-hieu" onclick="startQuiz(3)">
+            PHẦN 3: VẦN & ĐỌC HIỂU (40 câu)<br>
+            <small>Vần ia, ua, ưa, uôn, ươn... & Đọc truyện</small>
+        </button>
+
+        <p style="font-size: 13px; color: #888; margin-top: 15px;">
+            📅 29/12: Toán | 30/12: Tiếng Việt
+        </p>
+    </div>
+
+    <div id="quiz-content" style="display:none;">
+        <div class="progress" id="progress"></div>
+        <div id="reading-container" class="reading-text" style="display:none;"></div>
+        <div id="question"></div>
+        <div class="options" id="options"></div>
+        <div id="result-message" style="margin-top:15px; font-size: 20px; font-weight:bold;"></div>
+        
+        <div class="controls">
+            <button class="nav-btn" id="prev-btn" onclick="prevQuestion()">Quay lại</button>
+            <button class="nav-btn" id="next-btn" onclick="nextQuestion()">Tiếp theo</button>
+        </div>
+    </div>
+
+    <div id="score-board" style="display:none;">
+        <h2>🎊 HOÀN THÀNH RỒI! 🎊</h2>
+        <p>Số câu đúng của bé là:</p>
+        <div class="score-num" id="final-score">0/0</div>
+        <p id="feedback-text" style="font-size: 20px; color: #333;"></p>
+        <button class="menu-btn" style="background:var(--primary);" onclick="location.reload()">Trở về Trang Chủ</button>
+    </div>
+</div>
+
+<script>
+    const part1 = [
+        // TOÁN: 25 CÂU
+        { q: "4 + 5 = ?", a: ["8", "9", "10"], correct: 1 },
+        { q: "10 - 4 = ?", a: ["5", "6", "7"], correct: 1 },
+        { q: "7 + 0 = ?", a: ["0", "7", "10"], correct: 1 },
+        { q: "6 + 4 = ?", a: ["9", "10", "1"], correct: 1 },
+        { q: "9 - 5 = ?", a: ["3", "4", "5"], correct: 1 },
+        { q: "3 + 2 + 4 = ?", a: ["8", "9", "10"], correct: 1 },
+        { q: "10 - 1 - 2 = ?", a: ["7", "6", "8"], correct: 0 },
+        { q: "Số lớn nhất: 5, 1, 9, 3?", a: ["5", "9", "3"], correct: 1 },
+        { q: "Số bé nhất: 8, 2, 6, 10?", a: ["8", "2", "6"], correct: 1 },
+        { q: "Điền dấu: 8 ... 5", a: [">", "<", "="], correct: 0 },
+        { q: "Điền dấu: 4 + 4 ... 8", a: [">", "<", "="], correct: 2 },
+        { q: "Gộp 2 và 5 được mấy?", a: ["6", "7", "8"], correct: 1 },
+        { q: "Gộp 4 và 6 được mấy?", a: ["9", "10", "11"], correct: 1 },
+        { q: "Tách 7 gồm 3 và mấy?", a: ["3", "4", "5"], correct: 1 },
+        { q: "Tách 10 gồm 5 và mấy?", a: ["4", "5", "6"], correct: 1 },
+        { q: "Hình tròn có lăn được không?", a: ["Có", "Không"], correct: 0 },
+        { q: "Khối Rubik có dạng khối gì?", a: ["Khối lập phương", "Khối cầu"], correct: 0 },
+        { q: "Cái bảng đen hình gì?", a: ["Hình tròn", "Hình chữ nhật"], correct: 1 },
+        { q: "Mũ bảo hiểm ở ... đầu bé?", a: ["Trên", "Dưới"], correct: 0 },
+        { q: "Bàn tay phải là tay cầm gì?", a: ["Cầm bát", "Cầm thìa/đũa"], correct: 1 },
+        { q: "Số ở giữa 8 và 10?", a: ["7", "9"], correct: 1 },
+        { q: "Phép tính nào bằng 5?", a: ["2+3", "4+2"], correct: 0 },
+        { q: "Phép tính nào bằng 10?", a: ["5+4", "8+2"], correct: 1 },
+        { q: "7 trừ mấy bằng 4?", a: ["2", "3", "4"], correct: 1 },
+        { q: "2 cộng mấy bằng 10?", a: ["7", "8", "9"], correct: 1 }
+    ];
+
+    const part2 = [
+    // --- QUY TẮC CHỮ C/K ---
+    { q: "Điền chữ: '...on kiến'", a: ["c", "k"], correct: 0 },
+    { q: "Điền chữ: '...ái ca'", a: ["c", "k"], correct: 0 },
+    { q: "Điền chữ: '...ể chuyện'", a: ["c", "k"], correct: 1 },
+    { q: "Điền chữ: '...ì diệu'", a: ["c", "k"], correct: 1 },
+    { q: "Điền chữ: '...âu cá'", a: ["c", "k"], correct: 0 },
+    { q: "Điền chữ: '...ẻ vở'", a: ["k", "c"], correct: 0 },
+    { q: "Điền chữ: '...iên nhẫn'", a: ["c", "k"], correct: 1 },
+    { q: "Điền chữ: '...im tiêm'", a: ["k", "c"], correct: 0 },
+    { q: "Điền chữ: '...ổ áo'", a: ["c", "k"], correct: 0 },
+    { q: "Điền chữ: '...ì cọ'", a: ["k", "c"], correct: 0 },
+
+    // --- QUY TẮC CHỮ G/GH ---
+    { q: "Điền chữ: 'nhà ...a'", a: ["g", "gh"], correct: 0 },
+    { q: "Điền chữ: 'gồ ...ề'", a: ["g", "gh"], correct: 1 },
+    { q: "Điền chữ: '...hi nhớ'", a: ["g", "gh"], correct: 1 },
+    { q: "Điền chữ: 'con ...à'", a: ["g", "gh"], correct: 0 },
+    { q: "Điền chữ: 'cái ...hế'", a: ["gh", "g"], correct: 0 },
+    { q: "Điền chữ: '...ê sợ'", a: ["gh", "g"], correct: 0 },
+    { q: "Điền chữ: '...à chọi'", a: ["g", "gh"], correct: 0 },
+    { q: "Điền chữ: '...i chép'", a: ["gh", "g"], correct: 0 },
+    { q: "Điền chữ: '...ỗ bàn'", a: ["g", "gh"], correct: 0 },
+    { q: "Điền chữ: '...ồ ghề'", a: ["g", "gh"], correct: 0 },
+
+    // --- QUY TẮC CHỮ NG/NGH ---
+    { q: "Điền chữ: 'con ...é'", a: ["ng", "ngh"], correct: 1 },
+    { q: "Điền chữ: 'bắp ...ô'", a: ["ng", "ngh"], correct: 0 },
+    { q: "Điền chữ: 'suy ...ĩ'", a: ["ng", "ngh"], correct: 1 },
+    { q: "Điền chữ: 'củ ...ệ'", a: ["ng", "ngh"], correct: 1 },
+    { q: "Điền chữ: '...ủ ngon'", a: ["ng", "ngh"], correct: 0 },
+    { q: "Điền chữ: '...ỉ hè'", a: ["ngh", "ng"], correct: 0 },
+    { q: "Điền chữ: '...e nhạc'", a: ["ngh", "ng"], correct: 0 },
+    { q: "Điền chữ: 'ngọt ...ào'", a: ["ng", "ngh"], correct: 0 },
+    { q: "Điền chữ: '...é chơi'", a: ["ngh", "ng"], correct: 0 },
+    { q: "Điền chữ: '...óng trông'", a: ["ng", "ngh"], correct: 0 },
+
+    // --- CÂU HỎI TỔNG HỢP (TÌM LỖI SAI) ---
+    { q: "Từ nào viết SAI: 'nghỉ ngơi' hay 'ngỉ ngơi'?", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 1 },
+    { q: "Từ nào viết ĐÚNG: 'con nghé' hay 'con ngé'?", a: ["con nghé", "con ngé"], correct: 0 },
+    { q: "Từ nào viết SAI: 'củ nghệ' hay 'củ ngệ'?", a: ["củ nghệ", "củ ngệ"], correct: 1 },
+    { q: "Từ nào viết ĐÚNG: 'kẻ chữ' hay 'cẻ chữ'?", a: ["kẻ chữ", "cẻ chữ"], correct: 0 },
+    { q: "Từ nào viết ĐÚNG: 'gồ ghề' hay 'ghồ ghề'?", a: ["gồ ghề", "ghồ ghề"], correct: 0 }
+];
+
+    const part3 = [
+    // --- NHÓM 1: ÂM VÀ VẦN CƠ BẢN (Tuần 1 - 10) ---
+    { q: "Tiếng nào có âm 'th'?", a: ["thỏ gỗ", "cái rổ"], correct: 0 },
+    { q: "Tiếng nào có âm 'kh'?", a: ["khế chua", "quả lê"], correct: 0 },
+    { q: "Tiếng nào có âm 'ph'?", a: ["phố xá", "đi bộ"], correct: 0 },
+    { q: "Tiếng nào có vần 'oi'?", a: ["cái còi", "cái ca"], correct: 0 },
+    { q: "Tiếng nào có vần 'ay'?", a: ["máy bay", "mái nhà"], correct: 0 },
+    { q: "Điền vần: 'đồ ch...'", a: ["ơi", "ươi"], correct: 0 },
+    { q: "Điền vần: 't... cười'", a: ["ươi", "uôi"], correct: 0 },
+
+    // --- NHÓM 2: ÂM ĐÔI VÀ VẦN PHỨC (Tuần 11 - 18) ---
+    { q: "Tiếng nào có vần 'ia'?", a: ["lá mía", "mùa hạ"], correct: 0 },
+    { q: "Tiếng nào có vần 'ua'?", a: ["con cua", "cái cửa"], correct: 0 },
+    { q: "Tiếng nào có vần 'ưa'?", a: ["ngựa gỗ", "múa ca"], correct: 0 },
+    { q: "Điền vần: 'cuộn d...'", a: ["ây", "ay"], correct: 0 },
+    { q: "Điền vần: 'con l...n'", a: ["ươn", "uôn"], correct: 0 },
+    { q: "Điền vần: 'b...ng chuối'", a: ["uông", "uồng"], correct: 1 },
+    { q: "Tiếng nào có vần 'uôi'?", a: ["nải chuối", "con muỗi"], correct: 0 },
+    { q: "Tiếng nào có vần 'iên'?", a: ["cái diều", "đèn điện"], correct: 1 },
+    { q: "Tiếng nào có vần 'iêp'?", a: ["tấm thiệp", "tiếp nối"], correct: 1 },
+    { q: "Điền vần: 'm... tóc'", a: ["ái", "ay"], correct: 0 },
+    { q: "Điền vần: 'th... kẻ'", a: ["ước", "ươc"], correct: 0 },
+    { q: "Tiếng nào có vần 'oanh'?", a: ["chim oanh", "quả chanh"], correct: 0 },
+
+    // --- NHÓM 3: TỪ NGỮ VÀ CÂU VĂN (Tổng hợp) ---
+    { q: "Từ nào chỉ đồ dùng học tập?", a: ["thước kẻ", "bánh mì"], correct: 0 },
+    { q: "Từ nào chỉ con vật?", a: ["cá trê", "cái ghế"], correct: 0 },
+    { q: "Từ nào chỉ loài hoa?", a: ["hoa lan", "lan can"], correct: 0 },
+    { q: "Từ nào viết đúng chính tả?", a: ["nghỉ hè", "ngỉ hè"], correct: 0 },
+    { q: "Điền vào chỗ trống: 'Bé ... học'", a: ["đi", "đy"], correct: 0 },
+    { q: "Câu nào có nghĩa đúng?", a: ["Bé quét nhà.", "Nhà quét bé."], correct: 0 },
+    { q: "Chọn chữ viết hoa đúng đầu câu:", a: ["Mẹ yêu bé.", "mẹ yêu bé."], correct: 0 },
+
+    // --- NHÓM 4: ĐỌC HIỂU ĐOẠN VĂN (Trọng tâm thi 30/12) ---
+    { 
+        text: "Nhà bé có con nghé. Nó rất ngơ ngác nhìn cỏ xanh.", 
+        q: "Con nghé đang nhìn cái gì?", 
+        a: ["Nhìn bé", "Nhìn cỏ"], 
+        correct: 1 
+    },
+    { 
+        text: "Mùa đông, bà đan cho bé chiếc mũ len màu đỏ rất ấm.", 
+        q: "Chiếc mũ len màu gì?", 
+        a: ["Màu đỏ", "Màu xanh"], 
+        correct: 0 
+    },
+    { 
+        text: "Mùa hè, cả nhà Hà đi nghỉ mát ở bờ biển. Biển có cát trắng.", 
+        q: "Nhà Hà đi đâu vào mùa hè?", 
+        a: ["Đi chợ", "Đi biển"], 
+        correct: 1 
+    },
+    { 
+        text: "Bé Hà giã nghệ giúp bà. Củ nghệ có màu vàng tươi.", 
+        q: "Củ nghệ có màu gì?", 
+        a: ["Màu tím", "Màu vàng"], 
+        correct: 1 
+    },
+    { 
+        text: "Sáng sớm, gà trống gáy vang gọi mọi người thức dậy.", 
+        q: "Con gì gáy báo thức?", 
+        a: ["Gà trống", "Con vịt"], 
+        correct: 0 
+    },
+    { 
+        text: "Mẹ mua cho bé cái cặp mới có hình chú thỏ hồng.", 
+        q: "Cái cặp có hình con gì?", 
+        a: ["Chú thỏ", "Chú gấu"], 
+        correct: 0 
+    },
+    { 
+        text: "Bé giúp mẹ quét nhà và tưới cây. Mẹ khen bé chăm ngoan.", 
+        q: "Bé làm gì giúp mẹ?", 
+        a: ["Đi chơi", "Quét nhà, tưới cây"], 
+        correct: 1 
+    },
+    { 
+        text: "Trời mưa, bé đi ô và đi ủng để không bị ướt chân.", 
+        q: "Bé đi gì để không ướt chân?", 
+        a: ["Đi ủng", "Đi dép"], 
+        correct: 0 
+    },
+    { 
+        text: "Bé thích ăn nho và dưa hấu. Nho ngọt lịm.", 
+        q: "Quả nho có vị gì?", 
+        a: ["Vị ngọt", "Vị chua"], 
+        correct: 0 
+    },
+    { 
+        text: "Bố đưa bé đi phố. Phố xá tấp nập xe cộ.", 
+        q: "Bố đưa bé đi đâu?", 
+        a: ["Đi phố", "Đi vườn"], 
+        correct: 0 
+    },
+    { 
+        text: "Hồ có cá và có cả thiên nga bơi lội.", 
+        q: "Trong hồ có con gì?", 
+        a: ["Thiên nga", "Con thỏ"], 
+        correct: 0 
+    },
+    { 
+        text: "Bé yêu bà nhất nhà vì bà rất hay kể chuyện cổ tích.", 
+        q: "Vì sao bé yêu bà?", 
+        a: ["Bà kể chuyện", "Bà cho quà"], 
+        correct: 0 
+    },
+    { 
+        text: "Cuối tuần, bé được đi công viên ngắm hoa.", 
+        q: "Bé đi đâu vào cuối tuần?", 
+        a: ["Đi công viên", "Đi học"], 
+        correct: 0 
+    },
+    { 
+        text: "Học kỳ 1 sắp kết thúc, bé hứa sẽ học thật tốt.", 
+        q: "Bé hứa điều gì?", 
+        a: ["Học thật tốt", "Đi chơi"], 
+        correct: 0 }
+];
+
+    let currentQuiz = [];
+    let currentIdx = 0;
+    let correctCount = 0;
+    let userAnswers = [];
+
+    function startQuiz(part) {
+        if(part === 1) currentQuiz = part1;
+        else if(part === 2) currentQuiz = part2;
+        else currentQuiz = part3;
+
+        userAnswers = new Array(currentQuiz.length).fill(null);
+        currentIdx = 0; correctCount = 0;
+        document.getElementById('menu-screen').style.display = 'none';
+        document.getElementById('quiz-content').style.display = 'block';
+        document.getElementById('score-board').style.display = 'none';
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const data = currentQuiz[currentIdx];
+        document.getElementById('progress').innerText = `Câu ${currentIdx + 1} / ${currentQuiz.length}`;
+        const readEl = document.getElementById('reading-container');
+        if(data.text) { readEl.innerText = data.text; readEl.style.display = 'block'; }
+        else { readEl.style.display = 'none'; }
+        
+        document.getElementById('question').innerText = data.q;
+        const optEl = document.getElementById('options');
+        optEl.innerHTML = '';
+        document.getElementById('result-message').innerText = '';
+
+        data.a.forEach((opt, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = opt;
+            btn.classList.add('option-btn');
+            if (userAnswers[currentIdx] !== null) {
+                if (i === data.correct) btn.classList.add('correct');
+                else if (i === userAnswers[currentIdx]) btn.classList.add('wrong');
+                btn.disabled = true;
+            }
+            btn.onclick = () => {
+                if(userAnswers[currentIdx] !== null) return;
+                userAnswers[currentIdx] = i;
+                if(i === data.correct) {
+                    correctCount++;
+                    document.getElementById('result-message').innerText = "Đúng rồi! 🎉 Giỏi lắm!";
+                    document.getElementById('result-message').style.color = "green";
+                } else {
+                    document.getElementById('result-message').innerText = "Ôi, sai rồi! Cố lên con! ❤️";
+                    document.getElementById('result-message').style.color = "red";
+                }
+                setTimeout(() => nextQuestion(), 1200);
+            };
+            optEl.appendChild(btn);
+        });
+        document.getElementById('prev-btn').disabled = (currentIdx === 0);
+        document.getElementById('next-btn').innerText = (currentIdx === currentQuiz.length - 1) ? "Kết thúc" : "Tiếp theo";
+    }
+
+    function nextQuestion() {
+        if(currentIdx < currentQuiz.length - 1) { currentIdx++; loadQuestion(); }
+        else { showScore(); }
+    }
+    function prevQuestion() { if(currentIdx > 0) { currentIdx--; loadQuestion(); } }
+
+    function showScore() {
+        document.getElementById('quiz-content').style.display = 'none';
+        document.getElementById('score-board').style.display = 'block';
+        document.getElementById('final-score').innerText = `${correctCount} / ${currentQuiz.length}`;
+        document.getElementById('feedback-text').innerText = (correctCount >= currentQuiz.length * 0.9) ? "Bé là Thiên tài! Chắc chắn được điểm 10! 🏆" : "Bé làm rất tốt! Làm lại để nhớ kỹ hơn nhé!";
+    }
+</script>
+</body>
+</html>
