@@ -63,16 +63,34 @@
 </div>
 
 <script>
-// Dữ liệu giữ nguyên 145 câu như bản trước...
+// Dữ liệu câu hỏi (Giữ nguyên cấu trúc nhưng code xử lý sẽ random đáp án)
 const part1 = [ { q: "4 + 5 = ?", a: ["8", "9"], correct: 1 }, { q: "10 - 3 = ?", a: ["7", "6"], correct: 0 }, { q: "8 + 2 = ?", a: ["9", "10"], correct: 1 }, { q: "7 - 0 = ?", a: ["7", "0"], correct: 0 }, { q: "Số lớn nhất: 4, 9, 2?", a: ["9", "4"], correct: 0 }, { q: "Số bé nhất: 5, 1, 8?", a: ["5", "1"], correct: 1 }, { q: "Gộp 3 và 5 được mấy?", a: ["8", "7"], correct: 0 }, { q: "Tách 10 gồm 6 và mấy?", a: ["4", "3"], correct: 0 }, { q: "5 + 2 ... 8", a: ["<", ">"], correct: 0 }, { q: "Hình tròn lăn được không?", a: ["Có", "Không"], correct: 0 }, { q: "Quả bóng khối gì?", a: ["Khối cầu", "Khối vuông"], correct: 0 }, { q: "Hộp quà vuông khối gì?", a: ["Lập phương", "Chữ nhật"], correct: 0 }, { q: "9 ... 4 + 5", a: ["=", ">"], correct: 0 }, { q: "Số ở giữa 7 và 9?", a: ["8", "6"], correct: 0 }, { q: "Trước số 1 là số mấy?", a: ["0", "2"], correct: 0 }, { q: "7 + 1 + 2 = ?", a: ["10", "9"], correct: 0 }, { q: "10 - 5 - 2 = ?", a: ["3", "4"], correct: 0 }, { q: "Số lớn hơn 8?", a: ["9", "7"], correct: 0 }, { q: "Tay trái cầm gì?", a: ["Bát cơm", "Đũa"], correct: 0 }, { q: "Tam giác có mấy cạnh?", a: ["3", "4"], correct: 0 }, { q: "Gộp 4 và 4 được mấy?", a: ["8", "9"], correct: 0 }, { q: "10 - ... = 5", a: ["5", "4"], correct: 0 }, { q: "3 + ... = 9", a: ["6", "5"], correct: 0 }, { q: "Số liền sau số 9?", a: ["10", "8"], correct: 0 }, { q: "Số liền trước số 10?", a: ["9", "8"], correct: 0 }, { q: "Tách 8 gồm 4 và mấy?", a: ["4", "5"], correct: 0 }, { q: "6 + 0 + 4 = ?", a: ["10", "9"], correct: 0 }, { q: "Hình vuông có mấy cạnh?", a: ["4", "3"], correct: 0 }, { q: "Quyển vở hình gì?", a: ["Chữ nhật", "Tròn"], correct: 0 }, { q: "Phao bơi hình gì?", a: ["Tròn", "Vuông"], correct: 0 }, { q: "10 - 8 = ?", a: ["2", "1"], correct: 0 }, { q: "5 + 4 = ?", a: ["9", "8"], correct: 0 }, { q: "Số bé hơn 2?", a: ["1", "3"], correct: 0 }, { q: "4 + ... = 7", a: ["3", "2"], correct: 0 }, { q: "9 - ... = 6", a: ["3", "4"], correct: 0 } ];
-const part2 = [ { q: "Điền: '...on kiến'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ái ca'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ể chuyện'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ì lạ'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...âu cá'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ẻ vở'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...im tiêm'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ì cọ'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...iên nhẫn'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ổ áo'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ì diệu'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...on cá'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ẻ bảng'", a: ["k", "c"], correct: 0 }, { q: "Điền: 'nhà ...a'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'gồ ...ề'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...hi nhớ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: 'con ...à'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'cái ...hế'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...i chép'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...hé tai'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...ế gỗ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...à gáy'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ỗ bàn'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ồ ghề'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ê sợ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...à chọi'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'con ...hé'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'bắp ...ô'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: 'suy ...hĩ'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'củ ...hệ'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...hỉ hè'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...e nhạc'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'ngọt ...ào'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: '...é chơi'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...ủ ngon'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: '...óng trông'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: 'nghỉ ...ơi'", a: ["ng", "ngh"], correct: 1 }, { q: "Điền: '...i chép'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...a đình'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...hé chơi'", a: ["gh", "g"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["nghỉ hè", "ngỉ hè"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["cái ghế", "cái gế"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["con nghé", "con ngé"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["kẻ vở", "cẻ vở"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["gồ ghề", "ghồ ghề"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["củ nghệ", "củ ngệ"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["ghế đá", "gế đá"], correct: 0 }, { q: "Viết SAI:", a: ["nghỉ hè", "ngỉ hè"], correct: 1 }, { q: "Viết SAI:", a: ["kẻ vở", "cẻ vở"], correct: 1 } ];
+const part2 = [ { q: "Điền: '...on kiến'", a: ["k", "c"], correct: 1 }, { q: "Điền: '...ái ca'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ể chuyện'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ì lạ'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...âu cá'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ẻ vở'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...im tiêm'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ì cọ'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...iên nhẫn'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ổ áo'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ì diệu'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...on cá'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ẻ bảng'", a: ["k", "c"], correct: 0 }, { q: "Điền: 'nhà ...a'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'gồ ...ề'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...i nhớ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: 'con ...à'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'cái ...ế'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...i chép'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...é tai'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...ế gỗ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...à gáy'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ỗ bàn'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ồ ghề'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ê sợ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...à chọi'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'con ...é'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'bắp ...ô'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: 'suy ...ĩ'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'củ ...ệ'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...ỉ hè'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...e nhạc'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'ngọt ...ào'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: '...é chơi'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...ủ ngon'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: '...óng trông'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: 'nghỉ ...ơi'", a: ["ng", "ngh"], correct: 1 }, { q: "Điền: '...i chép'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...ia đình'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...é chơi'", a: ["gh", "g"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["nghỉ hè", "ngỉ hè"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["cái ghế", "cái gế"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["con nghé", "con ngé"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["kẻ vở", "cẻ vở"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["gồ ghề", "ghồ ghề"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["củ nghệ", "củ ngệ"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["ghế đá", "gế đá"], correct: 0 }, { q: "Viết SAI:", a: ["nghỉ hè", "ngỉ hè"], correct: 1 }, { q: "Viết SAI:", a: ["kẻ vở", "cẻ vở"], correct: 1 } ];
 const part3 = [ { text: "Nhà bé có con nghé. Nó rất ngơ ngác nhìn cỏ xanh.", q: "Con nghé đang nhìn cái gì?", a: ["Nhìn bé", "Nhìn cỏ"], correct: 1 }, { text: "Mùa hè, cả nhà đi biển chơi. Biển có cát trắng.", q: "Biển có cái gì?", a: ["Cát trắng", "Cát đen"], correct: 0 }, { text: "Bà đan mũ len màu đỏ cho bé đội đi học cho ấm.", q: "Chiếc mũ len màu gì?", a: ["Màu đỏ", "Màu xanh"], correct: 0 }, { text: "Bé giúp mẹ quét nhà và tưới cây. Mẹ khen bé chăm.", q: "Mẹ khen bé thế nào?", a: ["Chăm ngoan", "Học giỏi"], correct: 0 }, { text: "Sáng sớm, gà trống gáy vang gọi bé dậy đi học.", q: "Con gì gáy báo thức?", a: ["Gà trống", "Con vịt"], correct: 0 }, { text: "Bé Hà giã nghệ giúp bà. Củ nghệ có màu vàng tươi.", q: "Bé Hà làm gì giúp bà?", a: ["Giã nghệ", "Quét nhà"], correct: 0 }, { text: "Bé đi bộ ở bờ hồ. Hồ có cá, có cả thiên nga.", q: "Ở hồ có con gì bơi?", a: ["Thiên nga", "Con thỏ"], correct: 0 }, { text: "Trời mưa, bé đi ô và đi ủng để không ướt chân.", q: "Bé đi gì để chân khô?", a: ["Đi ủng", "Đi dép"], correct: 0 }, { text: "Bé thích ăn nho và dưa hấu. Nho ngọt lịm.", q: "Quả nho có vị gì?", a: ["Vị ngọt", "Vị chua"], correct: 0 }, { text: "Mẹ mua cho bé cái cặp mới có hình chú thỏ hồng.", q: "Cái cặp hình con gì?", a: ["Chú thỏ", "Chú gấu"], correct: 0 }, { text: "Bố đưa bé đi phố. Phố xá tấp nập xe cộ.", q: "Bố đưa bé đi đâu?", a: ["Đi phố", "Đi vườn"], correct: 0 }, { text: "Bé yêu bà vì bà hay kể chuyện cổ tích cho bé nghe.", q: "Bà hay làm gì?", a: ["Kể chuyện", "Cho quà"], correct: 0 }, { text: "Cuối tuần, bé được đi công viên ngắm hoa.", q: "Bé đi đâu cuối tuần?", a: ["Công viên", "Đi học"], correct: 0 }, { text: "Học kỳ 1 sắp kết thúc, bé hứa sẽ học thật tốt.", q: "Bé hứa điều gì?", a: ["Học thật tốt", "Đi chơi"], correct: 0 }, { q: "Từ nào có vần 'ia'?", a: ["lá mía", "mùa hạ"], correct: 0 }, { q: "Từ nào có vần 'ua'?", a: ["con cua", "cái cửa"], correct: 0 }, { q: "Từ nào có vần 'ưa'?", a: ["ngựa gỗ", "múa ca"], correct: 0 }, { q: "Từ nào có vần 'ay'?", a: ["máy bay", "mái nhà"], correct: 0 }, { q: "Điền vần: 'con l...n'", a: ["ươn", "uôn"], correct: 0 }, { q: "Điền vần: 'cuộn d...'", a: ["ây", "ay"], correct: 0 }, { q: "Tiếng nào có vần 'uôi'?", a: ["nải chuối", "muỗi"], correct: 0 }, { q: "Tiếng nào có vần 'iên'?", a: ["đèn điện", "con voi"], correct: 0 }, { q: "Điền vần: 'buổi s...'", a: ["áng", "anh"], correct: 0 }, { q: "Tiếng nào có vần 'uông'?", a: ["quả chuông", "buồm"], correct: 0 }, { q: "Tiếng nào có vần 'ơi'?", a: ["đi chơi", "tươi"], correct: 0 }, { q: "Tiếng nào có vần 'iêp'?", a: ["tấm thiệp", "tiếp"], correct: 0 }, { q: "Điền vần: 'th... kẻ'", a: ["ước", "ươc"], correct: 0 }, { q: "Tiếng nào có vần 'oanh'?", a: ["chim oanh", "quả chanh"], correct: 0 }, { q: "Tiếng có vần 'ươu'?", a: ["con hươu", "con mèo"], correct: 0 }, { q: "Từ nào chỉ đồ dùng học tập?", a: ["bút chì", "bánh mì"], correct: 0 }, { q: "Từ nào chỉ con vật?", a: ["cá trê", "cái bàn"], correct: 0 }, { q: "Từ nào chỉ màu sắc?", a: ["màu đỏ", "đi bộ"], correct: 0 }, { q: "Từ nào chỉ cây cối?", a: ["cây đa", "cái ca"], correct: 0 }, { q: "Từ chỉ người thân?", a: ["ông bà", "cái bàn"], correct: 0 }, { q: "Viết hoa ĐÚNG:", a: ["Mẹ yêu bé.", "mẹ yêu bé."], correct: 0 }, { q: "Câu nào đúng nghĩa?", a: ["Bé quét nhà.", "Nhà quét bé."], correct: 0 }, { q: "Tiếng có vần 'oi'?", a: ["cái còi", "cái ca"], correct: 0 }, { q: "Vần 'uôc' có trong từ nào?", a: ["cái cuốc", "chuối"], correct: 0 }, { q: "Vần 'ươi' có trong từ nào?", a: ["tươi cười", "tưới"], correct: 0 }, { q: "Điền vần: 'm... tóc'", a: ["ái", "ay"], correct: 0 }, { q: "Vần 'uôn' có trong từ nào?", a: ["buôn làng", "con lươn"], correct: 0 }, { q: "Vần 'ai' có trong từ nào?", a: ["gà mái", "máy bay"], correct: 0 }, { q: "Tiếng có vần 'iêu'?", a: ["cái diều", "đèn"], correct: 0 }, { q: "Tiếng có vần 'ươn'?", a: ["con vượn", "buôn"], correct: 0 }, { q: "Tiếng có vần 'anh'?", a: ["cành cây", "canh"], correct: 0 }, { q: "Tiếng có vần 'ong'?", a: ["con ong", "ông"], correct: 0 }, { q: "Điền vần: 'quả l...'", a: ["ựu", "ự"], correct: 0 }, { q: "Tiếng có âm 'th'?", a: ["con thỏ", "cái rổ"], correct: 0 }, { q: "Tiếng có âm 'ph'?", a: ["phố xá", "đi bộ"], correct: 0 }, { q: "Vần 'ia' có trong từ nào?", a: ["vỉa hè", "vỉ thuốc"], correct: 0 }, { q: "Từ nào chỉ loài hoa?", a: ["hoa lan", "lan can"], correct: 0 }, { q: "Điền vần: 'thước k...'", a: ["ẻ", "ẽ"], correct: 0 }, { q: "Câu viết hoa đúng?", a: ["Hà đi học.", "hà đi học."], correct: 0 }, { q: "Vần 'uôi' có trong từ nào?", a: ["nải chuối", "cuốc"], correct: 0 }, { text: "Bé thích ăn nho và dưa hấu.", q: "Bé thích ăn gì?", a: ["Nho, dưa hấu", "Bánh mì"], correct: 0 }, { text: "Con mèo nằm sưởi nắng ở sân.", q: "Con mèo nằm ở đâu?", a: ["Ở sân", "Ở bếp"], correct: 0 }, { q: "Tiếng nào có vần 'uông'?", a: ["rau muống", "mương"], correct: 0 }, { q: "Vần 'anh' có trong từ nào?", a: ["bánh chưng", "bóng"], correct: 0 }, { q: "Từ nào đúng chính tả?", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 0 }, { q: "Câu viết đúng:", a: ["Bé đi học.", "Bé đi Học."], correct: 0 } ];
 
-let currentQuiz = [], currentIdx = 0, userAnswers = [];
+let currentQuiz = [], currentIdx = 0, userAnswers = [], randomizedQuestions = [];
 
 function startQuiz(part) {
-    currentQuiz = (part === 1) ? part1 : (part === 2) ? part2 : part3;
-    userAnswers = new Array(currentQuiz.length).fill(null);
+    const originalData = (part === 1) ? part1 : (part === 2) ? part2 : part3;
+    
+    // Tạo bản sao và trộn đáp án cho từng câu
+    randomizedQuestions = originalData.map(item => {
+        let options = [...item.a];
+        let correctText = item.a[item.correct];
+        
+        // Trộn ngẫu nhiên 2 đáp án
+        if (Math.random() > 0.5) {
+            options.reverse();
+        }
+        
+        return {
+            ...item,
+            shuffledA: options,
+            newCorrect: options.indexOf(correctText)
+        };
+    });
+
+    userAnswers = new Array(randomizedQuestions.length).fill(null);
     currentIdx = 0;
     document.getElementById('menu-screen').style.display = 'none';
     document.getElementById('quiz-content').style.display = 'block';
@@ -89,10 +107,9 @@ function goHome() {
 }
 
 function loadQuestion() {
-    const data = currentQuiz[currentIdx];
-    document.getElementById('progress').innerText = `Câu ${currentIdx + 1} / ${currentQuiz.length}`;
+    const data = randomizedQuestions[currentIdx];
+    document.getElementById('progress').innerText = `Câu ${currentIdx + 1} / ${randomizedQuestions.length}`;
     
-    // Đoạn văn đọc hiểu
     const readEl = document.getElementById('reading-container');
     if(data.text) { readEl.innerText = data.text; readEl.style.display = 'block'; }
     else { readEl.style.display = 'none'; }
@@ -102,14 +119,13 @@ function loadQuestion() {
     optEl.innerHTML = '';
     document.getElementById('result-message').innerText = '';
 
-    data.a.forEach((opt, i) => {
+    data.shuffledA.forEach((opt, i) => {
         const btn = document.createElement('button');
         btn.innerText = opt;
         btn.classList.add('option-btn');
         
-        // Nếu đã chọn rồi thì hiện lại màu
         if(userAnswers[currentIdx] !== null) {
-            if(i === data.correct) btn.classList.add('correct');
+            if(i === data.newCorrect) btn.classList.add('correct');
             else if(i === userAnswers[currentIdx]) btn.classList.add('wrong');
         }
 
@@ -117,29 +133,27 @@ function loadQuestion() {
             if(userAnswers[currentIdx] !== null) return;
             userAnswers[currentIdx] = i;
             
-            if(i === data.correct) {
+            if(i === data.newCorrect) {
                 btn.classList.add('correct');
                 document.getElementById('result-message').innerText = "Đúng rồi! ✨";
                 document.getElementById('result-message').style.color = "green";
-                // Tự động chuyển sau 1.2s nếu chọn đúng
-                //setTimeout(() => nextQuestion(), 3000);
+                //setTimeout(() => nextQuestion(), 1200);
             } else {
                 btn.classList.add('wrong');
-                optEl.getElementsByTagName('button')[data.correct].classList.add('correct');
-                document.getElementById('result-message').innerText = "Bé xem đáp án đúng màu xanh nhé! ❤️";
+                optEl.getElementsByTagName('button')[data.newCorrect].classList.add('correct');
+                document.getElementById('result-message').innerText = "Bé đọc kỹ lại nhé! ❤️";
                 document.getElementById('result-message').style.color = "red";
             }
         };
         optEl.appendChild(btn);
     });
 
-    // Cập nhật trạng thái nút điều hướng
     document.getElementById('prev-btn').disabled = (currentIdx === 0);
-    document.getElementById('next-btn').innerText = (currentIdx === currentQuiz.length - 1) ? "Xem kết quả 🏁" : "Tiếp theo ➡";
+    document.getElementById('next-btn').innerText = (currentIdx === randomizedQuestions.length - 1) ? "Kết quả 🏁" : "Tiếp theo ➡";
 }
 
 function nextQuestion() {
-    if(currentIdx < currentQuiz.length - 1) {
+    if(currentIdx < randomizedQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
     } else {
@@ -155,14 +169,14 @@ function prevQuestion() {
 }
 
 function showScore() {
-    let correctCount = userAnswers.filter((ans, idx) => ans === currentQuiz[idx].correct).length;
+    let correctCount = userAnswers.filter((ans, idx) => ans === randomizedQuestions[idx].newCorrect).length;
     document.getElementById('quiz-content').style.display = 'none';
     document.getElementById('score-board').style.display = 'block';
-    document.getElementById('final-score').innerText = `${correctCount} / ${currentQuiz.length}`;
+    document.getElementById('final-score').innerText = `${correctCount} / ${randomizedQuestions.length}`;
     const fb = document.getElementById('feedback-text');
-    if(correctCount === currentQuiz.length) fb.innerText = "Tuyệt vời! Con là siêu nhân điểm 10! 🏆";
-    else if(correctCount >= currentQuiz.length * 0.8) fb.innerText = "Rất tốt! Con nắm chắc bài rồi đấy! 🌟";
-    else fb.innerText = "Con hãy ôn lại để đạt điểm cao hơn nhé! ❤️";
+    if(correctCount === randomizedQuestions.length) fb.innerText = "Tuyệt vời! Bé là quán quân điểm 10! 🏆";
+    else if(correctCount >= randomizedQuestions.length * 0.8) fb.innerText = "Rất tốt! Bé chỉ cần cẩn thận hơn chút thôi! 🌟";
+    else fb.innerText = "Bé hãy luyện đọc thêm để chọn đúng hơn nhé! ❤️";
 }
 </script>
 </body>
