@@ -7,16 +7,19 @@
     <style>
         :root { --primary: #4caf50; --secondary: #2196f3; --wrong: #f44336; --bg: #fdfdfd; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #e3f2fd; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 10px; }
-        #quiz-container { background: white; padding: 25px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); width: 100%; max-width: 650px; text-align: center; border: 6px solid var(--primary); min-height: 500px; }
+        #quiz-container { background: white; padding: 25px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); width: 100%; max-width: 650px; text-align: center; border: 6px solid var(--primary); min-height: 550px; position: relative; }
         
+        /* Nút Home biểu tượng */
+        .home-icon { position: absolute; top: 20px; left: 20px; font-size: 24px; cursor: pointer; background: #eee; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: 2px solid #ddd; transition: 0.3s; z-index: 10; }
+        .home-icon:hover { background: #ddd; transform: scale(1.1); }
+
         .menu-btn { width: 100%; padding: 20px; margin: 12px 0; font-size: 18px; font-weight: bold; border-radius: 18px; border: none; cursor: pointer; transition: 0.3s; color: white; display: block; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
         .btn-toan { background: #ff9800; }
         .btn-chinh-ta { background: #9c27b0; }
         .btn-doc-hieu { background: #00bcd4; }
-        .menu-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
-
-        .progress { font-size: 16px; color: #555; margin-bottom: 15px; font-weight: bold; background: #fff9c4; padding: 8px; border-radius: 20px; }
-        #question { font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #333; min-height: 50px; }
+        
+        .progress { font-size: 16px; color: #555; margin: 15px auto; font-weight: bold; background: #fff9c4; padding: 8px; border-radius: 20px; width: fit-content; }
+        #question { font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #333; min-height: 60px; line-height: 1.4; }
         .options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         button.option-btn { padding: 18px; font-size: 18px; border: 3px solid #eee; border-radius: 15px; background: #fff; cursor: pointer; font-weight: bold; }
         button.correct { background-color: var(--primary) !important; color: white; border-color: var(--primary); }
@@ -25,35 +28,39 @@
         .controls { margin-top: 30px; display: flex; justify-content: space-between; gap: 10px; }
         .nav-btn { padding: 12px; border: none; border-radius: 12px; background: var(--secondary); color: white; cursor: pointer; font-size: 16px; flex: 1; font-weight: bold; }
         
-        .reading-text { background: #fffde7; padding: 20px; border-left: 8px solid #fbc02d; text-align: left; margin-bottom: 20px; font-size: 20px; line-height: 1.6; border-radius: 10px; color: #444; }
-        .score-num { font-size: 70px; color: #ff9800; font-weight: bold; }
+        .reading-text { background: #fffde7; padding: 20px; border-left: 8px solid #fbc02d; text-align: left; margin-bottom: 20px; font-size: 19px; line-height: 1.6; border-radius: 10px; }
+        .score-num { font-size: 70px; color: #ff9800; font-weight: bold; margin: 10px 0; }
     </style>
 </head>
 <body>
 
 <div id="quiz-container">
+    <div id="home-button" class="home-icon" style="display: none;" onclick="goHome()" title="Quay về Trang chủ">🏠</div>
+
     <div id="menu-screen">
-        <h2 style="color: #2e7d32; font-size: 28px;">🍎 BÉ ÔN THI HỌC KỲ 1 🍎</h2>
-        <p style="font-weight: bold; color: #555;">Ba mẹ chọn phần cho bé ôn tập:</p>
+        <h2 style="color: #2e7d32; font-size: 26px;">🍎 ÔN THI HỌC KỲ 1 - LỚP 1.2 🍎</h2>
+        <p style="font-weight: bold; color: #555;">Bé chọn phần muốn học nhé:</p>
         
         <button class="menu-btn btn-toan" onclick="startQuiz(1)">
-            PHẦN 1: TOÁN & HÌNH KHỐI (25 câu)<br>
-            <small>Cộng trừ, tách gộp, vị trí, hình khối</small>
+            PHẦN 1: TOÁN & HÌNH KHỐI<br>
+            <small>(25 câu - Thi ngày 29/12)</small>
         </button>
         
         <button class="menu-btn btn-chinh-ta" onclick="startQuiz(2)">
-            PHẦN 2: QUY TẮC CHÍNH TẢ (35 câu)<br>
-            <small>Phân biệt c/k, g/gh, ng/ngh</small>
+            PHẦN 2: QUY TẮC CHÍNH TẢ<br>
+            <small>(35 câu - Phân biệt c/k, g/gh, ng/ngh)</small>
         </button>
         
         <button class="menu-btn btn-doc-hieu" onclick="startQuiz(3)">
-            PHẦN 3: VẦN & ĐỌC HIỂU (40 câu)<br>
-            <small>Vần ia, ua, ưa, uôn, ươn... & Đọc truyện</small>
+            PHẦN 3: VẦN & ĐỌC HIỂU<br>
+            <small>(40 câu - Ôn tập Tuần 1 đến 18)</small>
         </button>
 
-        <p style="font-size: 13px; color: #888; margin-top: 15px;">
-            📅 29/12: Toán | 30/12: Tiếng Việt
-        </p>
+        <div style="margin-top: 20px; padding: 10px; background: #fff; border-radius: 10px; font-size: 14px; color: #444; border: 1px dashed #aaa;">
+            <b>Lưu ý cho bé:</b><br>
+            📅 29/12: Toán + Đọc thành tiếng<br>
+            📅 30/12: Viết + Đọc hiểu
+        </div>
     </div>
 
     <div id="quiz-content" style="display:none;">
@@ -70,11 +77,11 @@
     </div>
 
     <div id="score-board" style="display:none;">
-        <h2>🎊 HOÀN THÀNH RỒI! 🎊</h2>
+        <h2 style="margin-top: 40px;">🎊 HOÀN THÀNH RỒI! 🎊</h2>
         <p>Số câu đúng của bé là:</p>
         <div class="score-num" id="final-score">0/0</div>
-        <p id="feedback-text" style="font-size: 20px; color: #333;"></p>
-        <button class="menu-btn" style="background:var(--primary);" onclick="location.reload()">Trở về Trang Chủ</button>
+        <p id="feedback-text" style="font-size: 20px; font-weight: bold; padding: 0 20px;"></p>
+        <button class="menu-btn" style="background:var(--primary); width: 80%; margin: 20px auto;" onclick="goHome()">Làm phần khác</button>
     </div>
 </div>
 
@@ -272,7 +279,7 @@
         correct: 0 }
 ];
 
-    let currentQuiz = [];
+   let currentQuiz = [];
     let currentIdx = 0;
     let correctCount = 0;
     let userAnswers = [];
@@ -284,10 +291,19 @@
 
         userAnswers = new Array(currentQuiz.length).fill(null);
         currentIdx = 0; correctCount = 0;
+        
         document.getElementById('menu-screen').style.display = 'none';
         document.getElementById('quiz-content').style.display = 'block';
         document.getElementById('score-board').style.display = 'none';
+        document.getElementById('home-button').style.display = 'flex';
         loadQuestion();
+    }
+
+    function goHome() {
+        document.getElementById('menu-screen').style.display = 'block';
+        document.getElementById('quiz-content').style.display = 'none';
+        document.getElementById('score-board').style.display = 'none';
+        document.getElementById('home-button').style.display = 'none';
     }
 
     function loadQuestion() {
@@ -316,13 +332,13 @@
                 userAnswers[currentIdx] = i;
                 if(i === data.correct) {
                     correctCount++;
-                    document.getElementById('result-message').innerText = "Đúng rồi! 🎉 Giỏi lắm!";
+                    document.getElementById('result-message').innerText = "Đúng rồi! 🎉";
                     document.getElementById('result-message').style.color = "green";
                 } else {
-                    document.getElementById('result-message').innerText = "Ôi, sai rồi! Cố lên con! ❤️";
+                    document.getElementById('result-message').innerText = "Thử lại nhé! ❤️";
                     document.getElementById('result-message').style.color = "red";
                 }
-                setTimeout(() => nextQuestion(), 1200);
+                setTimeout(() => nextQuestion(), 1000);
             };
             optEl.appendChild(btn);
         });
@@ -340,7 +356,9 @@
         document.getElementById('quiz-content').style.display = 'none';
         document.getElementById('score-board').style.display = 'block';
         document.getElementById('final-score').innerText = `${correctCount} / ${currentQuiz.length}`;
-        document.getElementById('feedback-text').innerText = (correctCount >= currentQuiz.length * 0.9) ? "Bé là Thiên tài! Chắc chắn được điểm 10! 🏆" : "Bé làm rất tốt! Làm lại để nhớ kỹ hơn nhé!";
+        const fb = document.getElementById('feedback-text');
+        if(correctCount >= currentQuiz.length * 0.9) fb.innerText = "Bé quá tuyệt vời! Điểm 10 đang chờ con! 🏆";
+        else fb.innerText = "Bé làm tốt lắm, mình ôn lại để nhớ kỹ hơn nhé! ❤️";
     }
 </script>
 </body>
