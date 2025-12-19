@@ -38,29 +38,12 @@
     <div id="home-button" class="home-icon" style="display: none;" onclick="goHome()" title="Quay về Trang chủ">🏠</div>
 
     <div id="menu-screen">
-        <h2 style="color: #2e7d32; font-size: 26px;">🍎 ÔN THI HỌC KỲ 1 - LỚP 1.2 🍎</h2>
-        <p style="font-weight: bold; color: #555;">Bé chọn phần muốn học nhé:</p>
-        
-        <button class="menu-btn btn-toan" onclick="startQuiz(1)">
-            PHẦN 1: TOÁN & HÌNH KHỐI<br>
-            <small>(25 câu - Thi ngày 29/12)</small>
-        </button>
-        
-        <button class="menu-btn btn-chinh-ta" onclick="startQuiz(2)">
-            PHẦN 2: QUY TẮC CHÍNH TẢ<br>
-            <small>(35 câu - Phân biệt c/k, g/gh, ng/ngh)</small>
-        </button>
-        
-        <button class="menu-btn btn-doc-hieu" onclick="startQuiz(3)">
-            PHẦN 3: VẦN & ĐỌC HIỂU<br>
-            <small>(40 câu - Ôn tập Tuần 1 đến 18)</small>
-        </button>
-
-        <div style="margin-top: 20px; padding: 10px; background: #fff; border-radius: 10px; font-size: 14px; color: #444; border: 1px dashed #aaa;">
-            <b>Lưu ý cho bé:</b><br>
-            📅 29/12: Toán + Đọc thành tiếng<br>
-            📅 30/12: Viết + Đọc hiểu
-        </div>
+        <h2 style="color: #2e7d32;">🌟 ÔN THI HỌC KỲ 1 - LỚP 1.2 🌟</h2>
+        <p style="font-weight: bold; color: #555;">Bé hãy chọn phần muốn ôn tập:</p>
+        <button class="menu-btn btn-toan" onclick="startQuiz(1)">PHẦN 1: TOÁN (35 câu)</button>
+        <button class="menu-btn btn-chinh-ta" onclick="startQuiz(2)">PHẦN 2: CHÍNH TẢ C/K, G/GH, NG/NGH (50 câu)</button>
+        <button class="menu-btn btn-doc-hieu" onclick="startQuiz(3)">PHẦN 3: TỔNG HỢP VẦN & ĐỌC HIỂU (60 câu)</button>
+        <p style="font-size: 14px; color: #666; font-style: italic;">Mẹo: Đọc thật to câu hỏi trước khi chọn nhé!</p>
     </div>
 
     <div id="quiz-content" style="display:none;">
@@ -87,34 +70,25 @@
 
 <script>
     const part1 = [
-        // TOÁN: 25 CÂU
-        { q: "4 + 5 = ?", a: ["8", "9", "10"], correct: 1 },
-        { q: "10 - 4 = ?", a: ["5", "6", "7"], correct: 1 },
-        { q: "7 + 0 = ?", a: ["0", "7", "10"], correct: 1 },
-        { q: "6 + 4 = ?", a: ["9", "10", "1"], correct: 1 },
-        { q: "9 - 5 = ?", a: ["3", "4", "5"], correct: 1 },
-        { q: "3 + 2 + 4 = ?", a: ["8", "9", "10"], correct: 1 },
-        { q: "10 - 1 - 2 = ?", a: ["7", "6", "8"], correct: 0 },
-        { q: "Số lớn nhất: 5, 1, 9, 3?", a: ["5", "9", "3"], correct: 1 },
-        { q: "Số bé nhất: 8, 2, 6, 10?", a: ["8", "2", "6"], correct: 1 },
-        { q: "Điền dấu: 8 ... 5", a: [">", "<", "="], correct: 0 },
-        { q: "Điền dấu: 4 + 4 ... 8", a: [">", "<", "="], correct: 2 },
-        { q: "Gộp 2 và 5 được mấy?", a: ["6", "7", "8"], correct: 1 },
-        { q: "Gộp 4 và 6 được mấy?", a: ["9", "10", "11"], correct: 1 },
-        { q: "Tách 7 gồm 3 và mấy?", a: ["3", "4", "5"], correct: 1 },
-        { q: "Tách 10 gồm 5 và mấy?", a: ["4", "5", "6"], correct: 1 },
-        { q: "Hình tròn có lăn được không?", a: ["Có", "Không"], correct: 0 },
-        { q: "Khối Rubik có dạng khối gì?", a: ["Khối lập phương", "Khối cầu"], correct: 0 },
-        { q: "Cái bảng đen hình gì?", a: ["Hình tròn", "Hình chữ nhật"], correct: 1 },
-        { q: "Mũ bảo hiểm ở ... đầu bé?", a: ["Trên", "Dưới"], correct: 0 },
-        { q: "Bàn tay phải là tay cầm gì?", a: ["Cầm bát", "Cầm thìa/đũa"], correct: 1 },
-        { q: "Số ở giữa 8 và 10?", a: ["7", "9"], correct: 1 },
-        { q: "Phép tính nào bằng 5?", a: ["2+3", "4+2"], correct: 0 },
-        { q: "Phép tính nào bằng 10?", a: ["5+4", "8+2"], correct: 1 },
-        { q: "7 trừ mấy bằng 4?", a: ["2", "3", "4"], correct: 1 },
-        { q: "2 cộng mấy bằng 10?", a: ["7", "8", "9"], correct: 1 }
-    ];
-
+    { q: "4 + 5 = ?", a: ["8", "9"], correct: 1 }, { q: "10 - 3 = ?", a: ["7", "6"], correct: 0 },
+    { q: "8 + 2 = ?", a: ["9", "10"], correct: 1 }, { q: "7 - 0 = ?", a: ["7", "0"], correct: 0 },
+    { q: "Số lớn nhất trong các số: 4, 9, 2?", a: ["9", "4"], correct: 0 }, { q: "Số bé nhất trong các số: 5, 1, 8?", a: ["5", "1"], correct: 1 },
+    { q: "Gộp 3 và 5 được mấy?", a: ["8", "7"], correct: 0 }, { q: "Tách 10 gồm 6 và mấy?", a: ["4", "3"], correct: 0 },
+    { q: "Điền dấu thích hợp: 5 + 2 ... 8", a: ["<", ">"], correct: 0 }, { q: "Hình tròn có lăn được không?", a: ["Có", "Không"], correct: 0 },
+    { q: "Quả bóng có dạng khối gì?", a: ["Khối cầu", "Khối vuông"], correct: 0 }, { q: "Hộp quà vuông có dạng khối gì?", a: ["Lập phương", "Chữ nhật"], correct: 0 },
+    { q: "Điền dấu: 9 ... 4 + 5", a: ["=", ">"], correct: 0 }, { q: "Số ở giữa 7 và 9 là số nào?", a: ["8", "6"], correct: 0 },
+    { q: "Trước số 1 là số mấy?", a: ["0", "2"], correct: 0 }, { q: "7 + 1 + 2 = ?", a: ["10", "9"], correct: 0 },
+    { q: "10 - 5 - 2 = ?", a: ["3", "4"], correct: 0 }, { q: "Số nào lớn hơn 8?", a: ["9", "7"], correct: 0 },
+    { q: "Bên trái của bé là tay cầm gì?", a: ["Bát cơm", "Đũa"], correct: 0 }, { q: "Hình tam giác có mấy cạnh?", a: ["3", "4"], correct: 0 },
+    { q: "Gộp 4 và 4 được mấy?", a: ["8", "9"], correct: 0 }, { q: "10 trừ mấy bằng 5?", a: ["5", "4"], correct: 0 },
+    { q: "3 cộng mấy bằng 9?", a: ["6", "5"], correct: 0 }, { q: "Số liền sau của số 9 là?", a: ["10", "8"], correct: 0 },
+    { q: "Số liền trước của số 10 là?", a: ["9", "8"], correct: 0 }, { q: "Tách 8 gồm 4 và mấy?", a: ["4", "5"], correct: 0 },
+    { q: "6 + 0 + 4 = ?", a: ["10", "9"], correct: 0 }, { q: "Hình vuông có mấy cạnh?", a: ["4", "3"], correct: 0 },
+    { q: "Quyển vở của bé hình gì?", a: ["Chữ nhật", "Tròn"], correct: 0 }, { q: "Cái phao bơi hình gì?", a: ["Tròn", "Vuông"], correct: 0 },
+    { q: "10 - 8 = ?", a: ["2", "1"], correct: 0 }, { q: "5 + 4 = ?", a: ["9", "8"], correct: 0 },
+    { q: "Số nào bé hơn số 2?", a: ["1", "3"], correct: 0 }, { q: "4 + ... = 7", a: ["3", "2"], correct: 0 },
+    { q: "9 - ... = 6", a: ["3", "4"], correct: 0 }
+];
     const part2 = [
     // --- QUY TẮC CHỮ C/K ---
     { q: "Điền chữ: '...on kiến'", a: ["c", "k"], correct: 0 },
@@ -160,123 +134,68 @@
     { q: "Từ nào viết ĐÚNG: 'gồ ghề' hay 'ghồ ghề'?", a: ["gồ ghề", "ghồ ghề"], correct: 0 }
 ];
 
-    const part3 = [
-    // --- NHÓM 1: ÂM VÀ VẦN CƠ BẢN (Tuần 1 - 10) ---
-    { q: "Tiếng nào có âm 'th'?", a: ["thỏ gỗ", "cái rổ"], correct: 0 },
-    { q: "Tiếng nào có âm 'kh'?", a: ["khế chua", "quả lê"], correct: 0 },
-    { q: "Tiếng nào có âm 'ph'?", a: ["phố xá", "đi bộ"], correct: 0 },
-    { q: "Tiếng nào có vần 'oi'?", a: ["cái còi", "cái ca"], correct: 0 },
-    { q: "Tiếng nào có vần 'ay'?", a: ["máy bay", "mái nhà"], correct: 0 },
-    { q: "Điền vần: 'đồ ch...'", a: ["ơi", "ươi"], correct: 0 },
-    { q: "Điền vần: 't... cười'", a: ["ươi", "uôi"], correct: 0 },
-
-    // --- NHÓM 2: ÂM ĐÔI VÀ VẦN PHỨC (Tuần 11 - 18) ---
-    { q: "Tiếng nào có vần 'ia'?", a: ["lá mía", "mùa hạ"], correct: 0 },
-    { q: "Tiếng nào có vần 'ua'?", a: ["con cua", "cái cửa"], correct: 0 },
-    { q: "Tiếng nào có vần 'ưa'?", a: ["ngựa gỗ", "múa ca"], correct: 0 },
-    { q: "Điền vần: 'cuộn d...'", a: ["ây", "ay"], correct: 0 },
+    // --- PHẦN 3: ĐỌC HIỂU & VẦN (60 CÂU - GỘP TẤT CẢ) ---
+const part3 = [
+    { text: "Nhà bé có con nghé. Nó rất ngơ ngác nhìn cỏ xanh.", q: "Con nghé đang nhìn cái gì?", a: ["Nhìn bé", "Nhìn cỏ"], correct: 1 },
+    { text: "Mùa hè, cả nhà đi biển chơi. Biển có cát trắng.", q: "Biển có cái gì?", a: ["Cát trắng", "Cát đen"], correct: 0 },
+    { text: "Bà đan mũ len màu đỏ cho bé đội đi học cho ấm.", q: "Chiếc mũ len màu gì?", a: ["Màu đỏ", "Màu xanh"], correct: 0 },
+    { text: "Bé giúp mẹ quét nhà và tưới cây. Mẹ khen bé chăm.", q: "Mẹ khen bé thế nào?", a: ["Chăm ngoan", "Học giỏi"], correct: 0 },
+    { text: "Sáng sớm, gà trống gáy vang gọi bé dậy đi học.", q: "Con gì gáy báo thức?", a: ["Gà trống", "Con vịt"], correct: 0 },
+    { text: "Bé Hà giã nghệ giúp bà. Củ nghệ có màu vàng tươi.", q: "Bé Hà làm gì giúp bà?", a: ["Giã nghệ", "Quét nhà"], correct: 0 },
+    { text: "Bé đi bộ ở bờ hồ. Hồ có cá, có cả thiên nga.", q: "Ở hồ có con gì bơi?", a: ["Thiên nga", "Con thỏ"], correct: 0 },
+    { text: "Trời mưa, bé đi ô và đi ủng để không ướt chân.", q: "Bé đi gì để chân khô?", a: ["Đi ủng", "Đi dép"], correct: 0 },
+    { text: "Bé thích ăn nho và dưa hấu. Nho ngọt lịm.", q: "Quả nho có vị gì?", a: ["Vị ngọt", "Vị chua"], correct: 0 },
+    { text: "Mẹ mua cho bé cái cặp mới có hình chú thỏ hồng.", q: "Cái cặp hình con gì?", a: ["Chú thỏ", "Chú gấu"], correct: 0 },
+    { text: "Bố đưa bé đi phố. Phố xá tấp nập xe cộ.", q: "Bố đưa bé đi đâu?", a: ["Đi phố", "Đi vườn"], correct: 0 },
+    { text: "Bé yêu bà vì bà hay kể chuyện cổ tích cho bé nghe.", q: "Bà hay làm gì?", a: ["Kể chuyện", "Cho quà"], correct: 0 },
+    { text: "Cuối tuần, bé được đi công viên ngắm hoa.", q: "Bé đi đâu cuối tuần?", a: ["Công viên", "Đi học"], correct: 0 },
+    { text: "Học kỳ 1 sắp kết thúc, bé hứa sẽ học thật tốt.", q: "Bé hứa điều gì?", a: ["Học thật tốt", "Đi chơi"], correct: 0 },
+    { q: "Từ nào có vần 'ia'?", a: ["lá mía", "mùa hạ"], correct: 0 },
+    { q: "Từ nào có vần 'ua'?", a: ["con cua", "cái cửa"], correct: 0 },
+    { q: "Từ nào có vần 'ưa'?", a: ["ngựa gỗ", "múa ca"], correct: 0 },
+    { q: "Từ nào có vần 'ay'?", a: ["máy bay", "mái nhà"], correct: 0 },
     { q: "Điền vần: 'con l...n'", a: ["ươn", "uôn"], correct: 0 },
-    { q: "Điền vần: 'b...ng chuối'", a: ["uông", "uồng"], correct: 1 },
-    { q: "Tiếng nào có vần 'uôi'?", a: ["nải chuối", "con muỗi"], correct: 0 },
-    { q: "Tiếng nào có vần 'iên'?", a: ["cái diều", "đèn điện"], correct: 1 },
-    { q: "Tiếng nào có vần 'iêp'?", a: ["tấm thiệp", "tiếp nối"], correct: 1 },
-    { q: "Điền vần: 'm... tóc'", a: ["ái", "ay"], correct: 0 },
+    { q: "Điền vần: 'cuộn d...'", a: ["ây", "ay"], correct: 0 },
+    { q: "Tiếng nào có vần 'uôi'?", a: ["nải chuối", "muỗi"], correct: 0 },
+    { q: "Tiếng nào có vần 'iên'?", a: ["đèn điện", "con voi"], correct: 0 },
+    { q: "Điền vần: 'buổi s...'", a: ["áng", "anh"], correct: 0 },
+    { q: "Tiếng nào có vần 'uông'?", a: ["quả chuông", "buồm"], correct: 0 },
+    { q: "Tiếng nào có vần 'ơi'?", a: ["đi chơi", "tươi"], correct: 0 },
+    { q: "Tiếng nào có vần 'iêp'?", a: ["tấm thiệp", "tiếp"], correct: 0 },
     { q: "Điền vần: 'th... kẻ'", a: ["ước", "ươc"], correct: 0 },
     { q: "Tiếng nào có vần 'oanh'?", a: ["chim oanh", "quả chanh"], correct: 0 },
-
-    // --- NHÓM 3: TỪ NGỮ VÀ CÂU VĂN (Tổng hợp) ---
-    { q: "Từ nào chỉ đồ dùng học tập?", a: ["thước kẻ", "bánh mì"], correct: 0 },
-    { q: "Từ nào chỉ con vật?", a: ["cá trê", "cái ghế"], correct: 0 },
+    { q: "Tiếng có vần 'ươu'?", a: ["con hươu", "con mèo"], correct: 0 },
+    { q: "Từ nào chỉ đồ dùng học tập?", a: ["bút chì", "bánh mì"], correct: 0 },
+    { q: "Từ nào chỉ con vật?", a: ["cá trê", "cái bàn"], correct: 0 },
+    { q: "Từ nào chỉ màu sắc?", a: ["màu đỏ", "đi bộ"], correct: 0 },
+    { q: "Từ nào chỉ cây cối?", a: ["cây đa", "cái ca"], correct: 0 },
+    { q: "Từ chỉ người thân?", a: ["ông bà", "cái bàn"], correct: 0 },
+    { q: "Viết hoa ĐÚNG:", a: ["Mẹ yêu bé.", "mẹ yêu bé."], correct: 0 },
+    { q: "Câu nào đúng nghĩa?", a: ["Bé quét nhà.", "Nhà quét bé."], correct: 0 },
+    { q: "Tiếng có vần 'oi'?", a: ["cái còi", "cái ca"], correct: 0 },
+    { q: "Vần 'uôc' có trong từ nào?", a: ["cái cuốc", "chuối"], correct: 0 },
+    { q: "Vần 'ươi' có trong từ nào?", a: ["tươi cười", "tưới"], correct: 0 },
+    { q: "Điền vần: 'm... tóc'", a: ["ái", "ay"], correct: 0 },
+    { q: "Vần 'uôn' có trong từ nào?", a: ["buôn làng", "con lươn"], correct: 0 },
+    { q: "Vần 'ai' có trong từ nào?", a: ["gà mái", "máy bay"], correct: 0 },
+    { q: "Tiếng có vần 'iêu'?", a: ["cái diều", "đèn"], correct: 0 },
+    { q: "Tiếng có vần 'ươn'?", a: ["con vượn", "buôn"], correct: 0 },
+    { q: "Tiếng có vần 'anh'?", a: ["cành cây", "canh"], correct: 0 },
+    { q: "Tiếng có vần 'ong'?", a: ["con ong", "ông"], correct: 0 },
+    { q: "Điền vần: 'quả l...'", a: ["ựu", "ự"], correct: 0 },
+    { q: "Tiếng có âm 'th'?", a: ["con thỏ", "cái rổ"], correct: 0 },
+    { q: "Tiếng có âm 'ph'?", a: ["phố xá", "đi bộ"], correct: 0 },
+    { q: "Vần 'ia' có trong từ nào?", a: ["vỉa hè", "vỉ thuốc"], correct: 0 },
     { q: "Từ nào chỉ loài hoa?", a: ["hoa lan", "lan can"], correct: 0 },
-    { q: "Từ nào viết đúng chính tả?", a: ["nghỉ hè", "ngỉ hè"], correct: 0 },
-    { q: "Điền vào chỗ trống: 'Bé ... học'", a: ["đi", "đy"], correct: 0 },
-    { q: "Câu nào có nghĩa đúng?", a: ["Bé quét nhà.", "Nhà quét bé."], correct: 0 },
-    { q: "Chọn chữ viết hoa đúng đầu câu:", a: ["Mẹ yêu bé.", "mẹ yêu bé."], correct: 0 },
-
-    // --- NHÓM 4: ĐỌC HIỂU ĐOẠN VĂN (Trọng tâm thi 30/12) ---
-    { 
-        text: "Nhà bé có con nghé. Nó rất ngơ ngác nhìn cỏ xanh.", 
-        q: "Con nghé đang nhìn cái gì?", 
-        a: ["Nhìn bé", "Nhìn cỏ"], 
-        correct: 1 
-    },
-    { 
-        text: "Mùa đông, bà đan cho bé chiếc mũ len màu đỏ rất ấm.", 
-        q: "Chiếc mũ len màu gì?", 
-        a: ["Màu đỏ", "Màu xanh"], 
-        correct: 0 
-    },
-    { 
-        text: "Mùa hè, cả nhà Hà đi nghỉ mát ở bờ biển. Biển có cát trắng.", 
-        q: "Nhà Hà đi đâu vào mùa hè?", 
-        a: ["Đi chợ", "Đi biển"], 
-        correct: 1 
-    },
-    { 
-        text: "Bé Hà giã nghệ giúp bà. Củ nghệ có màu vàng tươi.", 
-        q: "Củ nghệ có màu gì?", 
-        a: ["Màu tím", "Màu vàng"], 
-        correct: 1 
-    },
-    { 
-        text: "Sáng sớm, gà trống gáy vang gọi mọi người thức dậy.", 
-        q: "Con gì gáy báo thức?", 
-        a: ["Gà trống", "Con vịt"], 
-        correct: 0 
-    },
-    { 
-        text: "Mẹ mua cho bé cái cặp mới có hình chú thỏ hồng.", 
-        q: "Cái cặp có hình con gì?", 
-        a: ["Chú thỏ", "Chú gấu"], 
-        correct: 0 
-    },
-    { 
-        text: "Bé giúp mẹ quét nhà và tưới cây. Mẹ khen bé chăm ngoan.", 
-        q: "Bé làm gì giúp mẹ?", 
-        a: ["Đi chơi", "Quét nhà, tưới cây"], 
-        correct: 1 
-    },
-    { 
-        text: "Trời mưa, bé đi ô và đi ủng để không bị ướt chân.", 
-        q: "Bé đi gì để không ướt chân?", 
-        a: ["Đi ủng", "Đi dép"], 
-        correct: 0 
-    },
-    { 
-        text: "Bé thích ăn nho và dưa hấu. Nho ngọt lịm.", 
-        q: "Quả nho có vị gì?", 
-        a: ["Vị ngọt", "Vị chua"], 
-        correct: 0 
-    },
-    { 
-        text: "Bố đưa bé đi phố. Phố xá tấp nập xe cộ.", 
-        q: "Bố đưa bé đi đâu?", 
-        a: ["Đi phố", "Đi vườn"], 
-        correct: 0 
-    },
-    { 
-        text: "Hồ có cá và có cả thiên nga bơi lội.", 
-        q: "Trong hồ có con gì?", 
-        a: ["Thiên nga", "Con thỏ"], 
-        correct: 0 
-    },
-    { 
-        text: "Bé yêu bà nhất nhà vì bà rất hay kể chuyện cổ tích.", 
-        q: "Vì sao bé yêu bà?", 
-        a: ["Bà kể chuyện", "Bà cho quà"], 
-        correct: 0 
-    },
-    { 
-        text: "Cuối tuần, bé được đi công viên ngắm hoa.", 
-        q: "Bé đi đâu vào cuối tuần?", 
-        a: ["Đi công viên", "Đi học"], 
-        correct: 0 
-    },
-    { 
-        text: "Học kỳ 1 sắp kết thúc, bé hứa sẽ học thật tốt.", 
-        q: "Bé hứa điều gì?", 
-        a: ["Học thật tốt", "Đi chơi"], 
-        correct: 0 }
+    { q: "Điền vần: 'thước k...'", a: ["ẻ", "ẽ"], correct: 0 },
+    { q: "Câu nào viết hoa đúng?", a: ["Hà đi học.", "hà đi học."], correct: 0 },
+    { q: "Vần 'uôi' có trong từ nào?", a: ["nải chuối", "cuốc"], correct: 0 },
+    { text: "Bé thích ăn nho và dưa hấu.", q: "Bé thích ăn gì?", a: ["Nho, dưa hấu", "Bánh mì"], correct: 0 },
+    { text: "Con mèo nằm sưởi nắng ở sân.", q: "Con mèo nằm ở đâu?", a: ["Ở sân", "Ở bếp"], correct: 0 },
+    { q: "Tiếng nào có vần 'uông'?", a: ["rau muống", "mương"], correct: 0 },
+    { q: "Vần 'anh' có trong từ nào?", a: ["bánh chưng", "bóng"], correct: 0 },
+    { q: "Từ nào đúng chính tả?", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 0 },
+    { q: "Câu viết đúng:", a: ["Bé đi học.", "Bé đi Học."], correct: 0 }
 ];
 
    let currentQuiz = [];
