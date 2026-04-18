@@ -1,174 +1,1126 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siêu Nhân Ôn Thi Lớp 1.2</title>
-    <style>
-        :root { --primary: #4caf50; --secondary: #2196f3; --wrong: #f44336; --bg: #fdfdfd; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #eef2f3; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 10px; }
-        #quiz-container { background: white; padding: 25px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); width: 100%; max-width: 650px; text-align: center; border: 6px solid var(--primary); min-height: 580px; position: relative; }
-        .home-icon { position: absolute; top: 20px; left: 20px; font-size: 24px; cursor: pointer; background: #fff; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--primary); z-index: 10; }
-        .menu-btn { width: 100%; padding: 20px; margin: 12px 0; font-size: 18px; font-weight: bold; border-radius: 18px; border: none; cursor: pointer; color: white; box-shadow: 0 4px 0 rgba(0,0,0,0.2); transition: 0.3s; }
-        .btn-toan { background: #ff9800; }
-        .btn-chinh-ta { background: #9c27b0; }
-        .btn-doc-hieu { background: #00bcd4; }
-        .progress { font-size: 16px; font-weight: bold; background: #fff9c4; padding: 8px; border-radius: 20px; width: fit-content; margin: 10px auto; }
-        #question { font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #333; min-height: 60px; }
-        .options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        button.option-btn { padding: 18px; font-size: 18px; border: 3px solid #eee; border-radius: 15px; background: #fff; cursor: pointer; font-weight: bold; transition: 0.2s; }
-        
-        button.correct { background-color: var(--primary) !important; color: white !important; border-color: #2e7d32 !important; }
-        button.wrong { background-color: var(--wrong) !important; color: white !important; border-color: #b71c1c !important; }
-        
-        .nav-controls { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; }
-        .nav-btn { flex: 1; padding: 15px; border-radius: 12px; border: none; background: #90a4ae; color: white; font-weight: bold; cursor: pointer; font-size: 16px; }
-        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        .nav-btn.active { background: var(--secondary); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌟 Ôn Thi Học Kì 2 - Lớp 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --green: #6BCB77;
+    --blue: #4D96FF;
+    --pink: #FF6B9D;
+    --purple: #C77DFF;
+    --light-bg: #FFF8EE;
+    --card-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    --radius: 20px;
+  }
 
-        .reading-text { background: #fffde7; padding: 20px; border-left: 8px solid #fbc02d; text-align: left; margin-bottom: 20px; font-size: 20px; line-height: 1.6; border-radius: 10px; }
-    </style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light-bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(255,217,61,0.15) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(107,203,119,0.15) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(77,150,255,0.08) 0%, transparent 60%);
+    z-index: -1;
+  }
+
+  /* Stars decoration */
+  .star {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.5rem;
+    animation: floatStar 4s ease-in-out infinite;
+    z-index: 0;
+    opacity: 0.4;
+  }
+  .star:nth-child(1) { top:5%; left:3%; animation-delay:0s; }
+  .star:nth-child(2) { top:15%; right:5%; animation-delay:1s; }
+  .star:nth-child(3) { top:40%; left:1%; animation-delay:2s; }
+  .star:nth-child(4) { bottom:20%; right:3%; animation-delay:0.5s; }
+  .star:nth-child(5) { bottom:10%; left:6%; animation-delay:1.5s; }
+
+  @keyframes floatStar {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(20deg); }
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFD93D 50%, #FF6B9D 100%);
+    padding: 24px 20px 32px;
+    text-align: center;
+    position: relative;
+    clip-path: ellipse(100% 90% at 50% 0%);
+    padding-bottom: 48px;
+  }
+
+  header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    letter-spacing: -0.5px;
+  }
+
+  header p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .header-emoji {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 8px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Main Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Subject Tabs */
+  .tabs {
+    display: flex;
+    gap: 12px;
+    margin: -20px auto 28px;
+    justify-content: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .tab-btn {
+    flex: 1;
+    max-width: 200px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.2);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .tab-btn:hover::after { opacity: 1; }
+  .tab-btn:hover { transform: translateY(-3px); }
+
+  .tab-btn.math {
+    background: linear-gradient(135deg, #4D96FF, #6C5CE7);
+    color: white;
+  }
+
+  .tab-btn.viet {
+    background: linear-gradient(135deg, #FF6B9D, #FF8C42);
+    color: white;
+  }
+
+  .tab-btn.active {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  }
+
+  /* Section Panels */
+  .panel { display: none; animation: slideIn 0.4s ease; }
+  .panel.active { display: block; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Score Bar */
+  .score-bar {
+    background: white;
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .score-label { font-weight: 700; color: #555; font-size: 0.95rem; }
+  .score-value {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--orange);
+    margin-left: auto;
+  }
+
+  .stars-display { font-size: 1.3rem; letter-spacing: 2px; }
+
+  /* Topic Cards */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .topic-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: var(--card-shadow);
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 5px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .topic-card.blue::before { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+  .topic-card.green::before { background: linear-gradient(90deg, var(--green), #00C897); }
+  .topic-card.orange::before { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+  .topic-card.pink::before { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+
+  .topic-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  }
+
+  .topic-card.active-topic {
+    border-color: var(--blue);
+    background: linear-gradient(135deg, #f0f7ff, #fff);
+  }
+
+  .topic-icon { font-size: 2.2rem; margin-bottom: 8px; }
+  .topic-name {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  .topic-desc { font-size: 0.82rem; color: #888; }
+  .topic-progress {
+    margin-top: 10px;
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .topic-progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--green), #00C897);
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  /* Quiz Area */
+  .quiz-area {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    min-height: 320px;
+    position: relative;
+  }
+
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed #f0f0f0;
+  }
+
+  .quiz-icon { font-size: 1.8rem; }
+  .quiz-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .question-count {
+    margin-left: auto;
+    background: #f0f4ff;
+    color: var(--blue);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  /* Question */
+  .question-box {
+    background: linear-gradient(135deg, #f8f9ff, #fff0f8);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 20px;
+    border: 2px solid #e8eeff;
+  }
+
+  .question-text {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 700;
+    color: #222;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .question-img {
+    font-size: 3rem;
+    text-align: center;
+    display: block;
+    margin: 10px 0;
+  }
+
+  /* Answer Options */
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .option-btn {
+    padding: 14px 16px;
+    border: 3px solid #e8e8e8;
+    border-radius: 14px;
+    background: white;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #333;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--blue);
+    background: #f0f7ff;
+    transform: scale(1.03);
+  }
+
+  .option-btn.correct {
+    background: linear-gradient(135deg, #d4f5e2, #b8f0d0);
+    border-color: var(--green);
+    color: #1a7a3e;
+    animation: correctPop 0.4s ease;
+  }
+
+  .option-btn.wrong {
+    background: linear-gradient(135deg, #ffe0e0, #ffc8c8);
+    border-color: #ff6b6b;
+    color: #c0392b;
+    animation: shake 0.4s ease;
+  }
+
+  @keyframes correctPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+  }
+
+  /* Fill in blank */
+  .fill-input-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+
+  .fill-input {
+    width: 90px;
+    height: 56px;
+    border: 3px solid #e8e8e8;
+    border-radius: 12px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    color: #333;
+    outline: none;
+    transition: all 0.2s;
+    background: white;
+  }
+
+  .fill-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(77,150,255,0.2); }
+  .fill-input.correct { border-color: var(--green); background: #d4f5e2; color: #1a7a3e; }
+  .fill-input.wrong { border-color: #ff6b6b; background: #ffe0e0; color: #c0392b; animation: shake 0.4s ease; }
+
+  .fill-label {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(77,150,255,0.35);
+  }
+
+  .btn-primary:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px rgba(77,150,255,0.45); }
+  .btn-primary:active { transform: scale(0.97); }
+
+  .btn-secondary {
+    background: white;
+    color: #666;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { background: #f5f5f5; transform: translateY(-2px); }
+
+  .action-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  /* Feedback */
+  .feedback-box {
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-weight: 700;
+    font-size: 1rem;
+    display: none;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .feedback-box.show { display: flex; animation: fadeIn 0.3s ease; }
+  .feedback-box.correct-fb { background: #d4f5e2; color: #1a7a3e; border: 2px solid var(--green); }
+  .feedback-box.wrong-fb { background: #ffe0e0; color: #c0392b; border: 2px solid #ff6b6b; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Welcome screen */
+  .welcome-screen {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .welcome-screen .big-emoji { font-size: 5rem; display: block; margin-bottom: 16px; animation: bounce 2s ease-in-out infinite; }
+  .welcome-screen h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .welcome-screen p { color: #888; font-size: 1rem; max-width: 320px; margin: 0 auto; }
+
+  /* Confetti */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: confettiFall 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* Alphabet display */
+  .alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .alpha-card {
+    background: linear-gradient(135deg, #fff0f5, #fff8e8);
+    border: 2px solid #ffd6e0;
+    border-radius: 10px;
+    padding: 8px 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c0392b;
+  }
+
+  .alpha-card:hover { transform: scale(1.1); border-color: var(--pink); background: #ffe4ed; }
+
+  /* Number line */
+  .number-line {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding: 16px 8px;
+    background: linear-gradient(135deg, #f0f7ff, #f8f0ff);
+    border-radius: 16px;
+    margin: 12px 0;
+  }
+
+  .num-circle {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--blue);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .num-circle:hover { background: var(--blue); color: white; transform: scale(1.2); }
+  .num-line-arrow { color: #aaa; font-size: 0.7rem; margin: 0 2px; }
+
+  /* Progress stars */
+  .progress-stars {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 12px 0;
+    font-size: 1.6rem;
+  }
+
+  .progress-star { transition: all 0.3s; }
+  .progress-star.earned { animation: starPop 0.5s ease; }
+
+  @keyframes starPop {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* Responsive */
+  @media (max-width: 520px) {
+    .options-grid { grid-template-columns: 1fr; }
+    .topic-grid { grid-template-columns: 1fr 1fr; }
+    .quiz-area { padding: 18px; }
+  }
+
+  /* Sentence card */
+  .sentence-card {
+    background: linear-gradient(135deg, #fff8ee, #fff0f8);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border-left: 5px solid var(--orange);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .sentence-card:hover { transform: translateX(4px); background: #fff0e4; }
+  .sentence-card .sent-vi { font-size: 1.05rem; font-weight: 700; color: #333; }
+  .sentence-card .sent-note { font-size: 0.82rem; color: #999; margin-top: 3px; }
+
+  .hidden-score { display: none; }
+
+  /* Reading passage */
+  .reading-passage {
+    background: linear-gradient(135deg, #fffbf0, #fff0f8);
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid #ffd6b0;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .reading-passage .highlight {
+    background: var(--yellow);
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+
+</style>
 </head>
 <body>
-<audio id="sound-correct" preload="auto">
-    <source src="https://www.soundjay.com/human/applause-01.mp3" type="audio/mpeg">
-</audio>
-<audio id="sound-wrong" preload="auto">
-    <source src="https://www.soundjay.com/buttons/button-10.mp3" type="audio/mpeg">
-</audio>
 
-<div id="quiz-container">
-    <div id="home-button" class="home-icon" style="display: none;" onclick="goHome()">🏠</div>
+<!-- Floating stars -->
+<div class="star">⭐</div>
+<div class="star">🌟</div>
+<div class="star">✨</div>
+<div class="star">⭐</div>
+<div class="star">🌟</div>
 
-    <div id="menu-screen">
-        <h2 style="color: #2e7d32;">🌟 ÔN THI HỌC KỲ 1 - LỚP 1.2 🌟</h2>
-        <button class="menu-btn btn-toan" onclick="startQuiz(1)">PHẦN 1: TOÁN (35 câu)</button>
-        <button class="menu-btn btn-chinh-ta" onclick="startQuiz(2)">PHẦN 2: CHÍNH TẢ (50 câu)</button>
-        <button class="menu-btn btn-doc-hieu" onclick="startQuiz(3)">PHẦN 3: ĐỌC HIỂU & VẦN (60 câu)</button>
+<header>
+  <span class="header-emoji">🎒</span>
+  <h1>Ôn Thi Học Kì 2 – Lớp 1</h1>
+  <p>Toán & Tiếng Việt · Vui học mỗi ngày! 🌈</p>
+</header>
+
+<div class="container">
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn math active" onclick="switchTab('math')">🔢 Toán</button>
+    <button class="tab-btn viet" onclick="switchTab('viet')">📖 Tiếng Việt</button>
+  </div>
+
+  <!-- Score Bar -->
+  <div class="score-bar">
+    <span class="score-label">⭐ Điểm của bé:</span>
+    <div class="stars-display" id="starsDisplay">☆☆☆☆☆</div>
+    <span class="score-value" id="scoreValue">0 / 0</span>
+  </div>
+
+  <!-- MATH PANEL -->
+  <div class="panel active" id="panel-math">
+    <div class="topic-grid">
+      <div class="topic-card blue" onclick="loadTopic('math','so_den_100')">
+        <div class="topic-icon">🔢</div>
+        <div class="topic-name">Đếm số đến 100</div>
+        <div class="topic-desc">So sánh, thứ tự số</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-so_den_100"></div></div>
+      </div>
+      <div class="topic-card green" onclick="loadTopic('math','cong_tru')">
+        <div class="topic-icon">➕</div>
+        <div class="topic-name">Cộng – Trừ trong 100</div>
+        <div class="topic-desc">Tính toán nhanh</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-cong_tru"></div></div>
+      </div>
+      <div class="topic-card orange" onclick="loadTopic('math','do_dai')">
+        <div class="topic-icon">📏</div>
+        <div class="topic-name">Đo độ dài</div>
+        <div class="topic-desc">cm, so sánh độ dài</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-do_dai"></div></div>
+      </div>
+      <div class="topic-card pink" onclick="loadTopic('math','hinh_hoc')">
+        <div class="topic-icon">🔷</div>
+        <div class="topic-name">Hình học</div>
+        <div class="topic-desc">Tam giác, hình vuông...</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-hinh_hoc"></div></div>
+      </div>
     </div>
 
-    <div id="quiz-content" style="display:none;">
-        <div class="progress" id="progress"></div>
-        <div id="reading-container" class="reading-text" style="display:none;"></div>
-        <div id="question"></div>
-        <div class="options" id="options"></div>
-        <div id="result-message" style="margin-top:15px; font-size: 18px; font-weight:bold; height: 25px;"></div>
-        
-        <div class="nav-controls">
-            <button class="nav-btn" id="prev-btn" onclick="prevQuestion()">⬅ Quay lại</button>
-            <button class="nav-btn active" id="next-btn" onclick="nextQuestion()">Tiếp theo ➡</button>
-        </div>
+    <div class="quiz-area" id="mathQuiz">
+      <div class="welcome-screen">
+        <span class="big-emoji">🧮</span>
+        <h2>Chọn chủ đề để bắt đầu!</h2>
+        <p>Bấm vào một thẻ ở trên để làm bài tập nhé bé 😊</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIET PANEL -->
+  <div class="panel" id="panel-viet">
+    <div class="topic-grid">
+      <div class="topic-card blue" onclick="loadTopic('viet','am_van')">
+        <div class="topic-icon">🔤</div>
+        <div class="topic-name">Âm – Vần</div>
+        <div class="topic-desc">Nhận biết âm, ghép vần</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-am_van"></div></div>
+      </div>
+      <div class="topic-card green" onclick="loadTopic('viet','doc_hieu')">
+        <div class="topic-icon">📚</div>
+        <div class="topic-name">Đọc – Hiểu</div>
+        <div class="topic-desc">Hiểu nội dung đoạn văn</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-doc_hieu"></div></div>
+      </div>
+      <div class="topic-card orange" onclick="loadTopic('viet','chinh_ta')">
+        <div class="topic-icon">✏️</div>
+        <div class="topic-name">Chính tả</div>
+        <div class="topic-desc">Viết đúng từ, câu</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-chinh_ta"></div></div>
+      </div>
+      <div class="topic-card pink" onclick="loadTopic('viet','dat_cau')">
+        <div class="topic-icon">💬</div>
+        <div class="topic-name">Đặt câu</div>
+        <div class="topic-desc">Câu hỏi, trả lời</div>
+        <div class="topic-progress"><div class="topic-progress-bar" id="prog-dat_cau"></div></div>
+      </div>
     </div>
 
-    <div id="score-board" style="display:none;">
-        <h2 style="margin-top: 40px;">🎊 KẾT QUẢ CỦA BÉ 🎊</h2>
-        <div style="font-size: 70px; color: #ff9800; font-weight: bold;" id="final-score">0/0</div>
-        <p id="feedback-text" style="font-size: 22px; font-weight: bold;"></p>
-        <button class="menu-btn" style="background:var(--primary); width: 80%; margin: 20px auto;" onclick="goHome()">Làm môn khác</button>
+    <div class="quiz-area" id="vietQuiz">
+      <div class="welcome-screen">
+        <span class="big-emoji">📖</span>
+        <h2>Chọn chủ đề để bắt đầu!</h2>
+        <p>Bấm vào một thẻ ở trên để làm bài tập nhé bé 😊</p>
+      </div>
     </div>
+  </div>
+
 </div>
 
 <script>
-// Dữ liệu câu hỏi (Giữ nguyên cấu trúc nhưng code xử lý sẽ random đáp án)
-const part1 = [ { q: "4 + 5 = ?", a: ["8", "9"], correct: 1 }, { q: "10 - 3 = ?", a: ["7", "6"], correct: 0 }, { q: "8 + 2 = ?", a: ["9", "10"], correct: 1 }, { q: "7 - 0 = ?", a: ["7", "0"], correct: 0 }, { q: "Số lớn nhất: 4, 9, 2?", a: ["9", "4"], correct: 0 }, { q: "Số bé nhất: 5, 1, 8?", a: ["5", "1"], correct: 1 }, { q: "Gộp 3 và 5 được mấy?", a: ["8", "7"], correct: 0 }, { q: "Tách 10 gồm 6 và mấy?", a: ["4", "3"], correct: 0 }, { q: "5 + 2 ... 8", a: ["<", ">"], correct: 0 }, { q: "Hình tròn lăn được không?", a: ["Có", "Không"], correct: 0 }, { q: "Quả bóng khối gì?", a: ["Khối cầu", "Khối vuông"], correct: 0 }, { q: "Hộp quà vuông khối gì?", a: ["Lập phương", "Chữ nhật"], correct: 0 }, { q: "9 ... 4 + 5", a: ["=", ">"], correct: 0 }, { q: "Số ở giữa 7 và 9?", a: ["8", "6"], correct: 0 }, { q: "Trước số 1 là số mấy?", a: ["0", "2"], correct: 0 }, { q: "7 + 1 + 2 = ?", a: ["10", "9"], correct: 0 }, { q: "10 - 5 - 2 = ?", a: ["3", "4"], correct: 0 }, { q: "Số lớn hơn 8?", a: ["9", "7"], correct: 0 }, { q: "Tay trái cầm gì?", a: ["Bát cơm", "Đũa"], correct: 0 }, { q: "Tam giác có mấy cạnh?", a: ["3", "4"], correct: 0 }, { q: "Gộp 4 và 4 được mấy?", a: ["8", "9"], correct: 0 }, { q: "10 - ... = 5", a: ["5", "4"], correct: 0 }, { q: "3 + ... = 9", a: ["6", "5"], correct: 0 }, { q: "Số liền sau số 9?", a: ["10", "8"], correct: 0 }, { q: "Số liền trước số 10?", a: ["9", "8"], correct: 0 }, { q: "Tách 8 gồm 4 và mấy?", a: ["4", "5"], correct: 0 }, { q: "6 + 0 + 4 = ?", a: ["10", "9"], correct: 0 }, { q: "Hình vuông có mấy cạnh?", a: ["4", "3"], correct: 0 }, { q: "Quyển vở hình gì?", a: ["Chữ nhật", "Tròn"], correct: 0 }, { q: "Phao bơi hình gì?", a: ["Tròn", "Vuông"], correct: 0 }, { q: "10 - 8 = ?", a: ["2", "1"], correct: 0 }, { q: "5 + 4 = ?", a: ["9", "8"], correct: 0 }, { q: "Số bé hơn 2?", a: ["1", "3"], correct: 0 }, { q: "4 + ... = 7", a: ["3", "2"], correct: 0 }, { q: "9 - ... = 6", a: ["3", "4"], correct: 0 } ];
-const part2 = [ { q: "Điền: '...on kiến'", a: ["k", "c"], correct: 1 }, { q: "Điền: '...ái ca'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ể chuyện'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ì lạ'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...âu cá'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ẻ vở'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...im tiêm'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ì cọ'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...iên nhẫn'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...ổ áo'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ì diệu'", a: ["k", "c"], correct: 0 }, { q: "Điền: '...on cá'", a: ["c", "k"], correct: 0 }, { q: "Điền: '...ẻ bảng'", a: ["k", "c"], correct: 0 }, { q: "Điền: 'nhà ...a'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'gồ ...ề'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...i nhớ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: 'con ...à'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'cái ...ế'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...i chép'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...é tai'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...ế gỗ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...à gáy'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ỗ bàn'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ồ ghề'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...ê sợ'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...à chọi'", a: ["g", "gh"], correct: 0 }, { q: "Điền: 'con ...é'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'bắp ...ô'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: 'suy ...ĩ'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'củ ...ệ'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...ỉ hè'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...e nhạc'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: 'ngọt ...ào'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: '...é chơi'", a: ["ngh", "ng"], correct: 0 }, { q: "Điền: '...ủ ngon'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: '...óng trông'", a: ["ng", "ngh"], correct: 0 }, { q: "Điền: 'nghỉ ...ơi'", a: ["ng", "ngh"], correct: 1 }, { q: "Điền: '...i chép'", a: ["gh", "g"], correct: 0 }, { q: "Điền: '...ia đình'", a: ["g", "gh"], correct: 0 }, { q: "Điền: '...é chơi'", a: ["gh", "g"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["nghỉ hè", "ngỉ hè"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["cái ghế", "cái gế"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["con nghé", "con ngé"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["kẻ vở", "cẻ vở"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["gồ ghề", "ghồ ghề"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["củ nghệ", "củ ngệ"], correct: 0 }, { q: "Viết ĐÚNG:", a: ["ghế đá", "gế đá"], correct: 0 }, { q: "Viết SAI:", a: ["nghỉ hè", "ngỉ hè"], correct: 1 }, { q: "Viết SAI:", a: ["kẻ vở", "cẻ vở"], correct: 1 } ];
-const part3 = [ { text: "Nhà bé có con nghé. Nó rất ngơ ngác nhìn cỏ xanh.", q: "Con nghé đang nhìn cái gì?", a: ["Nhìn bé", "Nhìn cỏ"], correct: 1 }, { text: "Mùa hè, cả nhà đi biển chơi. Biển có cát trắng.", q: "Biển có cái gì?", a: ["Cát trắng", "Cát đen"], correct: 0 }, { text: "Bà đan mũ len màu đỏ cho bé đội đi học cho ấm.", q: "Chiếc mũ len màu gì?", a: ["Màu đỏ", "Màu xanh"], correct: 0 }, { text: "Bé giúp mẹ quét nhà và tưới cây. Mẹ khen bé chăm.", q: "Mẹ khen bé thế nào?", a: ["Chăm ngoan", "Học giỏi"], correct: 0 }, { text: "Sáng sớm, gà trống gáy vang gọi bé dậy đi học.", q: "Con gì gáy báo thức?", a: ["Gà trống", "Con vịt"], correct: 0 }, { text: "Bé Hà giã nghệ giúp bà. Củ nghệ có màu vàng tươi.", q: "Bé Hà làm gì giúp bà?", a: ["Giã nghệ", "Quét nhà"], correct: 0 }, { text: "Bé đi bộ ở bờ hồ. Hồ có cá, có cả thiên nga.", q: "Ở hồ có con gì bơi?", a: ["Thiên nga", "Con thỏ"], correct: 0 }, { text: "Trời mưa, bé đi ô và đi ủng để không ướt chân.", q: "Bé đi gì để chân khô?", a: ["Đi ủng", "Đi dép"], correct: 0 }, { text: "Bé thích ăn nho và dưa hấu. Nho ngọt lịm.", q: "Quả nho có vị gì?", a: ["Vị ngọt", "Vị chua"], correct: 0 }, { text: "Mẹ mua cho bé cái cặp mới có hình chú thỏ hồng.", q: "Cái cặp hình con gì?", a: ["Chú thỏ", "Chú gấu"], correct: 0 }, { text: "Bố đưa bé đi phố. Phố xá tấp nập xe cộ.", q: "Bố đưa bé đi đâu?", a: ["Đi phố", "Đi vườn"], correct: 0 }, { text: "Bé yêu bà vì bà hay kể chuyện cổ tích cho bé nghe.", q: "Bà hay làm gì?", a: ["Kể chuyện", "Cho quà"], correct: 0 }, { text: "Cuối tuần, bé được đi công viên ngắm hoa.", q: "Bé đi đâu cuối tuần?", a: ["Công viên", "Đi học"], correct: 0 }, { text: "Học kỳ 1 sắp kết thúc, bé hứa sẽ học thật tốt.", q: "Bé hứa điều gì?", a: ["Học thật tốt", "Đi chơi"], correct: 0 }, { q: "Từ nào có vần 'ia'?", a: ["lá mía", "mùa hạ"], correct: 0 }, { q: "Từ nào có vần 'ua'?", a: ["con cua", "cái cửa"], correct: 0 }, { q: "Từ nào có vần 'ưa'?", a: ["ngựa gỗ", "múa ca"], correct: 0 }, { q: "Từ nào có vần 'ay'?", a: ["máy bay", "mái nhà"], correct: 0 }, { q: "Điền vần: 'con l...n'", a: ["ươn", "uôn"], correct: 0 }, { q: "Điền vần: 'cuộn d...'", a: ["ây", "ay"], correct: 0 }, { q: "Tiếng nào có vần 'uôi'?", a: ["nải chuối", "muỗi"], correct: 0 }, { q: "Tiếng nào có vần 'iên'?", a: ["đèn điện", "con voi"], correct: 0 }, { q: "Điền vần: 'buổi s...'", a: ["áng", "anh"], correct: 0 }, { q: "Tiếng nào có vần 'uông'?", a: ["quả chuông", "buồm"], correct: 0 }, { q: "Tiếng nào có vần 'ơi'?", a: ["đi chơi", "tươi"], correct: 0 }, { q: "Tiếng nào có vần 'iêp'?", a: ["tấm thiệp", "tiếp"], correct: 0 }, { q: "Điền vần: 'th... kẻ'", a: ["ước", "ươc"], correct: 0 }, { q: "Tiếng nào có vần 'oanh'?", a: ["chim oanh", "quả chanh"], correct: 0 }, { q: "Tiếng có vần 'ươu'?", a: ["con hươu", "con mèo"], correct: 0 }, { q: "Từ nào chỉ đồ dùng học tập?", a: ["bút chì", "bánh mì"], correct: 0 }, { q: "Từ nào chỉ con vật?", a: ["cá trê", "cái bàn"], correct: 0 }, { q: "Từ nào chỉ màu sắc?", a: ["màu đỏ", "đi bộ"], correct: 0 }, { q: "Từ nào chỉ cây cối?", a: ["cây đa", "cái ca"], correct: 0 }, { q: "Từ chỉ người thân?", a: ["ông bà", "cái bàn"], correct: 0 }, { q: "Viết hoa ĐÚNG:", a: ["Mẹ yêu bé.", "mẹ yêu bé."], correct: 0 }, { q: "Câu nào đúng nghĩa?", a: ["Bé quét nhà.", "Nhà quét bé."], correct: 0 }, { q: "Tiếng có vần 'oi'?", a: ["cái còi", "cái ca"], correct: 0 }, { q: "Vần 'uôc' có trong từ nào?", a: ["cái cuốc", "chuối"], correct: 0 }, { q: "Vần 'ươi' có trong từ nào?", a: ["tươi cười", "tưới"], correct: 0 }, { q: "Điền vần: 'm... tóc'", a: ["ái", "ay"], correct: 0 }, { q: "Vần 'uôn' có trong từ nào?", a: ["buôn làng", "con lươn"], correct: 0 }, { q: "Vần 'ai' có trong từ nào?", a: ["gà mái", "máy bay"], correct: 0 }, { q: "Tiếng có vần 'iêu'?", a: ["cái diều", "đèn"], correct: 0 }, { q: "Tiếng có vần 'ươn'?", a: ["con vượn", "buôn"], correct: 0 }, { q: "Tiếng có vần 'anh'?", a: ["cành cây", "canh"], correct: 0 }, { q: "Tiếng có vần 'ong'?", a: ["con ong", "ông"], correct: 0 }, { q: "Điền vần: 'quả l...'", a: ["ựu", "ự"], correct: 0 }, { q: "Tiếng có âm 'th'?", a: ["con thỏ", "cái rổ"], correct: 0 }, { q: "Tiếng có âm 'ph'?", a: ["phố xá", "đi bộ"], correct: 0 }, { q: "Vần 'ia' có trong từ nào?", a: ["vỉa hè", "vỉ thuốc"], correct: 0 }, { q: "Từ nào chỉ loài hoa?", a: ["hoa lan", "lan can"], correct: 0 }, { q: "Điền vần: 'thước k...'", a: ["ẻ", "ẽ"], correct: 0 }, { q: "Câu viết hoa đúng?", a: ["Hà đi học.", "hà đi học."], correct: 0 }, { q: "Vần 'uôi' có trong từ nào?", a: ["nải chuối", "cuốc"], correct: 0 }, { text: "Bé thích ăn nho và dưa hấu.", q: "Bé thích ăn gì?", a: ["Nho, dưa hấu", "Bánh mì"], correct: 0 }, { text: "Con mèo nằm sưởi nắng ở sân.", q: "Con mèo nằm ở đâu?", a: ["Ở sân", "Ở bếp"], correct: 0 }, { q: "Tiếng nào có vần 'uông'?", a: ["rau muống", "mương"], correct: 0 }, { q: "Vần 'anh' có trong từ nào?", a: ["bánh chưng", "bóng"], correct: 0 }, { q: "Từ nào đúng chính tả?", a: ["nghỉ ngơi", "ngỉ ngơi"], correct: 0 }, { q: "Câu viết đúng:", a: ["Bé đi học.", "Bé đi Học."], correct: 0 } ];
-
-let currentQuiz = [], currentIdx = 0, userAnswers = [], randomizedQuestions = [];
-
-function playSound(isCorrect) {
-    const sound = document.getElementById(isCorrect ? 'sound-correct' : 'sound-wrong');
-    sound.pause(); 
-    sound.currentTime = 0;
-    sound.play().catch(e => {});
-
-    // GIỚI HẠN 2 GIÂY CHO TIẾNG VỖ TAY
-    if (isCorrect) {
-        setTimeout(() => {
-            // Giảm dần âm lượng cho mượt rồi tắt
-            let fadeOut = setInterval(() => {
-                if (sound.volume > 0.1) {
-                    sound.volume -= 0.1;
-                } else {
-                    clearInterval(fadeOut);
-                    sound.pause();
-                    sound.volume = 1.0; 
-                }
-            }, 50);
-        }, 2000); // Sau 2 giây bắt đầu tắt
+// ====================================================
+// DATA
+// ====================================================
+const TOPICS = {
+  math: {
+    so_den_100: {
+      icon: '🔢', name: 'Đếm số đến 100',
+      questions: [
+        { type:'choice', q:'Số nào đứng sau số 49?', opts:['47','48','50','51'], ans:2 },
+        { type:'choice', q:'Số 72 đọc là?', opts:['Bảy mươi','Bảy mươi mốt','Bảy mươi hai','Bảy mươi ba'], ans:2 },
+        { type:'fill',   q:'Điền số còn thiếu: 35, 36, 37, __, 39', ans:'38', hint:'38' },
+        { type:'choice', q:'Số nào LỚN hơn?', opts:['45','54','44','55'], ans:3 },
+        { type:'fill',   q:'Viết số: Năm mươi sáu = __', ans:'56', hint:'56' },
+        { type:'choice', q:'Số bé nhất trong các số: 23, 32, 12, 21 là?', opts:['23','32','12','21'], ans:2 },
+        { type:'fill',   q:'90, 91, 92, __, 94, 95', ans:'93', hint:'93' },
+        { type:'choice', q:'Số 100 gồm mấy chục?', opts:['9 chục','10 chục','8 chục','7 chục'], ans:1 },
+      ]
+    },
+    cong_tru: {
+      icon: '➕', name: 'Cộng – Trừ',
+      questions: [
+        { type:'fill',   q:'34 + 25 = __', ans:'59', hint:'59' },
+        { type:'fill',   q:'67 – 34 = __', ans:'33', hint:'33' },
+        { type:'choice', q:'45 + 30 = ?', opts:['75','65','80','70'], ans:0 },
+        { type:'fill',   q:'__ + 16 = 50', ans:'34', hint:'34' },
+        { type:'choice', q:'100 – 40 = ?', opts:['50','60','70','80'], ans:1 },
+        { type:'fill',   q:'28 + 14 = __', ans:'42', hint:'42' },
+        { type:'choice', q:'75 – 25 = ?', opts:['40','45','50','55'], ans:2 },
+        { type:'fill',   q:'__ – 13 = 45', ans:'58', hint:'58' },
+      ]
+    },
+    do_dai: {
+      icon: '📏', name: 'Đo độ dài',
+      questions: [
+        { type:'choice', q:'Đơn vị đo độ dài học ở lớp 1 là?', opts:['m','km','cm','mm'], ans:2 },
+        { type:'choice', q:'Cây bút dài 15cm, cây thước dài 20cm. Cây nào dài hơn?', opts:['Cây bút','Cây thước','Bằng nhau','Không biết'], ans:1 },
+        { type:'fill',   q:'1 dm = __ cm', ans:'10', hint:'10' },
+        { type:'choice', q:'Đoạn thẳng AB dài 8cm, đoạn CD dài 5cm. Đoạn AB dài hơn đoạn CD bao nhiêu cm?', opts:['2cm','3cm','4cm','5cm'], ans:1 },
+        { type:'fill',   q:'Bút chì dài 12cm, tẩy dài 5cm. Tổng chiều dài = __cm', ans:'17', hint:'17' },
+        { type:'choice', q:'Cái bàn cao khoảng bao nhiêu?', opts:['60cm','6cm','600cm','6m'], ans:0 },
+      ]
+    },
+    hinh_hoc: {
+      icon: '🔷', name: 'Hình học',
+      questions: [
+        { type:'choice', q:'Hình nào có 3 cạnh?', opts:['Hình vuông 🟥','Hình tam giác 🔺','Hình tròn ⭕','Hình chữ nhật'], ans:1 },
+        { type:'choice', q:'Hình vuông có bao nhiêu góc vuông?', opts:['2','3','4','5'], ans:2 },
+        { type:'fill',   q:'Hình chữ nhật có __ cạnh', ans:'4', hint:'4' },
+        { type:'choice', q:'Hình nào không có góc?', opts:['Hình vuông','Hình tam giác','Hình tròn','Hình chữ nhật'], ans:2 },
+        { type:'fill',   q:'Hình tam giác có __ đỉnh', ans:'3', hint:'3' },
+        { type:'choice', q:'Có mấy hình vuông ở đây? ⬛⬛⬛', opts:['1','2','3','4'], ans:2 },
+      ]
     }
+  },
+  viet: {
+    am_van: {
+      icon: '🔤', name: 'Âm – Vần',
+      questions: [
+        { type:'choice', q:'Từ "HOA" gồm những âm nào?', opts:['h – o – a','h – oa','ho – a','h – u – a'], ans:1 },
+        { type:'choice', q:'Vần của từ "TRĂNG" là vần gì?', opts:['tr','ăng','trăng','ăn'], ans:1 },
+        { type:'fill',   q:'Điền âm đầu: __ôi (chỉ hành động kêu to)', ans:'g', hint:'g (gôi)' },
+        { type:'choice', q:'Chữ nào có thanh nặng?', opts:['bà','bá','bạ','bả'], ans:2 },
+        { type:'choice', q:'Từ "CHƠI" có vần là?', opts:['ch','ơi','chơ','ơ'], ans:1 },
+        { type:'fill',   q:'Ghép: b + ai = __', ans:'bai', hint:'bai' },
+        { type:'choice', q:'Âm nào đứng đầu trong từ "NHẢY"?', opts:['n','nh','h','nha'], ans:1 },
+        { type:'choice', q:'Từ "MẸ" có thanh gì?', opts:['Thanh sắc','Thanh hỏi','Thanh nặng','Thanh bằng'], ans:1 },
+      ]
+    },
+    doc_hieu: {
+      icon: '📚', name: 'Đọc – Hiểu',
+      questions: [
+        {
+          type: 'reading',
+          passage: 'Nhà <span class="highlight">Lan</span> có một con mèo tên là <span class="highlight">Miu</span>. Miu rất thích uống sữa và bắt chuột. Mỗi buổi sáng, Miu hay ngồi sưởi nắng trên sân.',
+          q: 'Con mèo nhà Lan tên là gì?',
+          opts: ['Bông','Miu','Mèo','Lan'], ans:1
+        },
+        {
+          type: 'reading',
+          passage: 'Nhà <span class="highlight">Lan</span> có một con mèo tên là <span class="highlight">Miu</span>. Miu rất thích uống sữa và bắt chuột. Mỗi buổi sáng, Miu hay ngồi sưởi nắng trên sân.',
+          q: 'Miu thích làm gì vào buổi sáng?',
+          opts:['Ngủ','Chạy nhảy','Sưởi nắng trên sân','Ăn cá'], ans:2
+        },
+        {
+          type: 'reading',
+          passage: 'Trời hôm nay <span class="highlight">nắng đẹp</span>. Bạn <span class="highlight">Nam</span> cùng mẹ ra vườn tưới cây. Nam tưới hoa hồng và hoa cúc. Mẹ tưới rau.',
+          q: 'Ai ra vườn tưới cây?',
+          opts:['Nam và bố','Nam và mẹ','Chỉ có Nam','Chỉ có mẹ'], ans:1
+        },
+        {
+          type: 'reading',
+          passage: 'Trời hôm nay <span class="highlight">nắng đẹp</span>. Bạn <span class="highlight">Nam</span> cùng mẹ ra vườn tưới cây. Nam tưới hoa hồng và hoa cúc. Mẹ tưới rau.',
+          q: 'Nam tưới những loại hoa gì?',
+          opts:['Hoa lan và hoa cúc','Hoa hồng và hoa cúc','Hoa hồng và hoa lan','Hoa cúc và hoa mai'], ans:1
+        },
+        {
+          type: 'reading',
+          passage: 'Bé <span class="highlight">Hoa</span> rất ngoan. Mỗi tối bé học bài xong rồi mới xem hoạt hình. Bé giúp mẹ rửa bát và quét nhà. Mẹ khen bé chăm chỉ.',
+          q: 'Bé Hoa làm gì sau khi học bài?',
+          opts:['Đi ngủ','Xem hoạt hình','Chơi đùa','Đọc sách'], ans:1
+        },
+      ]
+    },
+    chinh_ta: {
+      icon: '✏️', name: 'Chính tả',
+      questions: [
+        { type:'choice', q:'Chọn từ viết ĐÚNG chính tả:', opts:['con bướm','con bướn','con bướng','con bước'], ans:0 },
+        { type:'choice', q:'Điền vào chỗ trống: Con __ bay lượn (loài chim nhỏ)', opts:['chim','chém','trím','tím'], ans:0 },
+        { type:'fill',   q:'Viết đúng: "mặt __ời" (nguồn sáng ban ngày)', ans:'trời', hint:'trời' },
+        { type:'choice', q:'Từ nào viết SAI?', opts:['cái bàn','quả dứa','con trâu','cây tre'], ans:1 },
+        { type:'fill',   q:'Điền: Bầu __ời xanh (khoảng không gian cao)', ans:'trời', hint:'trời' },
+        { type:'choice', q:'Chọn từ đúng: Bông hoa nở ___', opts:['đẹp','đẽp','đẻp','đẹb'], ans:0 },
+        { type:'fill',   q:'Viết đúng: con __ong (làm mật)', ans:'ong', hint:'ong' },
+        { type:'choice', q:'Câu nào viết hoa đúng?', opts:['bé lan đi học.','Bé Lan đi học.','bé Lan đi học.','Bé lan đi học.'], ans:1 },
+      ]
+    },
+    dat_cau: {
+      icon: '💬', name: 'Đặt câu',
+      questions: [
+        { type:'choice', q:'Câu hỏi dùng từ gì để hỏi về người?', opts:['Cái gì?','Ai?','Ở đâu?','Khi nào?'], ans:1 },
+        { type:'choice', q:'Câu "Con chó đang làm gì?" hỏi về điều gì?', opts:['Tên con vật','Hành động','Màu sắc','Nơi chốn'], ans:1 },
+        { type:'fill',   q:'Điền từ: __ đang đọc sách? → Dùng từ hỏi: __', ans:'Ai', hint:'Ai' },
+        { type:'choice', q:'Câu nào là câu hỏi?', opts:['Bé đi học.','Bé đi học!','Bé đi học đâu?','Bé rất ngoan.'], ans:2 },
+        { type:'choice', q:'"Bông hoa màu gì?" - Câu này hỏi về?', opts:['Số lượng','Màu sắc','Hành động','Tên gọi'], ans:1 },
+        { type:'fill',   q:'Trả lời: "Bé tên là gì?" → Bé tên là __', ans:'(tên bé)', hint:'tên của bé' },
+        { type:'choice', q:'Câu "Hôm nay thứ mấy?" hỏi về?', opts:['Người','Vật','Thời gian','Nơi chốn'], ans:2 },
+      ]
+    }
+  }
+};
+
+// ====================================================
+// STATE
+// ====================================================
+let currentTab = 'math';
+let currentTopic = null;
+let currentQ = 0;
+let score = 0;
+let total = 0;
+let topicProgress = {};
+let answered = false;
+
+// ====================================================
+// TAB SWITCHING
+// ====================================================
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.querySelector('.tab-btn.' + tab).classList.add('active');
+  currentTopic = null;
+  currentQ = 0;
 }
 
-function startQuiz(part) {
-    const originalData = (part === 1) ? part1 : (part === 2) ? part2 : part3;
-    randomizedQuestions = originalData.map(item => {
-        let options = [...item.a];
-        let correctText = item.a[item.correct];
-        if (Math.random() > 0.5) options.reverse();
-        return { ...item, shuffledA: options, newCorrect: options.indexOf(correctText) };
-    });
-    userAnswers = new Array(randomizedQuestions.length).fill(null);
-    currentIdx = 0;
-    document.getElementById('menu-screen').style.display = 'none';
-    document.getElementById('quiz-content').style.display = 'block';
-    document.getElementById('home-button').style.display = 'flex';
-    loadQuestion();
+// ====================================================
+// LOAD TOPIC
+// ====================================================
+function loadTopic(subject, topicKey) {
+  currentTopic = { subject, topicKey };
+  currentQ = 0;
+  answered = false;
+  score = 0; total = 0;
+  updateScoreBar();
+  renderQuestion();
 }
 
-function loadQuestion() {
-    const data = randomizedQuestions[currentIdx];
-    document.getElementById('progress').innerText = `Câu ${currentIdx + 1} / ${randomizedQuestions.length}`;
-    const readEl = document.getElementById('reading-container');
-    if(data.text) { readEl.innerText = data.text; readEl.style.display = 'block'; }
-    else { readEl.style.display = 'none'; }
-    document.getElementById('question').innerText = data.q;
-    const optEl = document.getElementById('options');
-    optEl.innerHTML = '';
-    document.getElementById('result-message').innerText = '';
+function renderQuestion() {
+  const { subject, topicKey } = currentTopic;
+  const topic = TOPICS[subject][topicKey];
+  const qs = topic.questions;
+  const quizEl = document.getElementById(subject === 'math' ? 'mathQuiz' : 'vietQuiz');
 
-    data.shuffledA.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.innerText = opt;
-        btn.classList.add('option-btn');
-        if(userAnswers[currentIdx] !== null) {
-            if(i === data.newCorrect) btn.classList.add('correct');
-            else if(i === userAnswers[currentIdx]) btn.classList.add('wrong');
-        }
-        btn.onclick = () => {
-            if(userAnswers[currentIdx] !== null) return;
-            userAnswers[currentIdx] = i;
-            if(i === data.newCorrect) {
-                btn.classList.add('correct');
-                playSound(true);
-                document.getElementById('result-message').innerText = "Đúng rồi! ✨";
-                setTimeout(() => nextQuestion(), 3000);
-            } else {
-                btn.classList.add('wrong');
-                playSound(false);
-                optEl.getElementsByTagName('button')[data.newCorrect].classList.add('correct');
-                document.getElementById('result-message').innerText = "Bé xem từ đúng nhé! ❤️";
-            }
-        };
-        optEl.appendChild(btn);
-    });
+  if (currentQ >= qs.length) {
+    showCompletion(subject, topicKey, qs.length);
+    return;
+  }
+
+  const q = qs[currentQ];
+  const qNum = currentQ + 1;
+  const total_q = qs.length;
+  answered = false;
+
+  let bodyHTML = '';
+
+  if (q.type === 'choice') {
+    bodyHTML = `
+      <div class="question-box">
+        <div class="question-text">${q.q}</div>
+      </div>
+      <div class="options-grid" id="optGrid">
+        ${q.opts.map((o,i) => `<button class="option-btn" onclick="checkChoice(${i},${q.ans})">${o}</button>`).join('')}
+      </div>
+    `;
+  } else if (q.type === 'fill') {
+    bodyHTML = `
+      <div class="question-box">
+        <div class="question-text">${q.q}</div>
+      </div>
+      <div class="fill-input-wrap">
+        <input class="fill-input" id="fillInput" type="text" placeholder="?" maxlength="10" onkeydown="if(event.key==='Enter')checkFill('${q.ans}','${q.hint||q.ans}')">
+      </div>
+      <div class="action-row">
+        <button class="btn-primary" onclick="checkFill('${q.ans}','${q.hint||q.ans}')">✅ Kiểm tra</button>
+      </div>
+    `;
+  } else if (q.type === 'reading') {
+    bodyHTML = `
+      <div class="reading-passage">${q.passage}</div>
+      <div class="question-box">
+        <div class="question-text">❓ ${q.q}</div>
+      </div>
+      <div class="options-grid" id="optGrid">
+        ${q.opts.map((o,i) => `<button class="option-btn" onclick="checkChoice(${i},${q.ans})">${o}</button>`).join('')}
+      </div>
+    `;
+  }
+
+  quizEl.innerHTML = `
+    <div class="quiz-header">
+      <span class="quiz-icon">${topic.icon}</span>
+      <span class="quiz-title">${topic.name}</span>
+      <span class="question-count">Câu ${qNum}/${total_q}</span>
+    </div>
+    <div class="progress-stars">${buildProgressStars(qNum, total_q)}</div>
+    ${bodyHTML}
+    <div class="feedback-box" id="feedbackBox"></div>
+    <div class="action-row" id="nextRow" style="display:none">
+      <button class="btn-primary" onclick="nextQ()">Câu tiếp theo ➡️</button>
+      ${currentQ + 1 >= qs.length ? '' : ''}
+    </div>
+  `;
+
+  if (q.type === 'fill') {
+    setTimeout(() => { const inp = document.getElementById('fillInput'); if(inp) inp.focus(); }, 100);
+  }
 }
 
-function nextQuestion() {
-    if(currentIdx < randomizedQuestions.length - 1) { currentIdx++; loadQuestion(); } 
-    else { showScore(); }
+function buildProgressStars(current, total) {
+  let s = '';
+  for (let i = 1; i <= total; i++) {
+    if (i < current) s += '<span class="progress-star earned">⭐</span>';
+    else if (i === current) s += '<span class="progress-star" style="font-size:2rem">🔵</span>';
+    else s += '<span class="progress-star" style="opacity:0.3">⭐</span>';
+  }
+  return s;
 }
 
-function prevQuestion() {
-    if(currentIdx > 0) { currentIdx--; loadQuestion(); }
+// ====================================================
+// CHECK ANSWERS
+// ====================================================
+function checkChoice(selected, correct) {
+  if (answered) return;
+  answered = true;
+  total++;
+
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach(b => b.disabled = true);
+
+  if (selected === correct) {
+    btns[selected].classList.add('correct');
+    btns[selected].textContent = '✅ ' + btns[selected].textContent;
+    score++;
+    showFeedback(true, '🎉 Đúng rồi! Giỏi lắm!');
+    triggerConfetti();
+  } else {
+    btns[selected].classList.add('wrong');
+    btns[correct].classList.add('correct');
+    const hint = TOPICS[currentTopic.subject][currentTopic.topicKey].questions[currentQ];
+    showFeedback(false, `❌ Sai rồi! Đáp án đúng là: ${hint.opts[correct]}`);
+  }
+
+  updateScoreBar();
+  document.getElementById('nextRow').style.display = 'flex';
 }
 
-function goHome() { location.reload(); }
+function checkFill(correctRaw, hint) {
+  if (answered) return;
+  const inp = document.getElementById('fillInput');
+  if (!inp || !inp.value.trim()) return;
 
-function showScore() {
-    let correctCount = userAnswers.filter((ans, idx) => ans === randomizedQuestions[idx].newCorrect).length;
-    document.getElementById('quiz-content').style.display = 'none';
-    document.getElementById('score-board').style.display = 'block';
-    document.getElementById('final-score').innerText = `${correctCount} / ${randomizedQuestions.length}`;
+  answered = true;
+  total++;
+  const val = inp.value.trim().toLowerCase();
+  
+  // Accept multiple answers for some questions
+  const correct = correctRaw.toLowerCase();
+  const correctVariants = correct.split('|');
+  const isCorrect = correctVariants.some(v => val === v.trim()) || val === hint.toLowerCase();
+
+  if (isCorrect) {
+    inp.classList.add('correct');
+    inp.value = hint;
+    score++;
+    showFeedback(true, '🎉 Đúng rồi! Tuyệt vời!');
+    triggerConfetti();
+  } else {
+    inp.classList.add('wrong');
+    showFeedback(false, `❌ Chưa đúng! Đáp án là: ${hint}`);
+    setTimeout(() => { inp.value = hint; inp.classList.remove('wrong'); inp.classList.add('correct'); }, 800);
+  }
+
+  inp.disabled = true;
+  updateScoreBar();
+  document.getElementById('nextRow').style.display = 'flex';
+}
+
+function nextQ() {
+  currentQ++;
+  renderQuestion();
+}
+
+// ====================================================
+// FEEDBACK
+// ====================================================
+function showFeedback(correct, msg) {
+  const fb = document.getElementById('feedbackBox');
+  if (!fb) return;
+  fb.className = 'feedback-box show ' + (correct ? 'correct-fb' : 'wrong-fb');
+  fb.innerHTML = msg;
+}
+
+// ====================================================
+// COMPLETION
+// ====================================================
+function showCompletion(subject, topicKey, total_q) {
+  const topic = TOPICS[subject][topicKey];
+  const pct = Math.round((score / total_q) * 100);
+  const stars = pct >= 80 ? 3 : pct >= 50 ? 2 : 1;
+  const emoji = pct >= 80 ? '🏆' : pct >= 50 ? '😊' : '💪';
+  const msg = pct >= 80 ? 'Xuất sắc! Bé học rất giỏi!' : pct >= 50 ? 'Cố gắng thêm nhé bé!' : 'Ôn lại rồi làm lại nào!';
+
+  const key = `${subject}_${topicKey}`;
+  topicProgress[key] = pct;
+  const progBar = document.getElementById(`prog-${topicKey}`);
+  if (progBar) progBar.style.width = pct + '%';
+
+  const quizEl = document.getElementById(subject === 'math' ? 'mathQuiz' : 'vietQuiz');
+  quizEl.innerHTML = `
+    <div style="text-align:center; padding: 30px 20px;">
+      <div style="font-size:4rem; margin-bottom:12px; animation: bounce 1s ease infinite">${emoji}</div>
+      <div style="font-family:'Baloo 2',cursive; font-size:1.6rem; font-weight:800; color:#333; margin-bottom:8px;">Hoàn thành! 🎉</div>
+      <div style="font-size:1rem; color:#888; margin-bottom:16px;">${topic.name}</div>
+      <div style="font-family:'Baloo 2',cursive; font-size:2.5rem; font-weight:800; color:${pct>=80?'#1a7a3e':pct>=50?'#e67e22':'#c0392b'}; margin-bottom:8px;">${score} / ${total_q} câu đúng</div>
+      <div style="font-size:1.8rem; margin:10px 0;">${'⭐'.repeat(stars)}${'☆'.repeat(3-stars)}</div>
+      <div style="font-size:1.05rem; color:#555; font-weight:600; margin-bottom:24px;">${msg}</div>
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn-primary" onclick="loadTopic('${subject}','${topicKey}')">🔄 Làm lại</button>
+        <button class="btn-secondary" onclick="document.getElementById('${subject === 'math' ? 'mathQuiz' : 'vietQuiz'}').innerHTML='<div class=\\'welcome-screen\\'><span class=\\'big-emoji\\'>'+( '${subject}'==='math'?'🧮':'📖')+'</span><h2>Chọn chủ đề khác!</h2></div>'">📋 Chủ đề khác</button>
+      </div>
+    </div>
+  `;
+  if (pct >= 80) triggerConfetti(30);
+}
+
+// ====================================================
+// SCORE BAR
+// ====================================================
+function updateScoreBar() {
+  document.getElementById('scoreValue').textContent = `${score} / ${total}`;
+  const pct = total > 0 ? score / total : 0;
+  const filled = Math.round(pct * 5);
+  document.getElementById('starsDisplay').textContent = '⭐'.repeat(filled) + '☆'.repeat(5 - filled);
+}
+
+// ====================================================
+// CONFETTI
+// ====================================================
+function triggerConfetti(count = 12) {
+  const colors = ['#FFD93D','#FF6B35','#6BCB77','#4D96FF','#FF6B9D','#C77DFF'];
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.width = (8 + Math.random() * 8) + 'px';
+      el.style.height = (8 + Math.random() * 8) + 'px';
+      el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      el.style.animationDuration = (1 + Math.random() * 1) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 2000);
+    }, i * 60);
+  }
 }
 </script>
 </body>
