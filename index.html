@@ -6,148 +6,113 @@
 <title>🌟 Ôn Thi Học Kì 2 – Lớp 1</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --yellow:#FFD93D; --orange:#FF6B35; --green:#6BCB77;
-    --blue:#4D96FF; --pink:#FF6B9D; --purple:#C77DFF;
-    --teal:#00C9A7; --red:#FF4757;
-    --light-bg:#FFF8EE; --card-shadow:0 8px 24px rgba(0,0,0,0.12); --radius:20px;
-  }
+  :root{--yellow:#FFD93D;--orange:#FF6B35;--green:#6BCB77;--blue:#4D96FF;--pink:#FF6B9D;--purple:#C77DFF;--teal:#00C9A7;--red:#FF4757;--light-bg:#FFF8EE;--shadow:0 8px 24px rgba(0,0,0,0.12);--r:20px;}
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:'Nunito',sans-serif;background:var(--light-bg);min-height:100vh;overflow-x:hidden;}
-  body::before{content:'';position:fixed;inset:0;background:
-    radial-gradient(circle at 10% 20%,rgba(255,217,61,.15) 0%,transparent 40%),
-    radial-gradient(circle at 90% 80%,rgba(107,203,119,.15) 0%,transparent 40%),
-    radial-gradient(circle at 50% 50%,rgba(77,150,255,.08) 0%,transparent 60%);z-index:-1;}
-
-  .star{position:fixed;pointer-events:none;font-size:1.5rem;animation:floatStar 4s ease-in-out infinite;z-index:0;opacity:.4;}
-  .star:nth-child(1){top:5%;left:3%;animation-delay:0s;}
-  .star:nth-child(2){top:15%;right:5%;animation-delay:1s;}
-  .star:nth-child(3){top:40%;left:1%;animation-delay:2s;}
-  .star:nth-child(4){bottom:20%;right:3%;animation-delay:.5s;}
-  .star:nth-child(5){bottom:10%;left:6%;animation-delay:1.5s;}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 10% 20%,rgba(255,217,61,.15) 0%,transparent 40%),radial-gradient(circle at 90% 80%,rgba(107,203,119,.15) 0%,transparent 40%);z-index:-1;}
+  .star{position:fixed;pointer-events:none;font-size:1.4rem;animation:floatStar 4s ease-in-out infinite;z-index:0;opacity:.35;}
+  .star:nth-child(1){top:5%;left:3%;animation-delay:0s;}.star:nth-child(2){top:15%;right:5%;animation-delay:1s;}.star:nth-child(3){top:40%;left:1%;animation-delay:2s;}.star:nth-child(4){bottom:20%;right:3%;animation-delay:.5s;}.star:nth-child(5){bottom:10%;left:6%;animation-delay:1.5s;}
   @keyframes floatStar{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-15px) rotate(20deg);}}
-
-  header{background:linear-gradient(135deg,#FF6B35 0%,#FFD93D 50%,#FF6B9D 100%);padding:24px 20px 48px;text-align:center;clip-path:ellipse(100% 90% at 50% 0%);}
-  header h1{font-family:'Baloo 2',cursive;font-size:clamp(1.8rem,5vw,3rem);font-weight:800;color:white;text-shadow:3px 3px 0 rgba(0,0,0,.15);}
-  header p{color:rgba(255,255,255,.9);font-size:1rem;font-weight:600;margin-top:6px;}
-  .header-emoji{font-size:2.8rem;display:block;margin-bottom:8px;animation:bounce 2s ease-in-out infinite;}
+  header{background:linear-gradient(135deg,#FF6B35 0%,#FFD93D 50%,#FF6B9D 100%);padding:20px 16px 48px;text-align:center;clip-path:ellipse(100% 90% at 50% 0%);}
+  header h1{font-family:'Baloo 2',cursive;font-size:clamp(1.6rem,5vw,2.8rem);font-weight:800;color:white;text-shadow:3px 3px 0 rgba(0,0,0,.15);}
+  header p{color:rgba(255,255,255,.9);font-size:.95rem;font-weight:600;margin-top:5px;}
+  .hdr-emoji{font-size:2.6rem;display:block;margin-bottom:7px;animation:bounce 2s ease-in-out infinite;}
   @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-
-  .exam-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
-  .exam-badge{background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.5);border-radius:30px;padding:5px 14px;font-size:.8rem;font-weight:700;color:white;}
-
-  .container{max-width:960px;margin:0 auto;padding:20px 16px 60px;position:relative;z-index:1;}
-
-  .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:-22px auto 28px;padding:0 8px;position:relative;z-index:10;}
-  .tab-btn{padding:10px 8px;border:none;border-radius:14px;font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 15px rgba(0,0,0,.15);color:white;line-height:1.3;text-align:center;}
+  .exam-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+  .exam-badge{background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.5);border-radius:30px;padding:4px 14px;font-size:.78rem;font-weight:700;color:white;}
+  .container{max-width:960px;margin:0 auto;padding:16px 14px 60px;position:relative;z-index:1;}
+  .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:-24px auto 24px;padding:0 6px;position:relative;z-index:10;}
+  .tab-btn{padding:10px 6px;border:none;border-radius:14px;font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 15px rgba(0,0,0,.15);color:white;line-height:1.3;text-align:center;}
   .tab-btn:hover{transform:translateY(-3px);}
-  .tab-btn.active{transform:translateY(-5px) scale(1.06);box-shadow:0 8px 25px rgba(0,0,0,.28);}
-  .tab-toan{background:linear-gradient(135deg,#4D96FF,#6C5CE7);}
-  .tab-doc-tt{background:linear-gradient(135deg,#FF6B9D,#e84393);}
-  .tab-ct{background:linear-gradient(135deg,#6BCB77,#00A86B);}
-  .tab-doc-tm{background:linear-gradient(135deg,#FF8C42,#FF6B35);}
-
-  .panel{display:none;animation:slideIn .4s ease;}
-  .panel.active{display:block;}
+  .tab-btn.active{transform:translateY(-5px) scale(1.05);box-shadow:0 8px 25px rgba(0,0,0,.28);}
+  .t1{background:linear-gradient(135deg,#4D96FF,#6C5CE7);}.t2{background:linear-gradient(135deg,#FF6B9D,#e84393);}.t3{background:linear-gradient(135deg,#6BCB77,#00A86B);}.t4{background:linear-gradient(135deg,#FF8C42,#FF6B35);}
+  .panel{display:none;animation:slideIn .4s ease;}.panel.active{display:block;}
   @keyframes slideIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-
-  .score-bar{background:white;border-radius:var(--radius);padding:13px 20px;display:flex;align-items:center;gap:12px;margin-bottom:20px;box-shadow:var(--card-shadow);}
-  .score-label{font-weight:700;color:#555;font-size:.9rem;}
-  .score-value{font-family:'Baloo 2',cursive;font-size:1.55rem;font-weight:800;color:var(--orange);margin-left:auto;}
-  .stars-display{font-size:1.25rem;letter-spacing:2px;}
-
-  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:22px;}
-  .topic-card{background:white;border-radius:var(--radius);padding:18px;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:var(--card-shadow);border:3px solid transparent;position:relative;overflow:hidden;}
-  .topic-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;border-radius:20px 20px 0 0;}
-  .tc-blue::before{background:linear-gradient(90deg,var(--blue),var(--purple));}
-  .tc-green::before{background:linear-gradient(90deg,var(--green),#00C897);}
-  .tc-orange::before{background:linear-gradient(90deg,var(--orange),var(--yellow));}
-  .tc-pink::before{background:linear-gradient(90deg,var(--pink),var(--purple));}
-  .tc-teal::before{background:linear-gradient(90deg,var(--teal),#00E5CC);}
-  .tc-red::before{background:linear-gradient(90deg,var(--red),var(--pink));}
-  .topic-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.15);}
-  .topic-icon{font-size:2rem;margin-bottom:7px;}
-  .topic-name{font-family:'Baloo 2',cursive;font-size:.98rem;font-weight:700;color:#333;margin-bottom:3px;}
-  .topic-desc{font-size:.78rem;color:#999;}
-  .topic-progress{margin-top:9px;height:6px;background:#f0f0f0;border-radius:10px;overflow:hidden;}
-  .topic-progress-bar{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--green),#00C897);width:0%;transition:width .5s ease;}
-  .day-label{display:inline-block;border-radius:8px;padding:2px 9px;font-size:.72rem;font-weight:700;margin-bottom:6px;}
-  .d21{background:#e8f4ff;color:#2980b9;}
-  .d22{background:#e8fff2;color:#1a7a3e;}
-
-  .quiz-area{background:white;border-radius:var(--radius);padding:26px;box-shadow:var(--card-shadow);min-height:300px;}
-  .quiz-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:2px dashed #f0f0f0;}
-  .quiz-icon{font-size:1.7rem;}
-  .quiz-title{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;color:#333;}
-  .question-count{margin-left:auto;background:#f0f4ff;color:var(--blue);border-radius:20px;padding:4px 12px;font-weight:700;font-size:.82rem;}
-
-  .question-box{background:linear-gradient(135deg,#f8f9ff,#fff0f8);border-radius:16px;padding:20px;margin-bottom:18px;border:2px solid #e8eeff;}
-  .question-text{font-family:'Baloo 2',cursive;font-size:clamp(1.05rem,3vw,1.3rem);font-weight:700;color:#222;line-height:1.55;text-align:center;}
-
-  .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
-  .option-btn{padding:13px 14px;border:3px solid #e8e8e8;border-radius:14px;background:white;font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s ease;color:#333;text-align:center;}
-  .option-btn:hover:not(:disabled){border-color:var(--blue);background:#f0f7ff;transform:scale(1.03);}
-  .option-btn.correct{background:linear-gradient(135deg,#d4f5e2,#b8f0d0);border-color:var(--green);color:#1a7a3e;animation:correctPop .4s ease;}
-  .option-btn.wrong{background:linear-gradient(135deg,#ffe0e0,#ffc8c8);border-color:#ff6b6b;color:#c0392b;animation:shake .4s ease;}
-  @keyframes correctPop{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
+  .score-bar{background:white;border-radius:var(--r);padding:12px 18px;display:flex;align-items:center;gap:10px;margin-bottom:18px;box-shadow:var(--shadow);}
+  .score-lbl{font-weight:700;color:#555;font-size:.88rem;}
+  .score-val{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:var(--orange);margin-left:auto;}
+  .stars-disp{font-size:1.2rem;letter-spacing:2px;}
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-bottom:20px;}
+  .tc{background:white;border-radius:var(--r);padding:16px;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:var(--shadow);border:3px solid transparent;position:relative;overflow:hidden;}
+  .tc::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;border-radius:20px 20px 0 0;}
+  .tc-b::before{background:linear-gradient(90deg,var(--blue),var(--purple));}
+  .tc-g::before{background:linear-gradient(90deg,var(--green),#00C897);}
+  .tc-o::before{background:linear-gradient(90deg,var(--orange),var(--yellow));}
+  .tc-p::before{background:linear-gradient(90deg,var(--pink),var(--purple));}
+  .tc-t::before{background:linear-gradient(90deg,var(--teal),#00E5CC);}
+  .tc-r::before{background:linear-gradient(90deg,var(--red),var(--pink));}
+  .tc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.15);}
+  .ti{font-size:1.9rem;margin-bottom:6px;}.tn{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:700;color:#333;margin-bottom:2px;}.td{font-size:.76rem;color:#999;}
+  .tp{margin-top:8px;height:6px;background:#f0f0f0;border-radius:10px;overflow:hidden;}
+  .tpb{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--green),#00C897);width:0%;transition:width .5s ease;}
+  .dl{display:inline-block;border-radius:8px;padding:2px 8px;font-size:.7rem;font-weight:700;margin-bottom:5px;}
+  .d21{background:#e8f4ff;color:#2980b9;}.d22{background:#e8fff2;color:#1a7a3e;}
+  .quiz-area{background:white;border-radius:var(--r);padding:24px;box-shadow:var(--shadow);min-height:280px;}
+  .qh{display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px dashed #f0f0f0;}
+  .qi{font-size:1.6rem;}.qt{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;color:#333;}
+  .qc{margin-left:auto;background:#f0f4ff;color:var(--blue);border-radius:20px;padding:3px 11px;font-weight:700;font-size:.8rem;}
+  .qbox{background:linear-gradient(135deg,#f8f9ff,#fff0f8);border-radius:14px;padding:18px;margin-bottom:16px;border:2px solid #e8eeff;}
+  .qtxt{font-family:'Baloo 2',cursive;font-size:clamp(1rem,3vw,1.28rem);font-weight:700;color:#222;line-height:1.55;text-align:center;}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
+  .ob{padding:12px 12px;border:3px solid #e8e8e8;border-radius:13px;background:white;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;color:#333;text-align:center;}
+  .ob:hover:not(:disabled){border-color:var(--blue);background:#f0f7ff;transform:scale(1.02);}
+  .ob.correct{background:linear-gradient(135deg,#d4f5e2,#b8f0d0);border-color:var(--green);color:#1a7a3e;animation:correctPop .4s ease;}
+  .ob.wrong{background:linear-gradient(135deg,#ffe0e0,#ffc8c8);border-color:#ff6b6b;color:#c0392b;animation:shake .4s ease;}
+  @keyframes correctPop{0%{transform:scale(1);}50%{transform:scale(1.07);}100%{transform:scale(1);}}
   @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
-
-  .fill-input-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0;flex-wrap:wrap;}
-  .fill-input{min-width:90px;width:auto;max-width:240px;height:54px;border:3px solid #e8e8e8;border-radius:12px;font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;text-align:center;color:#333;outline:none;transition:all .2s;background:white;padding:0 12px;}
-  .fill-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(77,150,255,.2);}
-  .fill-input.correct{border-color:var(--green);background:#d4f5e2;color:#1a7a3e;}
-  .fill-input.wrong{border-color:#ff6b6b;background:#ffe0e0;color:#c0392b;animation:shake .4s ease;}
-
-  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border:none;border-radius:50px;padding:12px 26px;font-family:'Baloo 2',cursive;font-size:.98rem;font-weight:700;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 15px rgba(77,150,255,.35);}
-  .btn-primary:hover{transform:translateY(-3px) scale(1.05);}
-  .btn-secondary{background:white;color:#666;border:2px solid #e0e0e0;border-radius:50px;padding:10px 22px;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;}
-  .btn-secondary:hover{background:#f5f5f5;transform:translateY(-2px);}
-  .action-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
-
-  .feedback-box{border-radius:14px;padding:13px 16px;margin:12px 0;font-weight:700;font-size:.95rem;display:none;align-items:center;gap:8px;}
-  .feedback-box.show{display:flex;animation:fadeIn .3s ease;}
-  .feedback-box.correct-fb{background:#d4f5e2;color:#1a7a3e;border:2px solid var(--green);}
-  .feedback-box.wrong-fb{background:#ffe0e0;color:#c0392b;border:2px solid #ff6b6b;}
+  .fi-wrap{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0;flex-wrap:wrap;}
+  .fi{min-width:80px;width:auto;max-width:200px;height:52px;border:3px solid #e8e8e8;border-radius:12px;font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:800;text-align:center;color:#333;outline:none;transition:all .2s;background:white;padding:0 10px;}
+  .fi:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(77,150,255,.2);}
+  .fi.correct{border-color:var(--green);background:#d4f5e2;color:#1a7a3e;}
+  .fi.wrong{border-color:#ff6b6b;background:#ffe0e0;color:#c0392b;animation:shake .4s ease;}
+  .btn-p{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border:none;border-radius:50px;padding:11px 24px;font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 15px rgba(77,150,255,.35);}
+  .btn-p:hover{transform:translateY(-3px) scale(1.04);}
+  .btn-s{background:white;color:#666;border:2px solid #e0e0e0;border-radius:50px;padding:9px 20px;font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s;}
+  .btn-s:hover{background:#f5f5f5;transform:translateY(-2px);}
+  .ar{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+  .fb{border-radius:13px;padding:12px 15px;margin:10px 0;font-weight:700;font-size:.92rem;display:none;align-items:center;gap:7px;}
+  .fb.show{display:flex;animation:fadeIn .3s ease;}
+  .fb.ok{background:#d4f5e2;color:#1a7a3e;border:2px solid var(--green);}
+  .fb.no{background:#ffe0e0;color:#c0392b;border:2px solid #ff6b6b;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:translateY(0);}}
-
-  .reading-passage{background:linear-gradient(135deg,#fffbf0,#fff0f8);border-radius:16px;padding:18px;border:2px solid #ffd6b0;margin-bottom:14px;font-size:1rem;line-height:2;color:#333;font-weight:600;}
-  .reading-passage .hl{background:var(--yellow);padding:1px 4px;border-radius:4px;}
-
-  .oral-card{background:linear-gradient(135deg,#f0fff8,#f0f8ff);border-radius:16px;padding:18px;border:2px solid #b8f0d0;margin-bottom:14px;}
-  .oral-text{font-family:'Baloo 2',cursive;font-size:1.25rem;font-weight:700;color:#1a5c3e;line-height:2.1;text-align:center;padding:10px;}
-  .oral-tips{background:white;border-radius:12px;padding:11px 14px;margin-top:10px;border-left:4px solid var(--green);}
-  .oral-tips p{font-size:.83rem;color:#555;font-weight:700;margin-bottom:4px;}
-  .oral-tips ul{font-size:.8rem;color:#777;padding-left:16px;}
-  .oral-tips ul li{margin-bottom:2px;}
-
-  .progress-stars{display:flex;justify-content:center;gap:3px;margin:10px 0;flex-wrap:wrap;}
-  .progress-star{font-size:1rem;}
-
-  .welcome-screen{text-align:center;padding:36px 20px;}
-  .welcome-screen .big-emoji{font-size:4.5rem;display:block;margin-bottom:14px;animation:bounce 2s ease-in-out infinite;}
-  .welcome-screen h2{font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;color:#333;margin-bottom:8px;}
-  .welcome-screen p{color:#999;font-size:.95rem;}
-
-  .confetti-piece{position:fixed;width:10px;height:10px;border-radius:2px;animation:confettiFall 1.5s ease-out forwards;pointer-events:none;z-index:9999;}
-  @keyframes confettiFall{0%{transform:translateY(-100px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
-
-  @media(max-width:600px){
-    .tabs{grid-template-columns:1fr 1fr;}
-    .options-grid{grid-template-columns:1fr;}
-    .topic-grid{grid-template-columns:1fr 1fr;}
-    .quiz-area{padding:16px;}
-    .tab-btn{font-size:.75rem;}
-  }
+  .rp{background:linear-gradient(135deg,#fffbf0,#fff0f8);border-radius:14px;padding:16px;border:2px solid #ffd6b0;margin-bottom:12px;font-size:.98rem;line-height:2;color:#333;font-weight:600;}
+  .rp .hl{background:var(--yellow);padding:1px 4px;border-radius:4px;}
+  .oral-card{background:linear-gradient(135deg,#f0fff8,#f0f8ff);border-radius:14px;padding:16px;border:2px solid #b8f0d0;margin-bottom:12px;}
+  .oral-txt{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;color:#1a5c3e;line-height:2.1;text-align:center;padding:8px;}
+  .oral-tips{background:white;border-radius:11px;padding:10px 13px;margin-top:8px;border-left:4px solid var(--green);}
+  .oral-tips p{font-size:.8rem;color:#555;font-weight:700;margin-bottom:3px;}
+  .oral-tips ul{font-size:.78rem;color:#777;padding-left:14px;}
+  .oral-tips li{margin-bottom:2px;}
+  .pstars{display:flex;justify-content:center;gap:3px;margin:8px 0;flex-wrap:wrap;}
+  .ps{font-size:.95rem;}
+  .ws{text-align:center;padding:32px 16px;}
+  .ws .be{font-size:4rem;display:block;margin-bottom:12px;animation:bounce 2s ease-in-out infinite;}
+  .ws h2{font-family:'Baloo 2',cursive;font-size:1.35rem;font-weight:800;color:#333;margin-bottom:7px;}
+  .ws p{color:#999;font-size:.92rem;}
+  .cfp{position:fixed;border-radius:2px;animation:cfFall 1.5s ease-out forwards;pointer-events:none;z-index:9999;}
+  @keyframes cfFall{0%{transform:translateY(-100px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+  /* Math special types */
+  .dat-tinh{background:#f0f4ff;border-radius:12px;padding:14px;margin:10px 0;font-family:'Baloo 2',cursive;}
+  .dat-tinh .dt-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+  .dt-item{background:white;border-radius:10px;padding:12px 16px;border:2px solid #d0d8ff;text-align:center;min-width:100px;}
+  .dt-item .calc{font-size:1.2rem;font-weight:700;color:#333;}
+  .dt-item .result-fi{width:80px;height:40px;border:2px solid #e8e8e8;border-radius:8px;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;text-align:center;outline:none;margin-top:6px;}
+  .result-fi:focus{border-color:var(--blue);}
+  .result-fi.correct{border-color:var(--green);background:#d4f5e2;color:#1a7a3e;}
+  .result-fi.wrong{border-color:#ff6b6b;background:#ffe0e0;color:#c0392b;}
+  .dau-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+  .dau-item{background:white;border-radius:10px;padding:10px 14px;border:2px solid #d0d8ff;display:flex;align-items:center;gap:6px;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;}
+  .dau-sel{padding:4px 8px;border:2px solid #d0d8ff;border-radius:8px;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;outline:none;cursor:pointer;}
+  @media(max-width:600px){.tabs{grid-template-columns:1fr 1fr;}.opts{grid-template-columns:1fr;}.topic-grid{grid-template-columns:1fr 1fr;}.quiz-area{padding:14px;}.tab-btn{font-size:.74rem;}}
 </style>
 </head>
 <body>
-
 <div class="star">⭐</div><div class="star">🌟</div><div class="star">✨</div><div class="star">⭐</div><div class="star">🌟</div>
 
 <header>
-  <span class="header-emoji">🎒</span>
+  <span class="hdr-emoji">🎒</span>
   <h1>Ôn Thi Học Kì 2 – Lớp 1</h1>
-  <p>Luyện đủ 4 môn thi · Cố lên bé ơi! 🌈</p>
+  <p>Câu hỏi sát đề thi trường công lập 2024–2025 🌈</p>
   <div class="exam-badges">
     <span class="exam-badge">📅 21/5: Toán &amp; Đọc thành tiếng</span>
     <span class="exam-badge">📅 22/5: Chính tả &amp; Đọc thầm</span>
@@ -155,246 +120,143 @@
 </header>
 
 <div class="container">
-
   <div class="tabs">
-    <button class="tab-btn tab-toan active" onclick="switchTab('toan')">🔢 TOÁN<br><small>21/5</small></button>
-    <button class="tab-btn tab-doc-tt" onclick="switchTab('doctt')">🔊 ĐỌC THÀNH TIẾNG<br><small>21/5</small></button>
-    <button class="tab-btn tab-ct" onclick="switchTab('ct')">✏️ CHÍNH TẢ<br><small>22/5</small></button>
-    <button class="tab-btn tab-doc-tm" onclick="switchTab('doctm')">📖 ĐỌC THẦM<br><small>22/5</small></button>
+    <button class="tab-btn t1 active" onclick="sw('toan')">🔢 TOÁN<br><small>21/5</small></button>
+    <button class="tab-btn t2" onclick="sw('doctt')">🔊 ĐỌC THÀNH TIẾNG<br><small>21/5</small></button>
+    <button class="tab-btn t3" onclick="sw('ct')">✏️ CHÍNH TẢ<br><small>22/5</small></button>
+    <button class="tab-btn t4" onclick="sw('doctm')">📖 ĐỌC THẦM<br><small>22/5</small></button>
   </div>
 
   <div class="score-bar">
-    <span class="score-label">⭐ Điểm bé:</span>
-    <div class="stars-display" id="starsDisplay">☆☆☆☆☆</div>
-    <span class="score-value" id="scoreValue">0 / 0</span>
+    <span class="score-lbl">⭐ Điểm bé:</span>
+    <div class="stars-disp" id="starsD">☆☆☆☆☆</div>
+    <span class="score-val" id="scoreV">0 / 0</span>
   </div>
 
   <!-- TOÁN -->
-  <div class="panel active" id="panel-toan">
+  <div class="panel active" id="p-toan">
     <div class="topic-grid">
-      <div class="topic-card tc-blue" onclick="go('toan','so100')">
-        <div class="day-label d21">Toán · 21/5</div>
-        <div class="topic-icon">🔢</div>
-        <div class="topic-name">Số đến 100</div>
-        <div class="topic-desc">Đọc, viết, so sánh, thứ tự số</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-so100"></div></div>
-      </div>
-      <div class="topic-card tc-green" onclick="go('toan','congtru')">
-        <div class="day-label d21">Toán · 21/5</div>
-        <div class="topic-icon">➕</div>
-        <div class="topic-name">Cộng – Trừ</div>
-        <div class="topic-desc">Tính trong phạm vi 100</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-congtru"></div></div>
-      </div>
-      <div class="topic-card tc-orange" onclick="go('toan','dodai')">
-        <div class="day-label d21">Toán · 21/5</div>
-        <div class="topic-icon">📏</div>
-        <div class="topic-name">Đo độ dài</div>
-        <div class="topic-desc">cm, dm – đo và so sánh</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-dodai"></div></div>
-      </div>
-      <div class="topic-card tc-pink" onclick="go('toan','loivan')">
-        <div class="day-label d21">Toán · 21/5</div>
-        <div class="topic-icon">📝</div>
-        <div class="topic-name">Hình học &amp; Lời văn</div>
-        <div class="topic-desc">Hình dạng, toán thực tế</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-loivan"></div></div>
-      </div>
+      <div class="tc tc-b" onclick="go('toan','so100')"><div class="dl d21">Toán · 21/5</div><div class="ti">🔢</div><div class="tn">Số đến 100</div><div class="td">Đọc, viết, so sánh, thứ tự</div><div class="tp"><div class="tpb" id="pr-so100"></div></div></div>
+      <div class="tc tc-g" onclick="go('toan','dat_tinh')"><div class="dl d21">Toán · 21/5</div><div class="ti">➕</div><div class="tn">Đặt tính & Điền dấu</div><div class="td">Cộng, trừ, so sánh kết quả</div><div class="tp"><div class="tpb" id="pr-dat_tinh"></div></div></div>
+      <div class="tc tc-o" onclick="go('toan','loivan')"><div class="dl d21">Toán · 21/5</div><div class="ti">📝</div><div class="tn">Toán có lời văn</div><div class="td">Bài toán thực tế, hỏi đáp</div><div class="tp"><div class="tpb" id="pr-loivan"></div></div></div>
+      <div class="tc tc-p" onclick="go('toan','hinh_dodai')"><div class="dl d21">Toán · 21/5</div><div class="ti">📏</div><div class="tn">Hình học & Đo dài</div><div class="td">Hình dạng, cm, ngày trong tuần</div><div class="tp"><div class="tpb" id="pr-hinh_dodai"></div></div></div>
     </div>
-    <div class="quiz-area" id="quiz-toan"><div class="welcome-screen"><span class="big-emoji">🧮</span><h2>Chọn chủ đề Toán!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
+    <div class="quiz-area" id="q-toan"><div class="ws"><span class="be">🧮</span><h2>Chọn chủ đề Toán!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
   </div>
 
   <!-- ĐỌC THÀNH TIẾNG -->
-  <div class="panel" id="panel-doctt">
+  <div class="panel" id="p-doctt">
     <div class="topic-grid">
-      <div class="topic-card tc-pink" onclick="go('doctt','amvan')">
-        <div class="day-label d21">Đọc · 21/5</div>
-        <div class="topic-icon">🔤</div>
-        <div class="topic-name">Âm &amp; Vần</div>
-        <div class="topic-desc">Nhận biết âm, ghép vần đúng</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-amvan"></div></div>
-      </div>
-      <div class="topic-card tc-blue" onclick="go('doctt','tuca')">
-        <div class="day-label d21">Đọc · 21/5</div>
-        <div class="topic-icon">📝</div>
-        <div class="topic-name">Từ &amp; Câu</div>
-        <div class="topic-desc">Nhận biết từ, đặt câu đúng</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-tuca"></div></div>
-      </div>
-      <div class="topic-card tc-teal" onclick="go('doctt','luyen')">
-        <div class="day-label d21">Đọc · 21/5</div>
-        <div class="topic-icon">🗣️</div>
-        <div class="topic-name">Luyện đọc &amp; Hiểu</div>
-        <div class="topic-desc">Đọc đoạn văn, trả lời câu hỏi</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-luyen"></div></div>
-      </div>
-      <div class="topic-card tc-orange" onclick="go('doctt','thanhdieu')">
-        <div class="day-label d21">Đọc · 21/5</div>
-        <div class="topic-icon">🎵</div>
-        <div class="topic-name">Thanh điệu</div>
-        <div class="topic-desc">Nhận biết và đọc đúng 6 thanh</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-thanhdieu"></div></div>
-      </div>
+      <div class="tc tc-p" onclick="go('doctt','amvan')"><div class="dl d21">Đọc · 21/5</div><div class="ti">🔤</div><div class="tn">Âm – Vần</div><div class="td">Phân biệt âm, vần dễ nhầm</div><div class="tp"><div class="tpb" id="pr-amvan"></div></div></div>
+      <div class="tc tc-b" onclick="go('doctt','tuca')"><div class="dl d21">Đọc · 21/5</div><div class="ti">📝</div><div class="tn">Từ & Câu</div><div class="td">Nhận biết từ, đặt câu</div><div class="tp"><div class="tpb" id="pr-tuca"></div></div></div>
+      <div class="tc tc-t" onclick="go('doctt','luyen')"><div class="dl d21">Đọc · 21/5</div><div class="ti">🗣️</div><div class="tn">Luyện đọc đoạn văn</div><div class="td">Đọc đúng – Trả lời câu hỏi</div><div class="tp"><div class="tpb" id="pr-luyen"></div></div></div>
+      <div class="tc tc-o" onclick="go('doctt','phanb')"><div class="dl d21">Đọc · 21/5</div><div class="ti">🎯</div><div class="tn">Phân biệt ch/tr, s/x, c/k</div><div class="td">Các lỗi phát âm thường gặp</div><div class="tp"><div class="tpb" id="pr-phanb"></div></div></div>
     </div>
-    <div class="quiz-area" id="quiz-doctt"><div class="welcome-screen"><span class="big-emoji">🔊</span><h2>Luyện đọc thành tiếng!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
+    <div class="quiz-area" id="q-doctt"><div class="ws"><span class="be">🔊</span><h2>Luyện đọc thành tiếng!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
   </div>
 
   <!-- CHÍNH TẢ -->
-  <div class="panel" id="panel-ct">
+  <div class="panel" id="p-ct">
     <div class="topic-grid">
-      <div class="topic-card tc-green" onclick="go('ct','vietdung')">
-        <div class="day-label d22">Chính tả · 22/5</div>
-        <div class="topic-icon">✍️</div>
-        <div class="topic-name">Viết đúng từ</div>
-        <div class="topic-desc">Chọn từ đúng chính tả</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-vietdung"></div></div>
-      </div>
-      <div class="topic-card tc-blue" onclick="go('ct','dientro')">
-        <div class="day-label d22">Chính tả · 22/5</div>
-        <div class="topic-icon">📋</div>
-        <div class="topic-name">Điền vào chỗ trống</div>
-        <div class="topic-desc">Điền âm, vần, từ cho đúng</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-dientro"></div></div>
-      </div>
-      <div class="topic-card tc-orange" onclick="go('ct','viethhoa')">
-        <div class="day-label d22">Chính tả · 22/5</div>
-        <div class="topic-icon">🅰️</div>
-        <div class="topic-name">Viết hoa đúng chỗ</div>
-        <div class="topic-desc">Đầu câu, tên riêng</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-viethhoa"></div></div>
-      </div>
-      <div class="topic-card tc-red" onclick="go('ct','daucau')">
-        <div class="day-label d22">Chính tả · 22/5</div>
-        <div class="topic-icon">❓</div>
-        <div class="topic-name">Dấu câu</div>
-        <div class="topic-desc">Chấm, hỏi, chấm than</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-daucau"></div></div>
-      </div>
+      <div class="tc tc-g" onclick="go('ct','ngheViet')"><div class="dl d22">Chính tả · 22/5</div><div class="ti">🎧</div><div class="tn">Nghe-viết (luyện)</div><div class="td">Câu hỏi về bài viết thực tế</div><div class="tp"><div class="tpb" id="pr-ngheViet"></div></div></div>
+      <div class="tc tc-b" onclick="go('ct','dientro')"><div class="dl d22">Chính tả · 22/5</div><div class="ti">📋</div><div class="tn">Điền âm / vần / dấu</div><div class="td">c/k, g/gh, ng/ngh, ch/tr...</div><div class="tp"><div class="tpb" id="pr-dientro"></div></div></div>
+      <div class="tc tc-o" onclick="go('ct','vietdung')"><div class="dl d22">Chính tả · 22/5</div><div class="ti">✍️</div><div class="tn">Viết đúng từ</div><div class="td">Chọn từ đúng chính tả</div><div class="tp"><div class="tpb" id="pr-vietdung"></div></div></div>
+      <div class="tc tc-r" onclick="go('ct','daucau')"><div class="dl d22">Chính tả · 22/5</div><div class="ti">❓</div><div class="tn">Dấu câu & Viết hoa</div><div class="td">Chấm, hỏi, than – viết hoa đúng</div><div class="tp"><div class="tpb" id="pr-daucau"></div></div></div>
     </div>
-    <div class="quiz-area" id="quiz-ct"><div class="welcome-screen"><span class="big-emoji">✏️</span><h2>Luyện chính tả!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
+    <div class="quiz-area" id="q-ct"><div class="ws"><span class="be">✏️</span><h2>Luyện chính tả!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
   </div>
 
   <!-- ĐỌC THẦM -->
-  <div class="panel" id="panel-doctm">
+  <div class="panel" id="p-doctm">
     <div class="topic-grid">
-      <div class="topic-card tc-blue" onclick="go('doctm','hieund')">
-        <div class="day-label d22">Đọc thầm · 22/5</div>
-        <div class="topic-icon">🧠</div>
-        <div class="topic-name">Hiểu nội dung</div>
-        <div class="topic-desc">Trả lời câu hỏi về bài đọc</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-hieund"></div></div>
-      </div>
-      <div class="topic-card tc-green" onclick="go('doctm','nhanvat')">
-        <div class="day-label d22">Đọc thầm · 22/5</div>
-        <div class="topic-icon">👦</div>
-        <div class="topic-name">Nhân vật &amp; Sự việc</div>
-        <div class="topic-desc">Ai làm gì? Ở đâu? Khi nào?</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-nhanvat"></div></div>
-      </div>
-      <div class="topic-card tc-orange" onclick="go('doctm','ynghia')">
-        <div class="day-label d22">Đọc thầm · 22/5</div>
-        <div class="topic-icon">💡</div>
-        <div class="topic-name">Ý nghĩa bài đọc</div>
-        <div class="topic-desc">Bài học từ câu chuyện</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-ynghia"></div></div>
-      </div>
-      <div class="topic-card tc-pink" onclick="go('doctm','tuvung')">
-        <div class="day-label d22">Đọc thầm · 22/5</div>
-        <div class="topic-icon">📚</div>
-        <div class="topic-name">Từ vựng</div>
-        <div class="topic-desc">Hiểu nghĩa từ trong ngữ cảnh</div>
-        <div class="topic-progress"><div class="topic-progress-bar" id="prog-tuvung"></div></div>
-      </div>
+      <div class="tc tc-b" onclick="go('doctm','hieu1')"><div class="dl d22">Đọc thầm · 22/5</div><div class="ti">📗</div><div class="tn">Bài đọc 1: Gấu con chia quà</div><div class="td">Trả lời câu hỏi nội dung</div><div class="tp"><div class="tpb" id="pr-hieu1"></div></div></div>
+      <div class="tc tc-g" onclick="go('doctm','hieu2')"><div class="dl d22">Đọc thầm · 22/5</div><div class="ti">📘</div><div class="tn">Bài đọc 2: Chim sâu & Họa mi</div><div class="td">Nhân vật, nội dung, ý nghĩa</div><div class="tp"><div class="tpb" id="pr-hieu2"></div></div></div>
+      <div class="tc tc-o" onclick="go('doctm','hieu3')"><div class="dl d22">Đọc thầm · 22/5</div><div class="ti">📙</div><div class="tn">Bài đọc 3: Thủy mua búp bê</div><div class="td">Chi tiết, cảm nhận nhân vật</div><div class="tp"><div class="tpb" id="pr-hieu3"></div></div></div>
+      <div class="tc tc-p" onclick="go('doctm','hieu4')"><div class="dl d22">Đọc thầm · 22/5</div><div class="ti">📕</div><div class="tn">Bài đọc 4: Mùa xuân hoa nở</div><div class="td">Từ vựng & hiểu bài thơ văn</div><div class="tp"><div class="tpb" id="pr-hieu4"></div></div></div>
     </div>
-    <div class="quiz-area" id="quiz-doctm"><div class="welcome-screen"><span class="big-emoji">📖</span><h2>Luyện đọc thầm!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
+    <div class="quiz-area" id="q-doctm"><div class="ws"><span class="be">📖</span><h2>Luyện đọc thầm!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div></div>
   </div>
-
 </div>
 
 <script>
-// ============================================================
-// DATA
-// ============================================================
-const DATA = {
+// ===============================================================
+// NGÂN HÀNG CÂU HỎI – SÁT ĐỀ THI TRƯỜNG CÔNG LẬP 2024-2025
+// ===============================================================
+const DB = {
  toan:{
   so100:{icon:'🔢',name:'Số đến 100',q:[
-   {t:'c',q:'Số 47 đọc là?',o:['Bốn mươi','Bốn mươi bảy','Bốn mươi tám','Bốn bảy'],a:1},
-   {t:'c',q:'Số nào đứng liền sau số 59?',o:['57','58','60','61'],a:2},
-   {t:'f',q:'Điền số còn thiếu: 63, 64, 65, __, 67',a:'66'},
-   {t:'c',q:'Số nào LỚN HƠN trong các số sau?',o:['45','54','44','43'],a:1},
-   {t:'f',q:'Viết số: Tám mươi ba = __',a:'83'},
-   {t:'c',q:'Số bé nhất trong: 23, 32, 12, 21 là?',o:['23','32','12','21'],a:2},
-   {t:'f',q:'Điền: 90, 91, __, 93, 94',a:'92'},
-   {t:'c',q:'Số 100 gồm mấy chục?',o:['9 chục','10 chục','8 chục','7 chục'],a:1},
-   {t:'c',q:'Số liền trước số 70 là?',o:['71','72','69','68'],a:2},
-   {t:'f',q:'Viết số lớn nhất có 2 chữ số: __',a:'99'},
-   {t:'c',q:'Số 56 gồm mấy chục mấy đơn vị?',o:['5 chục 5 đv','6 chục 5 đv','5 chục 6 đv','6 chục 6 đv'],a:2},
-   {t:'f',q:'Số liền sau số 99 là __',a:'100'},
-   {t:'c',q:'Dãy số từ bé đến lớn là?',o:['15,12,18,20','12,15,18,20','20,18,15,12','18,12,15,20'],a:1},
-   {t:'f',q:'__, 75, 76, 77, 78 (điền số đứng trước 75)',a:'74'},
-   {t:'c',q:'Số 80 gồm bao nhiêu đơn vị?',o:['8','80','800','0'],a:1},
-   {t:'c',q:'Số nào có chữ số hàng chục là 7?',o:['17','71','7','107'],a:1},
-   {t:'f',q:'Số lớn hơn 68 và nhỏ hơn 70 là __',a:'69'},
-   {t:'c',q:'Số 93 gồm?',o:['9 đv 3 chục','9 chục 3 đv','3 chục 9 đv','3 đv 9 chục'],a:1},
+   {t:'c',q:'Số 72 đọc là?',o:['Hai mươi bảy','Bảy mươi hai','Bảy hai','Hai bảy'],a:1},
+   {t:'c',q:'Số gồm 8 chục và 5 đơn vị là?',o:['A. 80','B. 50','C. 85','D. 58'],a:2},
+   {t:'c',q:'Số 55 đọc là?',o:['Năm năm','Năm mươi lăm','Lăm mươi năm','Lăm mươi lăm'],a:1},
+   {t:'f',q:'Viết số: Bảy mươi tư = __',a:'74'},
+   {t:'f',q:'Viết số: Chín mươi chín = __',a:'99'},
+   {t:'c',q:'Các số 79, 81, 18 được viết theo thứ tự từ LỚN đến BÉ là?',o:['18, 79, 81','81, 79, 18','79, 81, 18','18, 81, 79'],a:1},
+   {t:'c',q:'Số 36 gồm?',o:['3 chục và 6 đơn vị','36 chục','6 chục và 3 đơn vị','3 đơn vị'],a:0},
+   {t:'f',q:'Viết các số 56, 75, 39, 81 từ bé đến lớn: __, __, __, __',a:'39 56 75 81'},
+   {t:'c',q:'Số liền sau của 50, liền trước của 52 là?',o:['49','50','51','52'],a:2},
+   {t:'f',q:'Điền: Hôm qua là thứ Ba ngày 6. Ngày mai là thứ __ ngày __',a:'Năm ngày 8'},
+   {t:'c',q:'1 tuần lễ có bao nhiêu ngày?',o:['5 ngày','6 ngày','7 ngày','8 ngày'],a:2},
+   {t:'c',q:'Trong các số 46; 64; 30; 87; 15 – số LỚN NHẤT là?',o:['64','46','87','30'],a:2},
+   {t:'f',q:'Trong các số 46; 64; 30; 87; 15 – số BÉ NHẤT là __',a:'15'},
+   {t:'c',q:'Số 89 đọc là?',o:['Tám mươi chín','Tám chín','Chín mươi tám','Tám mươi'],a:0},
+   {t:'f',q:'Các số 56, 89, 33 – số lớn nhất là __',a:'89'},
   ]},
-  congtru:{icon:'➕',name:'Cộng – Trừ',q:[
-   {t:'f',q:'34 + 25 = __',a:'59'},
-   {t:'f',q:'67 – 34 = __',a:'33'},
-   {t:'c',q:'45 + 30 = ?',o:['75','65','80','70'],a:0},
-   {t:'f',q:'__ + 16 = 50',a:'34'},
-   {t:'c',q:'100 – 40 = ?',o:['50','60','70','80'],a:1},
-   {t:'f',q:'28 + 14 = __',a:'42'},
-   {t:'c',q:'75 – 25 = ?',o:['40','45','50','55'],a:2},
-   {t:'f',q:'__ – 13 = 45',a:'58'},
-   {t:'f',q:'36 + 48 = __',a:'84'},
-   {t:'c',q:'91 – 27 = ?',o:['54','64','74','84'],a:1},
-   {t:'f',q:'17 + 45 = __',a:'62'},
-   {t:'f',q:'100 – 55 = __',a:'45'},
-   {t:'c',q:'23 + 14 + 11 = ?',o:['47','48','49','50'],a:1},
-   {t:'f',q:'50 + __ = 87',a:'37'},
-   {t:'c',q:'Bé có 45 kẹo, cho bạn 18. Bé còn?',o:['27','28','29','30'],a:0},
-   {t:'f',q:'63 – 28 = __',a:'35'},
-   {t:'c',q:'54 + 26 = ?',o:['70','80','90','100'],a:1},
-   {t:'f',q:'71 – __ = 43',a:'28'},
+  dat_tinh:{icon:'➕',name:'Đặt tính & Điền dấu',q:[
+   {t:'f',q:'Tính: 25 + 4 = __',a:'29'},
+   {t:'f',q:'Tính: 20 + 16 = __',a:'36'},
+   {t:'f',q:'Tính: 80 – 20 = __',a:'60'},
+   {t:'f',q:'Tính: 49 – 33 = __',a:'16'},
+   {t:'f',q:'Tính: 45 + 3 + 21 = __',a:'69'},
+   {t:'f',q:'Tính: 82 – 10 – 51 = __',a:'21'},
+   {t:'f',q:'Tính: 42 + 16 = __',a:'58'},
+   {t:'f',q:'Tính: 89 – 23 = __',a:'66'},
+   {t:'f',q:'Tính: 76 + 3 = __',a:'79'},
+   {t:'f',q:'Tính: 98 – 7 = __',a:'91'},
+   {t:'c',q:'26 + 3 … 29 (điền dấu đúng)',o:['26+3 > 29','26+3 < 29','26+3 = 29','Không xác định'],a:2},
+   {t:'c',q:'97 – 63 … 36 (điền dấu đúng)',o:['97−63 > 36','97−63 < 36','97−63 = 36','Không xác định'],a:1},
+   {t:'c',q:'10 + 8 … 20 (điền dấu đúng)',o:['10+8 > 20','10+8 < 20','10+8 = 20','Không xác định'],a:1},
+   {t:'c',q:'15 – 2 … 17 (điền dấu đúng)',o:['15−2 > 17','15−2 < 17','15−2 = 17','Không xác định'],a:1},
+   {t:'f',q:'Tính: 60cm + 10cm + 20cm = __cm',a:'90'},
+   {t:'f',q:'Tính: 46cm – 3cm – 1cm = __cm',a:'42'},
+   {t:'c',q:'Phép tính có kết quả BÉ HƠN 35 là?',o:['76 – 35','76 – 53','23 + 32','15 + 20'],a:3},
+   {t:'f',q:'85 – __ = 42 (điền số còn thiếu)',a:'43'},
   ]},
-  dodai:{icon:'📏',name:'Đo độ dài',q:[
-   {t:'c',q:'Đơn vị đo độ dài học ở lớp 1 là?',o:['m','km','cm','mm'],a:2},
-   {t:'c',q:'Bút dài 15cm, thước dài 20cm. Cái nào dài hơn?',o:['Cây bút','Cây thước','Bằng nhau','Không biết'],a:1},
-   {t:'f',q:'1 dm = __ cm',a:'10'},
-   {t:'c',q:'AB dài 8cm, CD dài 5cm. AB dài hơn CD bao nhiêu cm?',o:['2cm','3cm','4cm','5cm'],a:1},
-   {t:'f',q:'Bút chì 12cm + tẩy 5cm = __cm',a:'17'},
-   {t:'c',q:'Bàn học cao khoảng bao nhiêu?',o:['60cm','6cm','600cm','6m'],a:0},
-   {t:'f',q:'2 dm = __ cm',a:'20'},
-   {t:'c',q:'Đoạn nào ngắn nhất?',o:['9cm','6cm','7cm','8cm'],a:1},
-   {t:'f',q:'Dây dài 30cm, cắt 12cm. Còn __cm',a:'18'},
-   {t:'c',q:'Người lớn cao khoảng bao nhiêu?',o:['16cm','160cm','16m','1600cm'],a:1},
-   {t:'f',q:'3 dm = __ cm',a:'30'},
-   {t:'c',q:'Thước dài 20cm, bút ngắn hơn 5cm. Bút dài?',o:['10cm','15cm','25cm','30cm'],a:1},
-   {t:'f',q:'Sợi dây dài 45cm, thêm 15cm. Dài __cm',a:'60'},
-   {t:'c',q:'Cây bút màu dài 13cm. Tẩy ngắn hơn 6cm. Tẩy dài?',o:['5cm','6cm','7cm','8cm'],a:2},
+  loivan:{icon:'📝',name:'Toán có lời văn',q:[
+   {t:'c',q:'Vườn nhà Linh có 15 cây hoa. Linh trồng thêm 4 cây. Vườn có tất cả bao nhiêu cây?',o:['11 cây','19 cây','20 cây','18 cây'],a:1},
+   {t:'c',q:'Cô giáo có 68 khẩu trang, tặng cho học sinh 34 cái. Cô còn lại bao nhiêu cái?',o:['33 cái','34 cái','35 cái','36 cái'],a:1},
+   {t:'f',q:'Lớp 1A ủng hộ 40 quyển vở, lớp 1B ủng hộ 55 quyển. Cả hai lớp ủng hộ __quyển',a:'95'},
+   {t:'c',q:'Cửa hàng có 42 cái áo, bán 21 cái. Còn lại bao nhiêu cái áo?',o:['20 cái','21 cái','22 cái','23 cái'],a:1},
+   {t:'f',q:'Bạn Trang hái 10 bông hoa, bạn Minh hái 5 bông. Cả hai hái được __bông',a:'15'},
+   {t:'c',q:'Cô giáo chuẩn bị 70 món quà. Sĩ số lớp là 45 bạn. Sau khi phát xong còn lại?',o:['35 món','25 món','30 món','45 món'],a:1},
+   {t:'f',q:'Mẹ mua 24 quả cam, đã ăn 9 quả. Còn lại __quả cam',a:'15'},
+   {t:'c',q:'Lớp có 18 bạn nam, 12 bạn nữ. Lớp có tất cả bao nhiêu bạn?',o:['28 bạn','30 bạn','32 bạn','26 bạn'],a:1},
+   {t:'f',q:'Vườn có 25 cây cam, trồng thêm 15 cây. Vườn có tất cả __cây',a:'40'},
+   {t:'c',q:'Bé có 45 viên kẹo, cho bạn 18 viên. Bé còn lại bao nhiêu viên?',o:['27 viên','28 viên','29 viên','26 viên'],a:0},
+   {t:'f',q:'Thùng có 50 lít nước. Dùng hết 23 lít. Còn lại __lít nước',a:'27'},
+   {t:'c',q:'Trên cây có 40 quả xoài. Hái 15 quả. Còn lại bao nhiêu quả?',o:['20 quả','25 quả','30 quả','35 quả'],a:1},
+   {t:'f',q:'Hộp có 24 viên bi. Cho em 9 viên. Còn lại __viên bi',a:'15'},
+   {t:'c',q:'Nam có 32 nhãn vở, cho em 12 nhãn. Nam còn bao nhiêu nhãn?',o:['18','20','22','24'],a:1},
   ]},
-  loivan:{icon:'📝',name:'Hình học & Lời văn',q:[
+  hinh_dodai:{icon:'📏',name:'Hình học & Đo dài',q:[
    {t:'c',q:'Hình nào có 3 cạnh?',o:['Hình vuông','Hình tam giác','Hình tròn','Hình chữ nhật'],a:1},
    {t:'c',q:'Hình vuông có bao nhiêu góc vuông?',o:['2','3','4','5'],a:2},
    {t:'f',q:'Hình chữ nhật có __ cạnh',a:'4'},
-   {t:'c',q:'Hình nào không có góc?',o:['Hình vuông','Hình tam giác','Hình tròn','Hình chữ nhật'],a:2},
-   {t:'f',q:'Hình tam giác có __ đỉnh',a:'3'},
-   {t:'c',q:'Lớp có 18 nam và 12 nữ. Lớp có tất cả bao nhiêu bạn?',o:['28','30','32','26'],a:1},
-   {t:'c',q:'Vườn có 25 cây cam, trồng thêm 15. Vườn có tất cả?',o:['30','35','40','45'],a:2},
-   {t:'f',q:'Hình vuông có __ cạnh bằng nhau',a:'4'},
-   {t:'c',q:'Nam có 32 nhãn vở, cho em 12. Nam còn?',o:['18','20','22','24'],a:1},
-   {t:'c',q:'Hình chữ nhật có mấy cặp cạnh bằng nhau?',o:['1','2','3','4'],a:1},
-   {t:'f',q:'Hộp có 24 bi. Lấy 9 viên. Còn __viên',a:'15'},
-   {t:'c',q:'Trên cây có 40 quả xoài. Rụng 15. Còn?',o:['20','25','30','35'],a:1},
-   {t:'c',q:'Hình nào giống mặt trống?',o:['Hình vuông','Hình tròn','Hình tam giác','Hình chữ nhật'],a:1},
-   {t:'f',q:'Thùng có 50 lít. Dùng 23 lít. Còn __lít',a:'27'},
-   {t:'c',q:'Có 3 hình tam giác và 5 hình vuông. Có tất cả bao nhiêu hình?',o:['6','7','8','9'],a:2},
-   {t:'f',q:'Bé có 20 tờ giấy màu. Dùng 8 tờ. Còn __tờ',a:'12'},
+   {t:'c',q:'Hình nào KHÔNG có góc?',o:['Hình vuông','Hình tam giác','Hình tròn','Hình chữ nhật'],a:2},
+   {t:'c',q:'Chiếc bút chì dài 15cm, cây thước dài 20cm. Chiếc nào dài hơn?',o:['Bút chì','Cây thước','Bằng nhau','Không biết'],a:1},
+   {t:'f',q:'Đoạn AB dài 8cm, đoạn CD dài 5cm. AB dài hơn CD là __cm',a:'3'},
+   {t:'f',q:'1 dm = __ cm',a:'10'},
+   {t:'c',q:'Buổi sáng em vào học lúc mấy giờ?',o:['4 giờ','5 giờ','7 giờ','12 giờ'],a:2},
+   {t:'f',q:'Dây dài 30cm, cắt 12cm. Còn lại __cm',a:'18'},
+   {t:'c',q:'Đơn vị đo độ dài học ở lớp 1 là?',o:['m','km','cm','mm'],a:2},
+   {t:'f',q:'2 dm = __ cm',a:'20'},
+   {t:'c',q:'Bàn học cao khoảng bao nhiêu?',o:['60cm','6cm','600cm','6m'],a:0},
+   {t:'f',q:'Sợi dây dài 45cm, thêm 15cm. Dài __cm',a:'60'},
+   {t:'c',q:'Hình vẽ có 3 hình tam giác và 2 hình vuông. Có tất cả bao nhiêu hình?',o:['4','5','6','7'],a:1},
   ]}
  },
 
  doctt:{
-  amvan:{icon:'🔤',name:'Âm & Vần',q:[
+  amvan:{icon:'🔤',name:'Âm – Vần',q:[
    {t:'c',q:'Từ "HOA" có vần là?',o:['h','o','oa','ho'],a:2},
    {t:'c',q:'Vần của từ "TRĂNG" là?',o:['tr','ăng','trăng','ăn'],a:1},
    {t:'f',q:'Ghép vần: b + ai = __',a:'bai'},
@@ -402,226 +264,170 @@ const DATA = {
    {t:'f',q:'Ghép: m + ưa = __',a:'mưa'},
    {t:'c',q:'Âm đầu trong từ "NHẢY" là?',o:['n','nh','h','nha'],a:1},
    {t:'f',q:'Ghép: th + uyền = __',a:'thuyền'},
-   {t:'c',q:'Từ "BUỔI" có vần là?',o:['b','uôi','buô','ô'],a:1},
-   {t:'f',q:'Ghép: kh + ông = __',a:'không'},
-   {t:'c',q:'Từ "GIƯỜNG" có âm đầu là?',o:['g','gi','d','gh'],a:1},
+   {t:'c',q:'Từ "TIẾNG" có vần là?',o:['t','iếng','tiế','iê'],a:1},
    {t:'f',q:'Ghép: tr + ường = __',a:'trường'},
-   {t:'c',q:'Vần của từ "TIẾNG" là?',o:['t','iếng','tiế','iê'],a:1},
-   {t:'f',q:'Ghép: ng + ày = __',a:'ngày'},
-   {t:'c',q:'Từ nào có vần "ANH"?',o:['Anh','Ánh','Ành','Ãnh'],a:0},
-   {t:'f',q:'Ghép: h + oa = __',a:'hoa'},
+   {t:'c',q:'Từ "GIƯỜNG" có âm đầu là?',o:['g','gi','d','gh'],a:1},
+   {t:'f',q:'Ghép: kh + ông = __',a:'không'},
    {t:'c',q:'Từ "SÁCH" có vần là?',o:['s','ách','sa','ach'],a:1},
+   {t:'f',q:'Ghép: ng + ày = __',a:'ngày'},
+   {t:'c',q:'Âm đầu từ "PHƯỢNG" là?',o:['p','ph','f','v'],a:1},
    {t:'f',q:'Ghép: ch + iều = __',a:'chiều'},
-   {t:'c',q:'Âm đầu trong từ "PHƯỢNG" là?',o:['p','ph','f','v'],a:1},
+   {t:'c',q:'Vần của từ "BUỔI" là?',o:['b','uôi','buô','ô'],a:1},
+   {t:'f',q:'Ghép: h + oa = __',a:'hoa'},
+   {t:'c',q:'Từ nào có vần "ANH"?',o:['Anh','Ánh','Ành','Ãnh'],a:0},
   ]},
   tuca:{icon:'📝',name:'Từ & Câu',q:[
    {t:'c',q:'Câu nào viết đúng?',o:['con mèo uống sữa.','Con mèo uống sữa.','con Mèo uống sữa.','Con Mèo Uống Sữa.'],a:1},
-   {t:'c',q:'Từ nào chỉ hoạt động?',o:['con chó','cái bàn','đọc sách','hoa hồng'],a:2},
-   {t:'f',q:'Câu "Bé đang làm gì?" – từ để hỏi là __',a:'gì'},
-   {t:'c',q:'Từ nào chỉ sự vật?',o:['chạy nhảy','vui vẻ','cái ghế','xinh đẹp'],a:2},
+   {t:'c',q:'Từ nào chỉ hoạt động của học sinh?',o:['giảng bài','điểm danh','chấm bài','xếp hàng'],a:3},
+   {t:'c',q:'Từ nào chỉ hoạt động của giáo viên?',o:['xếp hàng','phát biểu','soạn giáo án','viết bài'],a:2},
    {t:'c',q:'Câu nào là câu hỏi?',o:['Bé đi học.','Bé đi học!','Bé đi học đâu?','Bé rất ngoan.'],a:2},
    {t:'f',q:'Từ trái nghĩa với "ngoan" là __',a:'hư'},
    {t:'c',q:'Từ nào chỉ màu sắc?',o:['to','đỏ','chạy','sách'],a:1},
-   {t:'c',q:'Câu "Mẹ nấu cơm" có mấy từ?',o:['2','3','4','5'],a:1},
+   {t:'c',q:'Từ nào chỉ sự vật?',o:['chạy nhảy','vui vẻ','cái ghế','xinh đẹp'],a:2},
+   {t:'f',q:'Điền từ: Bầu trời __ (màu bầu trời)',a:'xanh'},
+   {t:'c',q:'Từ nào chỉ đặc điểm?',o:['bàn học','ngoan ngoãn','chạy nhảy','cây bút'],a:1},
+   {t:'c',q:'Dấu gì đặt cuối câu kể?',o:['?','.',  '!',','],a:1},
    {t:'f',q:'Từ đồng nghĩa với "vui" là __',a:'mừng'},
-   {t:'c',q:'Từ nào chỉ đặc điểm?',o:['bàn','ngoan','chạy','cây'],a:1},
-   {t:'f',q:'Điền: Bầu trời __ (màu bầu trời)',a:'xanh'},
-   {t:'c',q:'Dấu gì đặt cuối câu kể?',o:['Dấu hỏi ?','Dấu chấm .','Dấu chấm than !','Dấu phẩy ,'],a:1},
-   {t:'c',q:'Từ nào viết đúng?',o:['con chìm','con chim','con chỉm','con chĩm'],a:1},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['con chìm','con chim','con chỉm','con chĩm'],a:1},
    {t:'f',q:'Điền: Con __ kêu ò ó o (gia cầm)',a:'gà'},
-   {t:'c',q:'Câu "Hoa lan đẹp" có mấy từ?',o:['2','3','4','5'],a:1},
-   {t:'c',q:'Từ nào chỉ nơi chốn?',o:['chạy','ngoan','trường học','xanh'],a:2},
+   {t:'c',q:'Câu "Mẹ nấu cơm" có mấy từ?',o:['2','3','4','5'],a:1},
+   {t:'c',q:'Từ nào chỉ hoạt động?',o:['con chó','cái bàn','đọc sách','hoa hồng'],a:2},
+   {t:'f',q:'Điền từ: Mặt __ (nguồn sáng ban ngày)',a:'trời'},
   ]},
-  luyen:{icon:'🗣️',name:'Luyện đọc & Hiểu',q:[
-   {t:'oral',passage:'Mỗi sáng, bé Lan thức dậy sớm.\nBé đánh răng, rửa mặt rồi ăn sáng.\nSau đó bé đến trường cùng mẹ.',
-    q:'Bé Lan làm gì sau khi thức dậy?',o:['Đi học ngay','Đánh răng, rửa mặt, ăn sáng','Xem TV','Chơi đùa'],a:1},
-   {t:'oral',passage:'Vườn nhà em có nhiều loài hoa.\nHoa hồng đỏ thắm, hoa cúc vàng tươi.\nMỗi buổi sáng, em tưới hoa cùng bà.',
-    q:'Ai tưới hoa cùng bé?',o:['Mẹ','Bố','Bà','Chị'],a:2},
-   {t:'oral',passage:'Mùa hè, bầu trời xanh trong.\nNắng vàng trải rộng khắp nơi.\nCon chim hót líu lo trên cành cây.',
-    q:'Bài văn tả cảnh mùa nào?',o:['Mùa xuân','Mùa hạ','Mùa thu','Mùa đông'],a:1},
-   {t:'oral',passage:'Con mèo nhà em tên là Bông.\nBông rất thích uống sữa và bắt chuột.\nMỗi tối, Bông hay nằm cạnh em ngủ.',
-    q:'Con mèo của bé tên là gì?',o:['Miu','Bông','Vàng','Đen'],a:1},
-   {t:'oral',passage:'Trường em có nhiều cây xanh.\nHọc sinh vui chơi trong sân trường.\nThầy cô rất yêu thương học sinh.',
-    q:'Ai yêu thương học sinh?',o:['Bạn bè','Thầy cô','Bố mẹ','Ông bà'],a:1},
-   {t:'oral',passage:'Mưa rơi lộp độp trên mái nhà.\nCây cối trong vườn xanh tươi hơn.\nEm thích ngắm mưa qua cửa sổ.',
-    q:'Bé làm gì khi trời mưa?',o:['Ra ngoài chơi','Ngắm mưa qua cửa sổ','Tưới cây','Ngủ'],a:1},
-   {t:'oral',passage:'Nam và Hoa là đôi bạn thân.\nHai bạn cùng học, cùng chơi mỗi ngày.\nHọ giúp đỡ nhau trong mọi việc.',
-    q:'Nam và Hoa thường làm gì cùng nhau?',o:['Cùng học và chơi','Chỉ học bài','Chỉ chơi trò chơi','Xem phim'],a:0},
-   {t:'oral',passage:'Bé An rất thích vẽ tranh.\nBé hay vẽ cây cối, hoa lá và bầu trời.\nMẹ khen tranh của An rất đẹp.',
-    q:'Bé An thích vẽ những gì?',o:['Người và nhà','Cây cối, hoa lá, bầu trời','Biển và tàu thuyền','Thú vật'],a:1},
-   {t:'oral',passage:'Ông nội em đã già nhưng vẫn rất khoẻ.\nMỗi sáng ông tập thể dục trong vườn.\nEm rất yêu ông nội.',
-    q:'Ông nội làm gì mỗi sáng?',o:['Đọc báo','Tập thể dục trong vườn','Đi chợ','Tưới cây'],a:1},
+  luyen:{icon:'🗣️',name:'Luyện đọc đoạn văn',q:[
+   {t:'oral',passage:'Mỗi sáng, bé Lan thức dậy sớm.\nBé đánh răng, rửa mặt rồi ăn sáng.\nSau đó bé đến trường cùng mẹ.',q:'Bé Lan làm gì sau khi thức dậy?',o:['Đi học ngay','Đánh răng, rửa mặt, ăn sáng','Xem TV','Chơi đùa'],a:1},
+   {t:'oral',passage:'Vườn nhà em có nhiều loài hoa.\nHoa hồng đỏ thắm, hoa cúc vàng tươi.\nMỗi buổi sáng, em tưới hoa cùng bà.',q:'Ai tưới hoa cùng bé?',o:['Mẹ','Bố','Bà','Chị'],a:2},
+   {t:'oral',passage:'Trường em có nhiều cây xanh.\nHọc sinh vui chơi trong sân trường.\nThầy cô rất yêu thương học sinh.',q:'Thầy cô có thái độ thế nào với học sinh?',o:['Nghiêm khắc','Yêu thương','Thờ ơ','Khắt khe'],a:1},
+   {t:'oral',passage:'Nam và Hoa là đôi bạn thân.\nHai bạn cùng học, cùng chơi mỗi ngày.\nHọ luôn giúp đỡ nhau trong mọi việc.',q:'Nam và Hoa thường làm gì cùng nhau?',o:['Cùng học và chơi','Chỉ học bài','Chỉ chơi trò chơi','Xem phim'],a:0},
+   {t:'oral',passage:'Mùa xuân đến, bầu trời xanh trong.\nCây cối đâm chồi nảy lộc.\nChim hót vang khắp khu vườn.',q:'Đây là bài văn tả cảnh mùa nào?',o:['Mùa hạ','Mùa thu','Mùa xuân','Mùa đông'],a:2},
+   {t:'oral',passage:'Bé An rất thích vẽ tranh.\nBé hay vẽ cây cối, hoa lá và bầu trời.\nMẹ khen tranh của An rất đẹp.',q:'Bé An thích vẽ những gì?',o:['Người và nhà cửa','Cây cối, hoa lá, bầu trời','Biển và tàu thuyền','Thú vật'],a:1},
+   {t:'oral',passage:'Dê con chăm chỉ nhưng hay sốt ruột.\nMột hôm nó đem hạt cải ra gieo.\nVừa thấy mọc mầm, dê con vội nhổ lên xem.',q:'Vì sao cây cải bị héo rũ?',o:['Vì thiếu nước','Vì dê con nhổ lên xem nhiều lần','Vì trời nắng','Vì sâu bệnh'],a:1},
+   {t:'oral',passage:'Bà còng đi chợ trời mưa.\nCái tôm cái tép đi đưa bà còng.\nĐưa bà qua quãng đường cong.\nĐưa bà về tận ngõ trong nhà bà.',q:'Con vật nào đưa bà còng đi chợ?',o:['Con ếch','Con cá','Cái tôm và cái tép','Con cua'],a:2},
+   {t:'oral',passage:'Ông nội em đã già nhưng vẫn rất khoẻ.\nMỗi sáng ông tập thể dục trong vườn.\nEm rất yêu ông nội.',q:'Ông nội làm gì mỗi sáng?',o:['Đọc báo','Tập thể dục trong vườn','Đi chợ','Tưới cây'],a:1},
   ]},
-  thanhdieu:{icon:'🎵',name:'Thanh điệu',q:[
-   {t:'c',q:'Từ "MÀ" có thanh gì?',o:['Thanh sắc','Thanh huyền','Thanh hỏi','Thanh ngang'],a:1},
-   {t:'c',q:'Từ "BẠN" có thanh gì?',o:['Thanh sắc','Thanh huyền','Thanh nặng','Thanh hỏi'],a:2},
-   {t:'f',q:'Từ "bé" (em nhỏ) – đây là thanh __',a:'sắc'},
-   {t:'c',q:'Từ nào có thanh hỏi?',o:['bà','bá','bả','bạ'],a:2},
-   {t:'c',q:'Từ "MẸ" có thanh gì?',o:['Thanh sắc','Thanh hỏi','Thanh nặng','Thanh bằng'],a:1},
-   {t:'f',q:'Từ "hoc" thêm dấu nặng thành __',a:'học'},
-   {t:'c',q:'Từ nào có thanh ngang (không dấu)?',o:['ma','mà','má','mả'],a:0},
-   {t:'c',q:'Tiếng Việt có bao nhiêu thanh điệu?',o:['4','5','6','7'],a:2},
-   {t:'f',q:'Từ "em" thêm dấu sắc thành __',a:'ém'},
-   {t:'c',q:'Dấu huyền đặt trên chữ nào trong "TRỜI"?',o:['T','r','ờ','i'],a:2},
-   {t:'f',q:'Từ "bay" thêm dấu huyền thành __',a:'bày'},
-   {t:'c',q:'Thanh nào làm giọng xuống thấp?',o:['Thanh sắc','Thanh huyền','Thanh ngang','Thanh ngã'],a:1},
-   {t:'c',q:'Từ "HỌC" có thanh gì?',o:['Thanh sắc','Thanh hỏi','Thanh nặng','Thanh ngang'],a:2},
-   {t:'f',q:'Từ "vui" thêm dấu ngã thành __',a:'vũi'},
-   {t:'c',q:'Thanh sắc làm giọng như thế nào?',o:['Xuống thấp','Lên cao','Bằng phẳng','Xuống rồi lên'],a:1},
+  phanb:{icon:'🎯',name:'Phân biệt ch/tr, s/x, c/k',q:[
+   {t:'c',q:'Điền đúng: Con __ (loài vật nuôi trong nhà, kêu gáy)',o:['chà','trà','gà','cà'],a:2},
+   {t:'c',q:'Điền đúng vào chỗ trống: __ ơi (từ chỉ nơi đang ở)',o:['chơi','trời','sơi','xơi'],a:1},
+   {t:'f',q:'Điền ch hoặc tr: __ im (loài vật biết bay)',a:'ch'},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['con xẻ','con sẻ','con xẽ','con sẽ'],a:1},
+   {t:'f',q:'Điền c hoặc k: __ ính (đồ dùng để nhìn rõ hơn)',a:'k'},
+   {t:'c',q:'Từ nào điền đúng vào "__ ời" (bầu trời)?',o:['ch','tr','th','s'],a:1},
+   {t:'f',q:'Điền g hoặc gh: __ ế (đồ dùng để ngồi)',a:'gh'},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['cây xanh','cây sanh','cây xành','cây sành'],a:0},
+   {t:'f',q:'Điền ng hoặc ngh: __ ỉ ngơi (hành động dừng lại để nghỉ)',a:'ngh'},
+   {t:'c',q:'Điền vào: Em __ học bài (hành động, không phải "chọn")',o:['chăm chỉ','trăm chỉ','sắm chỉ','xắm chỉ'],a:0},
+   {t:'f',q:'Điền s hoặc x: __ ách (đồ dùng học tập để đọc)',a:'s'},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['giảng trường','giảng chường','giảng dạy','giảng cạy'],a:2},
+   {t:'f',q:'Điền c hoặc k: __ ết quả (kết quả)',a:'k'},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['con xếu','con sếu','con xếu','con sều'],a:1},
   ]}
  },
 
  ct:{
+  ngheViet:{icon:'🎧',name:'Luyện nghe-viết',q:[
+   // Câu hỏi lý thuyết về bài chính tả thực tế
+   {t:'r',p:'<b>Bài chính tả mẫu (học sinh nghe – viết):</b><br><i>"Mẹ dạy em khi gặp người cao tuổi, con cần khoanh tay và cúi đầu chào hỏi rõ ràng, đó là những cử chỉ lễ phép, lịch sự."</i>',q:'Bài chính tả trên nói về điều gì?',o:['Cách học bài','Cách chào hỏi người cao tuổi lễ phép','Cách tập thể dục','Cách đi đường'],a:1},
+   {t:'r',p:'<b>Bài chính tả mẫu:</b><br><i>"Mẹ dạy em khi gặp người cao tuổi, con cần khoanh tay và cúi đầu chào hỏi rõ ràng..."</i>',q:'Khi gặp người cao tuổi, bé cần làm gì?',o:['Bắt tay','Khoanh tay và cúi đầu chào','Vẫy tay','Chạy đến ôm'],a:1},
+   {t:'r',p:'<b>Bài chính tả mẫu:</b><br><i>"Ngay giữa sân trường, sừng sững một cây bàng. Mùa đông, cây vươn dài những cành khẳng khiu, trụi lá. Xuân sang, cành trên cành dưới chi chít những lộc non mơn mởn."</i>',q:'Mùa đông, cây bàng trông như thế nào?',o:['Xanh tươi, nhiều lá','Cành khẳng khiu, trụi lá','Đầy lộc non','Đầy hoa nở'],a:1},
+   {t:'r',p:'<b>Bài chính tả mẫu:</b><br><i>"Ngay giữa sân trường, sừng sững một cây bàng..."</i>',q:'Cây bàng đứng ở đâu?',o:['Trước cổng trường','Bên đường','Ngay giữa sân trường','Trong vườn hoa'],a:2},
+   {t:'r',p:'<b>Bài chính tả mẫu:</b><br><i>"Xuân sang, cành trên cành dưới chi chít những lộc non mơn mởn."</i>',q:'Mùa xuân, cây bàng có gì?',o:['Cành khẳng khiu','Lá vàng rụng','Lộc non mơn mởn','Hoa đỏ rực'],a:2},
+   {t:'c',q:'Khi viết chính tả, cần chú ý điều gì?',o:['Viết thật nhanh','Viết đúng chính tả, viết hoa đúng chỗ, dấu câu đúng','Chỉ cần viết đẹp','Không cần để ý'],a:1},
+   {t:'c',q:'Mỗi lỗi sai trong bài chính tả sẽ bị trừ bao nhiêu điểm?',o:['0,1 điểm','0,25 điểm','0,5 điểm','1 điểm'],a:1},
+   {t:'r',p:'<b>Bài viết:</b><br><i>"Em đi học về, thấy mẹ đang nấu cơm. Em liền chạy vào bếp giúp mẹ nhặt rau."</i>',q:'Bé làm gì khi về đến nhà?',o:['Đi ngủ ngay','Xem TV','Chạy vào bếp giúp mẹ nhặt rau','Đi ra ngoài chơi'],a:2},
+   {t:'r',p:'<b>Bài viết:</b><br><i>"Em đi học về, thấy mẹ đang nấu cơm. Em liền chạy vào bếp giúp mẹ nhặt rau."</i>',q:'Mẹ đang làm gì khi bé về?',o:['Đọc sách','Xem phim','Nấu cơm','Quét nhà'],a:2},
+  ]},
+  dientro:{icon:'📋',name:'Điền âm / vần / dấu',q:[
+   {t:'f',q:'Điền c hoặc k: __ ẹo (đồ ăn ngọt)',a:'k'},
+   {t:'f',q:'Điền c hoặc k: __ á (loài vật sống dưới nước)',a:'c'},
+   {t:'c',q:'Điền đúng: __ ề (đồ vật dùng để cắt)',o:['c','k','g','gh'],a:0},
+   {t:'f',q:'Điền g hoặc gh: __ ế (đồ để ngồi)',a:'gh'},
+   {t:'f',q:'Điền g hoặc gh: __ à (gia cầm)',a:'g'},
+   {t:'c',q:'Điền đúng: __ ế (con vật kêu ộp oạp)',o:['ng','ngh','g','gh'],a:0},
+   {t:'f',q:'Điền ng hoặc ngh: __ ỉ (dừng lại để nghỉ ngơi)',a:'ngh'},
+   {t:'f',q:'Điền ng hoặc ngh: __ ày (đơn vị đếm thời gian)',a:'ng'},
+   {t:'c',q:'Điền đúng vào "con __ ựa" (loài vật chạy nhanh)',o:['ng','ngh','n','nh'],a:0},
+   {t:'f',q:'Điền vần: b + __ = bông (chỉ bông hoa)',a:'ông'},
+   {t:'c',q:'Điền đúng: mùa __ (mùa có nhiều hoa nở)',o:['suân','xuân','xuan','suan'],a:1},
+   {t:'f',q:'Điền ch hoặc tr: __ ời (bầu trời xanh)',a:'tr'},
+   {t:'f',q:'Điền ch hoặc tr: __ im (loài vật có cánh)',a:'ch'},
+   {t:'c',q:'Điền đúng: __ ường (nơi học tập)',o:['ch','tr','s','x'],a:1},
+   {t:'f',q:'Điền s hoặc x: __ ách (đồ dùng học tập)',a:'s'},
+   {t:'f',q:'Điền s hoặc x: __ e (phương tiện giao thông)',a:'x'},
+  ]},
   vietdung:{icon:'✍️',name:'Viết đúng từ',q:[
-   {t:'c',q:'Chọn từ viết ĐÚNG:',o:['con bướm','con bướn','con bướng','con bướk'],a:0},
-   {t:'c',q:'Từ nào viết ĐÚNG?',o:['quả dứa','quả dứ','quã dứa','quà dứa'],a:0},
-   {t:'c',q:'Chọn từ viết ĐÚNG:',o:['mặt tời','mặt trời','mặt chời','mặt tời'],a:1},
-   {t:'c',q:'Từ nào viết SAI?',o:['con trâu','cây tre','quả táo','con chìm'],a:3},
-   {t:'c',q:'Chọn từ ĐÚNG (loài vật dưới nước):',o:['con các','con cá','con ká','con cả'],a:1},
-   {t:'f',q:'Viết đúng: loài chim hay hót (con __)',a:'chim'},
+   {t:'c',q:'Chọn từ viết ĐÚNG chính tả:',o:['con bướm','con bướn','con bướng','con bướk'],a:0},
    {t:'c',q:'Từ nào viết ĐÚNG?',o:['hoc bài','học bài','họk bài','hộc bài'],a:1},
+   {t:'c',q:'Chọn từ viết ĐÚNG:',o:['mặt tời','mặt trời','mặt chời','mặt dời'],a:1},
+   {t:'c',q:'Từ nào viết SAI?',o:['con trâu','cây tre','quả táo','con chìm'],a:3},
    {t:'c',q:'Chọn từ ĐÚNG (dùng để viết bảng):',o:['viên phấn','viên phẩn','viên phận','viên phàn'],a:0},
-   {t:'f',q:'Viết đúng: loại cây cho quả ngọt (cây __)',a:'xoài'},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['mùa xuấn','mùa xuân','mùa suân','mùa xuăn'],a:1},
+   {t:'c',q:'Chọn từ ĐÚNG (loài vật dưới nước):',o:['con các','con cá','con ká','con cả'],a:1},
    {t:'c',q:'Từ nào viết SAI?',o:['đi học','đọc sách','viết chự','làm bài'],a:2},
    {t:'c',q:'Chọn từ ĐÚNG:',o:['ngôi trường','ngỗi trường','ngoì trường','ngối trường'],a:0},
-   {t:'f',q:'Viết đúng: bầu __ xanh (khoảng trên cao)',a:'trời'},
    {t:'c',q:'Từ nào viết ĐÚNG?',o:['bông hoa','bông hoà','bông hòa','bông hoã'],a:0},
    {t:'c',q:'Chọn từ ĐÚNG (di chuyển nhanh):',o:['cháy','chạy','chảy','chãy'],a:1},
-   {t:'f',q:'Viết đúng: loài vật kêu "quàng quạc" (con __)',a:'vịt'},
-   {t:'c',q:'Từ nào viết ĐÚNG?',o:['mùa xuấn','mùa xuân','mùa suân','mùa xuăn'],a:1},
+   {t:'c',q:'Từ nào viết SAI trong câu: "Em đi học sáng sớm."?',o:['Em','đi','học','Tất cả đúng'],a:3},
+   {t:'c',q:'Từ nào viết ĐÚNG?',o:['con xẻ','con sẻ','con xẽ','con xề'],a:1},
+   {t:'c',q:'Chọn từ ĐÚNG:',o:['giơ tay','diơ tay','giờ tay','dờ tay'],a:0},
   ]},
-  dientro:{icon:'📋',name:'Điền vào chỗ trống',q:[
-   {t:'f',q:'Con __ bay lượn trên bầu trời (loài chim nhỏ)',a:'chim'},
-   {t:'f',q:'Bầu __ xanh trong (khoảng không gian cao)',a:'trời'},
-   {t:'c',q:'Điền vào: Bông hoa nở __',o:['đẹp','đẽp','đẻp','đẹb'],a:0},
-   {t:'f',q:'Điền: con __ (sống dưới nước, có vây)',a:'cá'},
-   {t:'c',q:'Điền: Mặt __ mọc đằng đông',o:['trời','tời','chời','dời'],a:0},
-   {t:'f',q:'Điền: Mùa __ trời nắng nóng',a:'hè'},
-   {t:'c',q:'Điền: Em __ sách mỗi ngày (dùng mắt)',o:['đọc','đọk','đợc','đọq'],a:0},
-   {t:'f',q:'Điền: Con __ kêu ò ó o (gia cầm)',a:'gà'},
-   {t:'c',q:'Điền: Bé __ bài rất giỏi (dùng tay và bút)',o:['viếc','viết','việt','biết'],a:1},
-   {t:'f',q:'Điền: Lá cây màu __',a:'xanh'},
-   {t:'c',q:'Điền: Mẹ __ cơm cho cả nhà',o:['nấu','nâu','nău','nàu'],a:0},
-   {t:'f',q:'Điền: Học sinh đến __ học bài (nơi học)',a:'trường'},
-   {t:'c',q:'Điền: Bé __ răng mỗi sáng',o:['đáng','đánh','đáhn','đành'],a:1},
-   {t:'f',q:'Điền: Trăng __ sáng chiếu sân nhà',a:'tròn'},
-   {t:'c',q:'Điền: Con chim __ trên cành cây',o:['hốt','hót','hốt','hộc'],a:1},
-   {t:'f',q:'Điền: Buổi sáng, em __ dậy sớm (từ chỉ hành động)',a:'thức'},
-  ]},
-  viethhoa:{icon:'🅰️',name:'Viết hoa đúng chỗ',q:[
+  daucau:{icon:'❓',name:'Dấu câu & Viết hoa',q:[
    {t:'c',q:'Câu nào viết hoa ĐÚNG?',o:['bé lan đi học.','Bé Lan đi học.','bé Lan đi học.','Bé lan đi học.'],a:1},
    {t:'c',q:'Câu nào viết hoa ĐÚNG?',o:['hôm nay trời đẹp.','Hôm nay trời đẹp.','hôm Nay trời đẹp.','Hôm nay Trời đẹp.'],a:1},
-   {t:'c',q:'Tên riêng nào viết HOA đúng?',o:['nam','Nam','nAm','NAM'],a:1},
-   {t:'c',q:'Câu nào ĐÚNG?',o:['em yêu mẹ.','Em yêu mẹ.','em Yêu mẹ.','Em Yêu Mẹ.'],a:1},
-   {t:'c',q:'Câu nào viết hoa ĐÚNG?',o:['bạn hoa học giỏi.','Bạn hoa học giỏi.','Bạn Hoa học giỏi.','Bạn Hoa Học giỏi.'],a:2},
-   {t:'f',q:'Sửa lại: "mặt trời mọc sáng." → câu viết đúng bắt đầu bằng: __',a:'M'},
-   {t:'c',q:'Chữ nào BẮT BUỘC phải viết hoa?',o:['Chữ đầu câu','Chữ giữa câu','Chữ cuối câu','Không cần viết hoa'],a:0},
-   {t:'c',q:'Câu nào ĐÚNG?',o:['Tên tôi là minh.','Tên tôi là Minh.','tên tôi là Minh.','Tên tôi Là minh.'],a:1},
-   {t:'c',q:'Câu nào viết hoa đúng CHỮ ĐẦU?',o:['mùa hè đến rồi.','Mùa hè đến rồi.','mùa Hè đến rồi.','Mùa Hè đến rồi.'],a:1},
-   {t:'c',q:'Tên trường nào viết ĐÚNG chuẩn?',o:['trường tiểu học','Trường Tiểu Học','trường Tiểu học','Trường tiểu học'],a:3},
-   {t:'c',q:'Câu nào đúng khi viết tên người?',o:['bạn là mai anh','Bạn là mai anh','Bạn là Mai Anh','bạn là Mai Anh'],a:2},
-   {t:'c',q:'Câu nào viết hoa ĐÚNG quy tắc?',o:['trời mưa to.','Trời Mưa To.','Trời mưa to.','trời Mưa to.'],a:2},
-   {t:'c',q:'Câu "Cô giáo dạy bé." – viết hoa đúng là?',o:['cô giáo dạy bé.','Cô giáo dạy bé.','Cô Giáo dạy bé.','Cô Giáo Dạy Bé.'],a:1},
-   {t:'c',q:'Câu nào viết SAI?',o:['Em đi học.','Mẹ nấu cơm.','bố đi làm.','Bé ngủ ngon.'],a:2},
-  ]},
-  daucau:{icon:'❓',name:'Dấu câu',q:[
    {t:'c',q:'Dấu gì đặt cuối câu kể?',o:['Dấu hỏi ?','Dấu chấm .','Dấu chấm than !','Dấu phẩy ,'],a:1},
    {t:'c',q:'Dấu gì đặt cuối câu hỏi?',o:['Dấu hỏi ?','Dấu chấm .','Dấu chấm than !','Dấu phẩy ,'],a:0},
-   {t:'c',q:'"Em đi học." – dùng dấu gì ở cuối?',o:['Dấu hỏi','Dấu chấm','Dấu chấm than','Dấu phẩy'],a:1},
-   {t:'c',q:'"Bé ơi, con đi đâu vậy?" – có những dấu gì?',o:['Dấu chấm','Dấu hỏi','Dấu phẩy và dấu hỏi','Dấu chấm than'],a:2},
-   {t:'f',q:'"Hôm nay trời đẹp quá __" (câu cảm thán)',a:'!'},
-   {t:'c',q:'Câu nào dùng dấu câu ĐÚNG?',o:['Bé đi học?','Bé đi học.','bé đi học!','Bé đi học,'],a:1},
+   {t:'c',q:'Câu nào ĐÚNG?',o:['em yêu mẹ.','Em yêu mẹ.','em Yêu mẹ.','Em Yêu Mẹ.'],a:1},
+   {t:'f',q:'"Hôm nay trời đẹp quá __" – điền dấu câu phù hợp',a:'!'},
+   {t:'c',q:'Câu "Bạn Hoa học giỏi." – viết hoa đúng?',o:['bạn hoa học giỏi.','Bạn hoa học giỏi.','Bạn Hoa học giỏi.','Bạn Hoa Học giỏi.'],a:2},
+   {t:'f',q:'"Bạn tên là gì __" – điền dấu câu phù hợp',a:'?'},
    {t:'c',q:'Câu nào là câu cảm thán?',o:['Em học bài.','Bạn đi đâu?','Ôi, đẹp quá!','Mẹ đang nấu cơm.'],a:2},
-   {t:'f',q:'"Bạn tên là gì __" (câu hỏi)',a:'?'},
-   {t:'c',q:'Dấu phẩy dùng để?',o:['Kết thúc câu','Ngăn cách các ý trong câu','Hỏi han','Cảm thán'],a:1},
-   {t:'c',q:'"Chào mừng năm học mới!" – dấu gì ở cuối?',o:['Dấu chấm','Dấu hỏi','Dấu chấm than','Dấu phẩy'],a:2},
-   {t:'f',q:'"Mẹ ơi, con đói __" (câu cảm thán)',a:'!'},
-   {t:'c',q:'"Hoa nở đẹp, bướm bay lượn." có bao nhiêu dấu câu?',o:['1','2','3','4'],a:1},
-   {t:'c',q:'Dấu chấm than dùng để?',o:['Hỏi han','Kết thúc câu kể','Thể hiện cảm xúc mạnh','Liệt kê'],a:2},
-   {t:'f',q:'"Lan và Nam là bạn thân __" (câu kể)',a:'.'},
-   {t:'c',q:'Câu "Lan ơi, bạn có khoẻ không?" có bao nhiêu dấu?',o:['1','2','3','4'],a:1},
-   {t:'c',q:'"Trời ơi, đẹp quá!" – dấu cuối câu là?',o:['Dấu chấm','Dấu hỏi','Dấu chấm than','Dấu phẩy'],a:2},
+   {t:'c',q:'"Chào mừng năm học mới!" – dấu gì cuối câu?',o:['Dấu chấm','Dấu hỏi','Dấu chấm than','Dấu phẩy'],a:2},
+   {t:'f',q:'"Lan và Nam là bạn thân __" – điền dấu câu',a:'.'},
+   {t:'c',q:'Câu nào viết SAI?',o:['Em đi học.','Mẹ nấu cơm.','bố đi làm.','Bé ngủ ngon.'],a:2},
+   {t:'c',q:'Tên riêng nào viết HOA đúng?',o:['nam','Nam','nAm','NAM'],a:1},
+   {t:'f',q:'"Mẹ ơi, con đói __" – điền dấu câu',a:'!'},
   ]}
  },
 
  doctm:{
-  hieund:{icon:'🧠',name:'Hiểu nội dung',q:[
-   {t:'r',p:'Nhà <span class="hl">Lan</span> có một con mèo tên là <span class="hl">Miu</span>. Miu rất thích uống sữa và bắt chuột. Mỗi buổi sáng, Miu hay ngồi sưởi nắng trên sân.',
-    q:'Con mèo nhà Lan tên là gì?',o:['Bông','Miu','Mèo','Lan'],a:1},
-   {t:'r',p:'Nhà <span class="hl">Lan</span> có một con mèo tên là <span class="hl">Miu</span>. Miu rất thích uống sữa và bắt chuột. Mỗi buổi sáng, Miu hay ngồi sưởi nắng trên sân.',
-    q:'Miu làm gì vào buổi sáng?',o:['Ngủ','Chạy nhảy','Sưởi nắng trên sân','Ăn cá'],a:2},
-   {t:'r',p:'Bé <span class="hl">Hoa</span> rất ngoan. Mỗi tối bé học bài xong rồi mới xem hoạt hình. Bé giúp mẹ rửa bát và quét nhà. Mẹ khen bé chăm chỉ.',
-    q:'Bé Hoa làm gì sau khi học bài?',o:['Đi ngủ','Xem hoạt hình','Chơi đùa','Đọc sách'],a:1},
-   {t:'r',p:'Bé <span class="hl">Hoa</span> rất ngoan. Mỗi tối bé học bài xong rồi mới xem hoạt hình. Bé giúp mẹ rửa bát và quét nhà. Mẹ khen bé chăm chỉ.',
-    q:'Bé Hoa giúp mẹ những việc gì?',o:['Nấu cơm và quét nhà','Rửa bát và quét nhà','Tưới cây và rửa bát','Lau nhà và nấu cơm'],a:1},
-   {t:'r',p:'Mùa xuân đến, trăm hoa đua nở. <span class="hl">Hoa đào</span> đỏ thắm, <span class="hl">hoa mai</span> vàng tươi. Chim hót líu lo trên cành. Em rất thích mùa xuân.',
-    q:'Mùa xuân có những loài hoa nào?',o:['Hoa hồng và hoa cúc','Hoa đào và hoa mai','Hoa lan và hoa đào','Hoa mai và hoa hồng'],a:1},
-   {t:'r',p:'Mùa xuân đến, trăm hoa đua nở. <span class="hl">Hoa đào</span> đỏ thắm, <span class="hl">hoa mai</span> vàng tươi. Chim hót líu lo trên cành. Em rất thích mùa xuân.',
-    q:'Màu sắc của hoa mai là?',o:['Đỏ thắm','Vàng tươi','Xanh lá','Tím biếc'],a:1},
-   {t:'r',p:'<span class="hl">Nam</span> là học sinh lớp một. Mỗi ngày, Nam đến trường bằng xe đạp. Nam học bài chăm chỉ và được thầy cô khen.',
-    q:'Nam đến trường bằng gì?',o:['Xe máy','Ô tô','Xe đạp','Đi bộ'],a:2},
-   {t:'r',p:'<span class="hl">Nam</span> là học sinh lớp một. Mỗi ngày, Nam đến trường bằng xe đạp. Nam học bài chăm chỉ và được thầy cô khen.',
-    q:'Vì sao Nam được thầy cô khen?',o:['Vì Nam ngoan','Vì Nam học bài chăm chỉ','Vì Nam đẹp trai','Vì Nam cao'],a:1},
-   {t:'r',p:'Buổi chiều, <span class="hl">bé Mai</span> cùng bố ra công viên chơi. Bé chạy nhảy trên bãi cỏ xanh. Bố ngồi đọc báo trên ghế đá.',
-    q:'Bé Mai làm gì ở công viên?',o:['Ngồi đọc sách','Chạy nhảy trên bãi cỏ','Cho cá ăn','Ngủ trên ghế đá'],a:1},
-   {t:'r',p:'Buổi chiều, <span class="hl">bé Mai</span> cùng bố ra công viên chơi. Bé chạy nhảy trên bãi cỏ xanh. Bố ngồi đọc báo trên ghế đá.',
-    q:'Bố làm gì ở công viên?',o:['Chơi cùng bé','Ngủ','Đọc báo trên ghế đá','Tập thể dục'],a:2},
+  hieu1:{icon:'📗',name:'Gấu con chia quà',q:[
+   {t:'r',p:'<span class="hl">Gấu mẹ</span> bảo gấu con: "Con ra vườn hái táo. Nhớ đếm đủ người trong nhà, mỗi người mỗi quả." Gấu con đếm: bố mẹ là hai, hai em nữa là bốn. Nhưng gấu con quên mất chính mình.',q:'Gấu mẹ bảo gấu con làm gì?',o:['Tưới cây','Ra vườn hái táo','Quét nhà','Đi chợ'],a:1},
+   {t:'r',p:'<span class="hl">Gấu mẹ</span> bảo gấu con: "Con ra vườn hái táo. Nhớ đếm đủ người trong nhà, mỗi người mỗi quả." Gấu con đếm: bố mẹ là hai, hai em nữa là bốn.',q:'Gấu con đếm được bao nhiêu người trong nhà?',o:['3 người','4 người','5 người','6 người'],a:1},
+   {t:'r',p:'Bác <span class="hl">Voi</span> cho gấu con một rổ lê. <span class="hl">Gấu con</span> cảm ơn bác Voi, rồi mang về nhà. Gấu con biếu ông nội quả lê to nhất.',q:'Gấu con làm gì khi bác Voi cho rổ lê?',o:['Ăn luôn','Cảm ơn bác Voi','Mang cất đi','Vứt đi'],a:1},
+   {t:'r',p:'Bác <span class="hl">Voi</span> cho gấu con một rổ lê. <span class="hl">Gấu con</span> cảm ơn bác Voi, rồi mang về nhà. Gấu con biếu ông nội quả lê to nhất.',q:'Gấu con biếu ai quả lê to nhất?',o:['Gấu em','Bố mẹ','Ông nội','Bác Voi'],a:2},
+   {t:'r',p:'Bác Voi hỏi: "Sao con không ăn lê?" Gấu con đáp: "Con muốn biếu ông nội trước. Ông hay đau bụng, ăn lê sẽ khỏe hơn."',q:'Vì sao gấu con biếu ông nội quả lê to nhất?',o:['Vì ông nội thích ăn lê','Vì ông nội hay đau bụng, ăn lê sẽ khỏe hơn','Vì ông nội xa nhà','Vì gấu con không thích ăn lê'],a:1},
+   {t:'r',p:'Gấu bố thấy số táo không đủ chia đều cho cả nhà. Bố liền <span class="hl">cắt táo thành nhiều miếng</span> để mọi người cùng ăn vui vẻ.',q:'Vì sao gấu bố cắt táo thành nhiều miếng?',o:['Vì táo to quá','Vì số quả không đủ chia đều và để mọi người cùng ăn vui vẻ','Vì táo cứng','Vì gấu con yêu cầu'],a:1},
+   {t:'r',p:'Câu chuyện kể về gia đình nhà gấu biết <span class="hl">quan tâm</span> và <span class="hl">chia sẻ</span> với nhau.',q:'Câu chuyện muốn nói điều gì?',o:['Gấu con rất khéo léo','Gia đình biết quan tâm và chia sẻ với nhau','Bác Voi rất tốt bụng','Táo là loại quả ngon'],a:1},
+   {t:'r',p:'Em hãy đổi tên câu chuyện "Gấu con chia quà" thành một tên khác.',q:'Tên nào PHÙ HỢP để đổi tên câu chuyện?',o:['Con gấu xấu tính','Chia quà vui vẻ','Gấu con lười biếng','Bác Voi và táo'],a:1},
   ]},
-  nhanvat:{icon:'👦',name:'Nhân vật & Sự việc',q:[
-   {t:'r',p:'Trời hôm nay nắng đẹp. Bạn <span class="hl">Nam</span> cùng mẹ ra vườn tưới cây. Nam tưới hoa hồng và hoa cúc. Mẹ tưới rau.',
-    q:'Ai ra vườn tưới cây?',o:['Nam và bố','Nam và mẹ','Chỉ có Nam','Chỉ có mẹ'],a:1},
-   {t:'r',p:'Trời hôm nay nắng đẹp. Bạn <span class="hl">Nam</span> cùng mẹ ra vườn tưới cây. Nam tưới hoa hồng và hoa cúc. Mẹ tưới rau.',
-    q:'Mẹ tưới gì trong vườn?',o:['Hoa hồng','Hoa cúc','Rau','Cây cam'],a:2},
-   {t:'r',p:'Sáng sớm, <span class="hl">bà nội</span> dậy sớm nấu xôi. <span class="hl">Bé Linh</span> thức dậy ngửi thấy mùi xôi thơm liền chạy xuống bếp. Bà múc xôi vào bát cho Linh ăn.',
-    q:'Ai nấu xôi?',o:['Mẹ','Bà nội','Bé Linh','Bố'],a:1},
-   {t:'r',p:'Sáng sớm, <span class="hl">bà nội</span> dậy sớm nấu xôi. <span class="hl">Bé Linh</span> thức dậy ngửi thấy mùi xôi thơm liền chạy xuống bếp. Bà múc xôi vào bát cho Linh ăn.',
-    q:'Bé Linh chạy xuống bếp vì sao?',o:['Vì đói bụng','Vì ngửi thấy mùi xôi thơm','Vì bà gọi','Vì muốn giúp bà'],a:1},
-   {t:'r',p:'<span class="hl">Thỏ</span> và <span class="hl">Rùa</span> cùng thi chạy. Thỏ chạy nhanh rồi nằm ngủ dọc đường. Rùa chậm rãi bước đi không nghỉ. Kết quả, Rùa về đích trước.',
-    q:'Con nào về đích trước?',o:['Thỏ','Rùa','Cả hai','Không ai'],a:1},
-   {t:'r',p:'<span class="hl">Thỏ</span> và <span class="hl">Rùa</span> cùng thi chạy. Thỏ chạy nhanh rồi nằm ngủ dọc đường. Rùa chậm rãi bước đi không nghỉ. Kết quả, Rùa về đích trước.',
-    q:'Tại sao Thỏ thua Rùa?',o:['Vì Thỏ chạy chậm','Vì Thỏ nằm ngủ dọc đường','Vì Thỏ bị ốm','Vì đường xa'],a:1},
-   {t:'r',p:'<span class="hl">Bé An</span> hay giúp bà quét sân mỗi chiều. Khi bà mệt, An tự quét một mình. Bà khen An ngoan và hiếu thảo.',
-    q:'Bé An giúp bà làm gì?',o:['Nấu cơm','Quét sân mỗi chiều','Rửa bát','Tưới cây'],a:1},
-   {t:'r',p:'<span class="hl">Bé An</span> hay giúp bà quét sân mỗi chiều. Khi bà mệt, An tự quét một mình. Bà khen An ngoan và hiếu thảo.',
-    q:'Bà khen bé An là người như thế nào?',o:['Thông minh và giỏi','Ngoan và hiếu thảo','Vui vẻ và nhanh nhẹn','Chăm chỉ và cần cù'],a:1},
+  hieu2:{icon:'📘',name:'Chim sâu & Họa mi',q:[
+   {t:'r',p:'Một hôm <span class="hl">chú chim sâu</span> nghe được họa mi hót. Chú phụng phịu nói: "Tại sao bố mẹ sinh con ra không phải là họa mi mà lại là chim sâu?"',q:'Chú chim sâu được nghe loài chim gì hót?',o:['Chào mào','Chích chòe','Họa mi','Sơn ca'],a:2},
+   {t:'r',p:'Chim sâu phụng phịu: "Con muốn hót hay để mọi người yêu quý." Chim bố nói: "Con cứ hãy chăm chỉ bắt sâu để bảo vệ cây sẽ được mọi người yêu quý."',q:'Chim bố khuyên chim sâu điều gì?',o:['Tập hót như họa mi','Chăm chỉ bắt sâu bảo vệ cây','Đi chơi xa','Ở nhà không ra ngoài'],a:1},
+   {t:'r',p:'Chim sâu sẽ được mọi người yêu quý khi nào?',q:'Chim sâu sẽ đáng yêu khi nào?',o:['Khi hót hay','Khi chăm chỉ bắt sâu bảo vệ cây','Khi lớn hơn','Khi có bộ lông đẹp'],a:1},
+   {t:'r',p:'Câu chuyện về chim sâu dạy bé điều gì?',q:'Câu chuyện muốn nói điều gì?',o:['Họa mi hót hay hơn chim sâu','Mỗi người có việc riêng, hãy chăm làm tốt việc của mình','Chim sâu cần học hót','Bố mẹ luôn đúng'],a:1},
+   {t:'r',p:'<span class="hl">Chim sẻ</span> bay lượn trên cánh đồng để tìm kiếm hạt lúa. Thấy lúa đã chín vàng, chim sẻ vui mừng: "Mình sẽ mang hạt lúa này về cho gia đình."',q:'Chim sẻ bay lượn trên cánh đồng để làm gì?',o:['Tìm chỗ ngủ','Tìm bạn','Tìm hạt lúa','Ngắm cảnh'],a:2},
+   {t:'r',p:'Cây lúa cười và nói: "Chim sẻ, cậu thật chăm chỉ! Tớ rất vui khi được giúp mọi người." Chim sẻ đáp: "Cảm ơn cậu!"',q:'Cây lúa cảm thấy thế nào khi giúp mọi người?',o:['Lo lắng','Vui vẻ','Buồn bực','Mệt mỏi'],a:1},
+   {t:'r',p:'Từ đó, chim sẻ và cây lúa trở thành <span class="hl">bạn tốt</span>, luôn giúp đỡ nhau trong cuộc sống.',q:'Vì sao chim sẻ và cây lúa trở thành bạn tốt?',o:['Vì họ cùng sống ở cánh đồng','Vì đều biết giúp đỡ nhau trong cuộc sống','Vì cả hai đều đẹp','Vì chim sẻ cần lúa'],a:1},
+   {t:'r',p:'Em có nhận xét gì về chim sẻ trong câu chuyện?',q:'Chim sẻ là loài chim như thế nào?',o:['Lười biếng và ích kỷ','Chăm chỉ và biết ơn','Kiêu ngạo và xấu tính','Nhút nhát và sợ hãi'],a:1},
   ]},
-  ynghia:{icon:'💡',name:'Ý nghĩa bài đọc',q:[
-   {t:'r',p:'<span class="hl">Thỏ</span> và <span class="hl">Rùa</span> thi chạy. Thỏ ỷ mình nhanh nên nằm ngủ. Rùa cần mẫn bước không nghỉ và về đích trước. Thỏ xấu hổ lắm.',
-    q:'Câu chuyện muốn nói điều gì?',o:['Thỏ chạy nhanh hơn Rùa','Chăm chỉ, kiên nhẫn sẽ thành công','Rùa thông minh hơn Thỏ','Không nên thi đấu'],a:1},
-   {t:'r',p:'<span class="hl">Bé Minh</span> thấy bạn đánh rơi sách liền nhặt lên trả. Bạn cảm ơn Minh. Thầy giáo khen Minh biết giúp đỡ bạn bè.',
-    q:'Câu chuyện dạy bé điều gì?',o:['Giữ sách cẩn thận','Nên giúp đỡ bạn bè','Không được nhặt đồ','Học bài chăm chỉ'],a:1},
-   {t:'r',p:'Mỗi tối, <span class="hl">bé Hà</span> tự giác học bài trước khi xem TV. Cuối năm, Hà được phần thưởng học sinh giỏi. Bố mẹ rất vui và tự hào.',
-    q:'Vì sao bé Hà được phần thưởng?',o:['Vì bé ngoan với bố mẹ','Vì bé tự giác học bài chăm chỉ','Vì bé không xem TV','Vì bé dậy sớm'],a:1},
-   {t:'r',p:'Con <span class="hl">kiến</span> nhỏ bé nhưng rất chăm chỉ. Kiến tha mồi từ sáng đến tối không biết mệt. Cả đàn cùng nhau làm việc, ai cũng có đủ thức ăn.',
-    q:'Câu chuyện ca ngợi điều gì?',o:['Kiến rất nhỏ bé','Sự chăm chỉ và đoàn kết','Kiến ăn nhiều thức ăn','Kiến chạy rất nhanh'],a:1},
-   {t:'r',p:'<span class="hl">Gà mẹ</span> dẫn đàn gà con đi kiếm mồi. Gà mẹ dạy con mổ thóc, uống nước. Tối đến, gà mẹ xoè cánh ủ ấm cho đàn con.',
-    q:'Câu chuyện thể hiện điều gì?',o:['Gà con rất đáng yêu','Tình yêu thương của mẹ dành cho con','Gà mẹ biết kiếm mồi','Đàn gà sống trong vườn'],a:1},
-   {t:'r',p:'<span class="hl">Sơn</span> làm vỡ lọ hoa của mẹ. Sơn sợ nhưng vẫn thành thật nói với mẹ. Mẹ nhẹ nhàng bảo Sơn lần sau cẩn thận hơn và khen Sơn thật thà.',
-    q:'Câu chuyện dạy bé bài học gì?',o:['Không chơi gần lọ hoa','Nên thành thật, không nói dối','Mẹ rất tốt bụng','Lọ hoa rất dễ vỡ'],a:1},
-   {t:'r',p:'Mùa đông, <span class="hl">con ve sầu</span> chơi suốt mùa hè không tích trữ thức ăn. <span class="hl">Con kiến</span> chăm chỉ tha mồi về tổ. Mùa đông đến, kiến no đủ còn ve sầu đói rét.',
-    q:'Câu chuyện khuyên bé điều gì?',o:['Không nên hát như ve sầu','Cần chăm chỉ lo cho tương lai','Mùa đông rất lạnh','Kiến và ve là bạn tốt'],a:1},
-   {t:'r',p:'<span class="hl">Bé Ngọc</span> thấy bạn bị ngã, liền đỡ bạn dậy và hỏi thăm. Thấy bạn đau, Ngọc báo ngay với cô giáo. Cô khen Ngọc có lòng tốt.',
-    q:'Câu chuyện muốn nói gì?',o:['Cô giáo rất tốt','Không nên chạy nhảy','Nên quan tâm và giúp đỡ người khác','Bé Ngọc rất khoẻ mạnh'],a:2},
+  hieu3:{icon:'📙',name:'Thủy mua búp bê',q:[
+   {t:'r',p:'Ngày sinh nhật <span class="hl">Thủy</span>, mẹ đưa Thủy ra phố bán đồ chơi. Mẹ bảo Thủy chọn một thứ đồ chơi em thích nhất.',q:'Ngày sinh nhật Thủy, mẹ cùng Thủy đi đâu?',o:['Đi chơi công viên','Ra phố bán đồ chơi','Đi ăn ở phố','Đi xem phim'],a:1},
+   {t:'r',p:'Đi dọc gần hết phố bán đồ chơi, Thuỷ vẫn không biết nên mua gì. Đến cuối phố, thấy một bà cụ tóc bạc ngồi bán những <span class="hl">con búp bê bằng vải</span> giữa trời giá lạnh, Thủy kéo tay mẹ dừng lại.',q:'Cuối phố có ai đang bán hàng?',o:['Một cô gái trẻ','Một bà cụ tóc bạc','Một chú bảo vệ','Một em nhỏ'],a:1},
+   {t:'r',p:'Thủy chỉ vào con búp bê được khâu bằng mụn vải xanh. Mẹ hỏi: "Tại sao con muốn mua con búp bê này?" Thủy trả lời: "Vì con thương bà. Trời lạnh thế mà bà không được ở nhà."',q:'Thủy chọn mua đồ chơi gì?',o:['Xe đồ chơi','Búp bê bằng vải','Bóng bay','Hộp màu'],a:1},
+   {t:'r',p:'Thủy nói: "Vì con thương bà. Trời lạnh thế mà bà không được ở nhà. Con mua búp bê cho bà vui."',q:'Vì sao Thủy mua búp bê của bà cụ?',o:['Vì búp bê rẻ','Vì Thủy thích búp bê bằng vải','Vì Thủy thương bà, trời lạnh mà bà vẫn phải bán hàng','Vì mẹ bảo mua'],a:2},
+   {t:'r',p:'Câu chuyện về bé <span class="hl">Thủy</span> mua búp bê của bà cụ bán hàng ngoài phố.',q:'Câu chuyện muốn ca ngợi điều gì ở bé Thủy?',o:['Thủy thích đồ chơi đẹp','Tấm lòng yêu thương, biết quan tâm đến người khác','Thủy được bố mẹ cho nhiều tiền','Thủy thích đi phố'],a:1},
+   {t:'r',p:'Thủy nhìn bà cụ ngồi bán hàng giữa trời giá lạnh.',q:'Bà cụ đang làm gì khi Thủy gặp?',o:['Đang về nhà','Ngồi bán búp bê bằng vải giữa trời giá lạnh','Đang ăn cơm','Đang nghỉ ngơi'],a:1},
+   {t:'r',p:'Con búp bê được khâu bằng <span class="hl">mụn vải xanh</span>.',q:'"Mụn vải" ở đây có nghĩa là gì?',o:['Vải xanh đắt tiền','Những mảnh vải nhỏ, vụn','Vải rất dày','Vải được dệt bằng sợi xanh'],a:1},
+   {t:'r',p:'Bé Thủy chọn mua búp bê của bà cụ thay vì những đồ chơi ở các cửa hàng khác.',q:'Vì sao Thủy không mua đồ chơi ở các cửa hàng khác?',o:['Vì đồ chơi kia xấu','Vì quá đắt tiền','Vì Thủy muốn giúp bà cụ, vì thương bà phải bán hàng ngoài trời lạnh','Vì mẹ không cho'],a:2},
   ]},
-  tuvung:{icon:'📚',name:'Từ vựng',q:[
-   {t:'r',p:'Chiều hôm nay bầu trời <span class="hl">u ám</span>. Gió thổi mạnh. Một lúc sau, mưa đổ xuống <span class="hl">ào ào</span>.',
-    q:'"U ám" có nghĩa là?',o:['Sáng sủa, trong xanh','Tối tăm, âm u','Đầy nắng vàng','Mưa to rào rào'],a:1},
-   {t:'r',p:'<span class="hl">Bé Nga</span> rất <span class="hl">siêng năng</span>. Bé luôn dậy sớm, học bài và giúp đỡ bố mẹ.',
-    q:'"Siêng năng" có nghĩa là?',o:['Lười biếng','Chăm chỉ, cần cù','Thông minh','Vui vẻ'],a:1},
-   {t:'r',p:'Dòng sông <span class="hl">hiền hòa</span> chảy qua cánh đồng xanh mướt. Đôi bờ có nhiều cây cối <span class="hl">um tùm</span>.',
-    q:'"Hiền hòa" trong bài có nghĩa là?',o:['Chảy xiết, mạnh mẽ','Chảy nhẹ nhàng, bình lặng','Rất sâu','Rất rộng'],a:1},
-   {t:'r',p:'Cánh đồng lúa <span class="hl">chín vàng</span> trải dài. Bác nông dân <span class="hl">hăng hái</span> gặt lúa từ sáng sớm.',
-    q:'"Hăng hái" có nghĩa là?',o:['Chậm chạp, lười biếng','Nhiệt tình, vui vẻ làm việc','Sợ hãi, lo lắng','Buồn bã, mệt mỏi'],a:1},
-   {t:'r',p:'Chú <span class="hl">thỏ trắng</span> có bộ lông <span class="hl">mềm mại</span> và đôi mắt hồng long lanh. Chú nhảy tung tăng trong vườn cỏ.',
-    q:'"Mềm mại" gần nghĩa với?',o:['Cứng chắc','Mịn màng, mềm','Thô ráp','Sần sùi'],a:1},
-   {t:'r',p:'Mùa thu, lá cây <span class="hl">rụng lả tả</span>. Những chiếc lá vàng bay <span class="hl">lượn lờ</span> trong gió rồi đậu nhẹ xuống đất.',
-    q:'"Lả tả" có nghĩa là?',o:['Rụng nhiều, bay nhẹ từng chiếc','Rụng rất ít','Không rụng','Rụng thành mảng lớn'],a:0},
-   {t:'r',p:'Bé <span class="hl">An</span> và bạn <span class="hl">Bình</span> là đôi bạn <span class="hl">thân thiết</span>. Hai bạn luôn giúp đỡ và chia sẻ với nhau.',
-    q:'"Thân thiết" có nghĩa là?',o:['Ghét nhau','Gần gũi, thân nhau','Xa lạ','Hay cãi nhau'],a:1},
-   {t:'r',p:'Buổi sáng, chợ <span class="hl">tấp nập</span> người mua kẻ bán. Tiếng nói chuyện <span class="hl">rộn ràng</span> khắp nơi.',
-    q:'"Tấp nập" có nghĩa là?',o:['Vắng vẻ, yên tĩnh','Đông người, nhộn nhịp','Sạch sẽ, gọn gàng','Bẩn thỉu, lộn xộn'],a:1},
-   {t:'r',p:'Buổi sáng, chợ <span class="hl">tấp nập</span> người mua kẻ bán. Tiếng nói chuyện <span class="hl">rộn ràng</span> khắp nơi.',
-    q:'"Rộn ràng" có nghĩa là?',o:['Im lặng, yên tĩnh','Náo nhiệt, vui vẻ','Chậm chạp','Buồn bã'],a:1},
+  hieu4:{icon:'📕',name:'Mùa xuân hoa nở',q:[
+   {t:'r',p:'Khi xuân về, <span class="hl">trăm hoa đua nhau khoe sắc</span>. Hoa đào đỏ thắm, hoa mai vàng tươi. Chim hót líu lo trên cành. Em rất thích mùa xuân.',q:'Mùa xuân có những loài hoa nào?',o:['Hoa hồng và hoa cúc','Hoa đào và hoa mai','Hoa lan và hoa đào','Hoa sen và hoa súng'],a:1},
+   {t:'r',p:'Khi xuân về, trăm hoa đua nhau khoe sắc. <span class="hl">Hoa đào đỏ thắm</span>, <span class="hl">hoa mai vàng tươi</span>.',q:'Màu sắc của hoa mai là?',o:['Đỏ thắm','Vàng tươi','Xanh lá','Tím biếc'],a:1},
+   {t:'r',p:'"Trăm hoa đua nhau khoe sắc" có nghĩa là gì?',q:'"Trăm hoa đua nhau khoe sắc" có nghĩa là?',o:['Chỉ có một trăm bông hoa','Nhiều loại hoa cùng nở rực rỡ','Hoa đua nhau tàn lụi','Hoa có rất nhiều màu sắc'],a:1},
+   {t:'r',p:'Mùa đông, cây bàng vươn dài những <span class="hl">cành khẳng khiu, trụi lá</span>. Xuân sang, cành trên cành dưới <span class="hl">chi chít những lộc non mơn mởn</span>.',q:'"Cành khẳng khiu" có nghĩa là?',o:['Cành mập mạp, nhiều lá','Cành dài, gầy guộc, không có lá','Cành đầy hoa','Cành rất cứng'],a:1},
+   {t:'r',p:'Xuân sang, cành trên cành dưới <span class="hl">chi chít những lộc non mơn mởn</span>.',q:'"Lộc non mơn mởn" có nghĩa là?',o:['Lá già vàng úa','Mầm cây nhỏ xíu, mềm mại, tươi xanh','Hoa nở đầy cành','Cành cây khô'],a:1},
+   {t:'r',p:'Cánh đồng lúa <span class="hl">chín vàng</span> trải dài. Bác nông dân <span class="hl">hăng hái</span> gặt lúa từ sáng sớm.',q:'"Hăng hái" có nghĩa là?',o:['Chậm chạp, lười biếng','Nhiệt tình, vui vẻ làm việc','Sợ hãi, lo lắng','Buồn bã, mệt mỏi'],a:1},
+   {t:'r',p:'Buổi sáng, chợ <span class="hl">tấp nập</span> người mua kẻ bán. Tiếng nói chuyện <span class="hl">rộn ràng</span> khắp nơi.',q:'"Tấp nập" có nghĩa là?',o:['Vắng vẻ, yên tĩnh','Đông người, nhộn nhịp','Sạch sẽ, gọn gàng','Im lặng'],a:1},
+   {t:'r',p:'Dòng sông <span class="hl">hiền hòa</span> chảy qua cánh đồng xanh mướt.',q:'"Hiền hòa" có nghĩa là?',o:['Chảy xiết, mạnh mẽ','Chảy nhẹ nhàng, bình lặng','Rất sâu và tối','Rất rộng và đục'],a:1},
   ]}
  }
 };
@@ -629,92 +435,88 @@ const DATA = {
 // ============================================================
 // STATE
 // ============================================================
-let curTab='toan', curSubject=null, curKey=null;
-let curQ=0, score=0, total=0, answered=false;
+let curTab='toan', curSub=null, curKey=null, curQ=0, score=0, total=0, answered=false;
+const TABS={toan:'t1',doctt:'t2',ct:'t3',doctm:'t4'};
 
-const TAB_IDS = {toan:'toan',doctt:'doctt',ct:'ct',doctm:'doctm'};
-const TAB_CLS = {toan:'tab-toan',doctt:'tab-doc-tt',ct:'tab-ct',doctm:'tab-doc-tm'};
-
-function switchTab(t) {
-  curTab=t; curSubject=null; curKey=null; curQ=0;
+function sw(t){
+  curTab=t; curSub=null; curKey=null; curQ=0;
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('panel-'+t).classList.add('active');
-  document.querySelector('.'+TAB_CLS[t]).classList.add('active');
+  document.getElementById('p-'+t).classList.add('active');
+  document.querySelector('.'+TABS[t]).classList.add('active');
 }
 
-function go(subject, key) {
-  curSubject=subject; curKey=key; curQ=0; score=0; total=0; answered=false;
+function go(sub,key){
+  curSub=sub; curKey=key; curQ=0; score=0; total=0; answered=false;
   updateBar(); render();
 }
 
-function getQEl() { return document.getElementById('quiz-'+curSubject); }
+function getQEl(){return document.getElementById('q-'+curSub);}
 
-function render() {
-  const topic = DATA[curSubject][curKey];
-  const qs = topic.q;
-  const el = getQEl();
-  if(curQ>=qs.length){completion(topic,qs.length);return;}
+function render(){
+  const topic=DB[curSub][curKey];
+  const qs=topic.q, el=getQEl();
+  if(curQ>=qs.length){done(topic,qs.length);return;}
   const q=qs[curQ]; answered=false;
   const qn=curQ+1, tot=qs.length;
   let body='';
 
   if(q.t==='c'){
-    body=`<div class="question-box"><div class="question-text">${q.q}</div></div>
-    <div class="options-grid" id="og">${q.o.map((o,i)=>`<button class="option-btn" onclick="chkC(${i},${q.a})">${o}</button>`).join('')}</div>`;
+    body=`<div class="qbox"><div class="qtxt">${q.q}</div></div>
+    <div class="opts">${q.o.map((o,i)=>`<button class="ob" onclick="chkC(${i},${q.a})">${o}</button>`).join('')}</div>`;
   } else if(q.t==='f'){
     const sa=(q.a+'').replace(/'/g,"&#39;");
-    body=`<div class="question-box"><div class="question-text">${q.q}</div></div>
-    <div class="fill-input-wrap"><input class="fill-input" id="fi" type="text" placeholder="?" maxlength="40" onkeydown="if(event.key==='Enter')chkF('${sa}')"></div>
-    <div class="action-row"><button class="btn-primary" onclick="chkF('${sa}')">✅ Kiểm tra</button></div>`;
+    body=`<div class="qbox"><div class="qtxt">${q.q}</div></div>
+    <div class="fi-wrap"><input class="fi" id="fi" type="text" placeholder="?" maxlength="40" onkeydown="if(event.key==='Enter')chkF('${sa}')"></div>
+    <div class="ar"><button class="btn-p" onclick="chkF('${sa}')">✅ Kiểm tra</button></div>`;
   } else if(q.t==='r'){
-    body=`<div class="reading-passage">${q.p}</div>
-    <div class="question-box"><div class="question-text">❓ ${q.q}</div></div>
-    <div class="options-grid" id="og">${q.o.map((o,i)=>`<button class="option-btn" onclick="chkC(${i},${q.a})">${o}</button>`).join('')}</div>`;
+    body=`<div class="rp">${q.p}</div>
+    <div class="qbox"><div class="qtxt">❓ ${q.q}</div></div>
+    <div class="opts">${q.o.map((o,i)=>`<button class="ob" onclick="chkC(${i},${q.a})">${o}</button>`).join('')}</div>`;
   } else if(q.t==='oral'){
     body=`<div class="oral-card">
-      <div style="font-family:'Baloo 2',cursive;font-size:.83rem;font-weight:700;color:#1a7a3e;margin-bottom:8px;">📢 Đọc thành tiếng đoạn văn sau:</div>
-      <div class="oral-text">${(q.passage||'').replace(/\n/g,'<br>')}</div>
-      <div class="oral-tips"><p>💡 Khi đọc cần:</p><ul><li>Đọc to, rõ ràng, đúng âm</li><li>Ngắt sau dấu phẩy, nghỉ sau dấu chấm</li><li>Không vấp, không bỏ sót chữ</li></ul></div>
+      <div style="font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:700;color:#1a7a3e;margin-bottom:7px;">📢 Đọc thành tiếng đoạn văn:</div>
+      <div class="oral-txt">${(q.passage||'').replace(/\n/g,'<br>')}</div>
+      <div class="oral-tips"><p>💡 Chú ý khi đọc:</p><ul><li>Đọc to, rõ ràng, đúng âm vần</li><li>Ngắt sau dấu phẩy, nghỉ sau dấu chấm</li><li>Không đọc vấp, không bỏ sót chữ</li></ul></div>
     </div>
-    <div class="question-box"><div class="question-text">❓ Trả lời: ${q.q}</div></div>
-    <div class="options-grid" id="og">${q.o.map((o,i)=>`<button class="option-btn" onclick="chkC(${i},${q.a})">${o}</button>`).join('')}</div>`;
+    <div class="qbox"><div class="qtxt">❓ ${q.q}</div></div>
+    <div class="opts">${q.o.map((o,i)=>`<button class="ob" onclick="chkC(${i},${q.a})">${o}</button>`).join('')}</div>`;
   }
 
   el.innerHTML=`
-    <div class="quiz-header">
-      <span class="quiz-icon">${topic.icon}</span>
-      <span class="quiz-title">${topic.name}</span>
-      <span class="question-count">Câu ${qn}/${tot}</span>
+    <div class="qh">
+      <span class="qi">${topic.icon}</span>
+      <span class="qt">${topic.name}</span>
+      <span class="qc">Câu ${qn}/${tot}</span>
     </div>
-    <div class="progress-stars">${pStars(qn,tot)}</div>
+    <div class="pstars">${pS(qn,tot)}</div>
     ${body}
-    <div class="feedback-box" id="fb"></div>
-    <div class="action-row" id="nr" style="display:none">
-      <button class="btn-primary" onclick="nxt()">Câu tiếp theo ➡️</button>
+    <div class="fb" id="fbx"></div>
+    <div class="ar" id="nr" style="display:none">
+      <button class="btn-p" onclick="nxt()">Câu tiếp theo ➡️</button>
     </div>`;
 
   if(q.t==='f') setTimeout(()=>{const i=document.getElementById('fi');if(i)i.focus();},100);
 }
 
-function pStars(cur,tot){
+function pS(cur,tot){
   let s='';
   for(let i=1;i<=tot;i++){
-    if(i<cur) s+='<span class="progress-star">⭐</span>';
-    else if(i===cur) s+='<span class="progress-star" style="font-size:1.4rem">🔵</span>';
-    else s+='<span class="progress-star" style="opacity:.25">⭐</span>';
+    if(i<cur) s+='<span class="ps">⭐</span>';
+    else if(i===cur) s+='<span class="ps" style="font-size:1.3rem">🔵</span>';
+    else s+='<span class="ps" style="opacity:.25">⭐</span>';
   }
   return s;
 }
 
 function chkC(sel,cor){
   if(answered)return; answered=true; total++;
-  const btns=document.querySelectorAll('.option-btn');
+  const btns=document.querySelectorAll('.ob');
   btns.forEach(b=>b.disabled=true);
-  if(sel===cor){btns[sel].classList.add('correct');btns[sel].innerHTML='✅ '+btns[sel].innerHTML;score++;fb(true,'🎉 Đúng rồi! Giỏi lắm!');confetti();}
+  if(sel===cor){btns[sel].classList.add('correct');btns[sel].innerHTML='✅ '+btns[sel].innerHTML;score++;showFb(true,'🎉 Đúng rồi! Giỏi lắm bé!');confetti();}
   else{btns[sel].classList.add('wrong');btns[cor].classList.add('correct');
-    const q=DATA[curSubject][curKey].q[curQ];
-    fb(false,'❌ Chưa đúng! Đáp án: '+q.o[cor]);}
+    const q=DB[curSub][curKey].q[curQ];
+    showFb(false,'❌ Chưa đúng! Đáp án: '+q.o[cor]);}
   updateBar(); document.getElementById('nr').style.display='flex';
 }
 
@@ -723,66 +525,63 @@ function chkF(cor){
   const inp=document.getElementById('fi');
   if(!inp||!inp.value.trim())return;
   answered=true; total++;
-  const val=inp.value.trim().toLowerCase().replace(/[.!?]$/,'');
+  const val=inp.value.trim().toLowerCase().replace(/[.!?,]$/,'').replace(/\s+/g,' ');
   const variants=cor.toLowerCase().split('|');
-  const ok=variants.some(v=>val===v.trim())||val===cor.toLowerCase().replace(/[.!?]$/,'');
-  if(ok){inp.classList.add('correct');inp.value=cor;score++;fb(true,'🎉 Đúng rồi! Tuyệt vời!');confetti();}
-  else{inp.classList.add('wrong');fb(false,'❌ Chưa đúng! Đáp án: '+cor);
+  const ok=variants.some(v=>val===v.trim().replace(/[.!?,]$/,'').replace(/\s+/g,' '))||val===cor.toLowerCase().replace(/[.!?,]$/,'').replace(/\s+/g,' ');
+  if(ok){inp.classList.add('correct');inp.value=cor;score++;showFb(true,'🎉 Đúng rồi! Tuyệt vời!');confetti();}
+  else{inp.classList.add('wrong');showFb(false,'❌ Chưa đúng! Đáp án: '+cor);
     setTimeout(()=>{inp.value=cor;inp.classList.remove('wrong');inp.classList.add('correct');},700);}
   inp.disabled=true; updateBar(); document.getElementById('nr').style.display='flex';
 }
 
 function nxt(){curQ++;render();}
 
-function fb(ok,msg){
-  const el=document.getElementById('fb');if(!el)return;
-  el.className='feedback-box show '+(ok?'correct-fb':'wrong-fb'); el.innerHTML=msg;
+function showFb(ok,msg){
+  const el=document.getElementById('fbx');if(!el)return;
+  el.className='fb show '+(ok?'ok':'no'); el.innerHTML=msg;
 }
 
-function completion(topic,tot){
+function done(topic,tot){
   const pct=Math.round((score/tot)*100);
   const stars=pct>=80?3:pct>=50?2:1;
   const em=pct>=80?'🏆':pct>=50?'😊':'💪';
-  const msg=pct>=80?'Xuất sắc! Bé học rất giỏi! 🌟':pct>=50?'Khá lắm! Cố thêm nhé! 😊':'Ôn thêm rồi làm lại nào! 💪';
-  const progBar=document.getElementById('prog-'+curKey);
-  if(progBar) progBar.style.width=pct+'%';
+  const msg=pct>=80?'Xuất sắc! Bé học rất giỏi! 🌟':pct>=50?'Khá lắm! Cố thêm một chút nữa! 😊':'Ôn lại rồi làm lại nào! 💪';
+  const pb=document.getElementById('pr-'+curKey);
+  if(pb) pb.style.width=pct+'%';
   getQEl().innerHTML=`
-    <div style="text-align:center;padding:28px 16px;">
-      <div style="font-size:4rem;margin-bottom:12px;animation:bounce 1s ease infinite">${em}</div>
-      <div style="font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:#333;margin-bottom:6px;">Hoàn thành! 🎉</div>
-      <div style="font-size:.88rem;color:#bbb;margin-bottom:14px;">${topic.name}</div>
-      <div style="font-family:'Baloo 2',cursive;font-size:2.3rem;font-weight:800;color:${pct>=80?'#1a7a3e':pct>=50?'#e67e22':'#c0392b'};margin-bottom:8px;">${score} / ${tot} câu đúng</div>
-      <div style="font-size:1.7rem;margin:10px 0;">${'⭐'.repeat(stars)}${'☆'.repeat(3-stars)}</div>
-      <div style="font-size:1rem;color:#555;font-weight:600;margin-bottom:20px;">${msg}</div>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <button class="btn-primary" onclick="go('${curSubject}','${curKey}')">🔄 Làm lại</button>
-        <button class="btn-secondary" onclick="resetQ('${curSubject}')">📋 Chủ đề khác</button>
+    <div style="text-align:center;padding:26px 14px;">
+      <div style="font-size:3.8rem;margin-bottom:10px;animation:bounce 1s ease infinite">${em}</div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.45rem;font-weight:800;color:#333;margin-bottom:5px;">Hoàn thành! 🎉</div>
+      <div style="font-size:.85rem;color:#bbb;margin-bottom:12px;">${topic.name}</div>
+      <div style="font-family:'Baloo 2',cursive;font-size:2.2rem;font-weight:800;color:${pct>=80?'#1a7a3e':pct>=50?'#e67e22':'#c0392b'};margin-bottom:7px;">${score} / ${tot} câu đúng</div>
+      <div style="font-size:1.6rem;margin:8px 0;">${'⭐'.repeat(stars)}${'☆'.repeat(3-stars)}</div>
+      <div style="font-size:.95rem;color:#555;font-weight:600;margin-bottom:18px;">${msg}</div>
+      <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-p" onclick="go('${curSub}','${curKey}')">🔄 Làm lại</button>
+        <button class="btn-s" onclick="resetQ('${curSub}')">📋 Chủ đề khác</button>
       </div>
     </div>`;
   if(pct>=80) confetti(30);
 }
 
-const WMSGS={toan:'🧮',doctt:'🔊',ct:'✏️',doctm:'📖'};
+const WE={toan:'🧮',doctt:'🔊',ct:'✏️',doctm:'📖'};
+const WM={toan:'Chọn chủ đề Toán để luyện tập!',doctt:'Luyện đọc thành tiếng!',ct:'Luyện chính tả!',doctm:'Luyện đọc thầm!'};
 function resetQ(s){
-  document.getElementById('quiz-'+s).innerHTML=`<div class="welcome-screen"><span class="big-emoji">${WMSGS[s]}</span><h2>Chọn chủ đề khác!</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div>`;
+  document.getElementById('q-'+s).innerHTML=`<div class="ws"><span class="be">${WE[s]}</span><h2>${WM[s]}</h2><p>Bấm thẻ ở trên để bắt đầu 😊</p></div>`;
 }
 
 function updateBar(){
-  document.getElementById('scoreValue').textContent=`${score} / ${total}`;
+  document.getElementById('scoreV').textContent=`${score} / ${total}`;
   const p=total>0?score/total:0, f=Math.round(p*5);
-  document.getElementById('starsDisplay').textContent='⭐'.repeat(f)+'☆'.repeat(5-f);
+  document.getElementById('starsD').textContent='⭐'.repeat(f)+'☆'.repeat(5-f);
 }
 
 function confetti(n=12){
   const cols=['#FFD93D','#FF6B35','#6BCB77','#4D96FF','#FF6B9D','#C77DFF'];
   for(let i=0;i<n;i++) setTimeout(()=>{
     const e=document.createElement('div');
-    e.className='confetti-piece';
-    e.style.left=Math.random()*100+'vw';
-    e.style.background=cols[Math.floor(Math.random()*cols.length)];
-    e.style.width=(7+Math.random()*8)+'px'; e.style.height=(7+Math.random()*8)+'px';
-    e.style.borderRadius=Math.random()>.5?'50%':'2px';
-    e.style.animationDuration=(1+Math.random())+'s';
+    e.className='cfp';
+    e.style.cssText=`left:${Math.random()*100}vw;top:-20px;background:${cols[Math.floor(Math.random()*cols.length)]};width:${7+Math.random()*8}px;height:${7+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1+Math.random()}s`;
     document.body.appendChild(e); setTimeout(()=>e.remove(),2000);
   },i*60);
 }
